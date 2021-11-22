@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_11_22_143021) do
     t.string "visitor_pseudo"
     t.integer "vibes_rating"
     t.integer "ski_rating"
-    t.integer "value_money_rating"
+    t.integer "value_rating"
     t.bigint "station_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -4,7 +4,7 @@ class CreateReviews < ActiveRecord::Migration[6.0]
       t.string :visitor_pseudo
       t.integer :vibes_rating
       t.integer :ski_rating
-      t.integer :value_money_rating
+      t.integer :value_rating
       t.references :station, null: false, foreign_key: true
 
       t.timestamps

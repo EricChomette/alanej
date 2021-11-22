@@ -1,0 +1,9 @@
+<h1>Stations#index</h1>
+<p>Find me in app/views/stations/index.html.erb</p>
+<% @stations.each do |station| %>
+  <%= link_to station_path(station) do %>
+    <h3><%= station.name%></h3>
+    <p><%= station.description%></p>
+    <p><%= station.address %></p>
+  <% end %>
+<% end %>

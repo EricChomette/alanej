@@ -1,0 +1,38 @@
+
+
+<h1><%= @station.name%></h1>
+ <%# <img src="<%= @station.banner %>
+  <a href="#container-station"></a>
+  <a href="#container-condition"></a>
+  <a href="#container-trip"></a>
+  <a href="#container-field"></a>
+  <a href="#container-extras"></a>
+
+<div id="container-station" >
+  <p><%= @station.address %></p>
+  <p><%= @station.description%></p>
+
+
+  <p>review user</p>
+   <% sum = 0 %>
+  <% if @station.reviews.count.positive? %>
+    <% @station.reviews.each do |review|%>
+      <% sum += review.vibes_rating %>
+      <% sum += review.ski_rating  %>
+      <% sum += review.value_rating  %>
+    <% end %>
+    <%= result = sum / (@station.reviews.count * 3) %>
+  <% end %>
+</div>
+
+<div id="container-condition">
+</div>
+
+<div id="container-trip">
+</div>
+
+<div id="container-field">
+</div>
+
+<div id="container-extras">
+</div>
