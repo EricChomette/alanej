@@ -7,6 +7,7 @@
   <a href="#container-trip"></a>
   <a href="#container-field"></a>
   <a href="#container-extras"></a>
+  <a href="#container-reviews"></a>
 
 <div id="container-station" >
   <p><%= @station.address %></p>
@@ -21,7 +22,7 @@
       <% sum += review.ski_rating  %>
       <% sum += review.value_rating  %>
     <% end %>
-    <%= result = sum / (@station.reviews.count * 3) %>
+    <%= result = (sum.to_f / (@station.reviews.count * 3)).round(2) %>
   <% end %>
 </div>
 
@@ -35,4 +36,21 @@
 </div>
 
 <div id="container-extras">
+</div>
+
+<div id="container-reviews">
+
+  <div class="form-review">
+    <%= simple_form_for [@station, @review] do |f| %>
+      <%= f.input :visitor_pseudo %>
+      <%= f.input :vibes_rating, input_html: { min: 1, max: 5} %>
+      <%= f.input :ski_rating, input_html: { min: 1, max: 5} %>
+      <%= f.input :value_rating, input_html: { min: 1, max: 5} %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+
+  <div class="reviews-display">
+  </div>
+
 </div>
