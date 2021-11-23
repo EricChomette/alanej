@@ -1,22 +1,34 @@
 <canvas id="bg"></canvas>
 
-<div class="logo-pos">
-  <img src="https://res.cloudinary.com/robintrllt/image/upload/v1637666260/logo_alanej_horizontal_wbmtr9.png" class="home-logo">
-    <div class="srcContainer">
+<div class="home-container">
 
-    <div class="src">
-        <form class="Flex-Form">
-        <input name="Champs1" type="text" class="large-input">
+  <img src="https://res.cloudinary.com/robintrllt/image/upload/v1637666260/logo_alanej_horizontal_wbmtr9.png" id="home-logo">
 
+  <%= simple_form_for :query, method: :get,
+                              url: stations_path,
+                              defaults: { wrapper_html: { class: "mr-3" },required: false },
+                              html: { class: 'd-flex my-2' } do |f| %>
+    <%= f.input :city,  label:       false,
+                        placeholder: "D'où partez-vous ?",
+                        input_html:  { name: :city, value: params.dig(:city) } %>
+    <div class="dates">
+      <%= f.input :date,  label:         false,
+                          placeholder: "Départ le ?",
+                          as: :date, html5: true,
+                          input_html:    { name: :start_date, value: params.dig(:date) } %>
 
-    <div class="boxChamps">
-        <input name="Champs2" type="text" class="normal-input">
-        <input name="Champs3" type="text" class="normal-input">
+      <%= f.input :date,  label:         false,
+                          placeholder: "Retour le ?",
+                          as: :date, html5: true,
+                          input_html:    { name: :end_date, value: params.dig(:date) } %>
     </div>
-    <button>Go à la neige!</button>
-
-    </form>
-    </div>
-  </div>
+    <%= f.submit "Go à la neige !", class: "btn btn-go" %>
+  <% end %>
 </div>
 
+<div class="time-container">
+  <i class="fas fa-cloud-sun fa-flip-horizontal" id="sunrise-ico"></i>
+  <i class="fas fa-sun" id="sun-ico"></i>
+  <i class="fas fa-cloud-sun" id="sunset-ico"></i>
+  <i class="fas fa-moon" id="night-ico"></i>
+</div>

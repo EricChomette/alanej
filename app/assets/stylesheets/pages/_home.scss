@@ -1,21 +1,43 @@
 // Specific CSS for your home-page
 #bg{
-    margin-left: -8px;
       }
-      .rise-set{
-        background: rgb(244,161,157);
-        background: linear-gradient(0deg, rgba(244,161,157,1) 40%, rgba(164,204,198,1) 100%);
-      }
-      .day{
-        background: rgb(241,245,192);
-        background: linear-gradient(0deg, rgba(241,245,192,1) 0%, rgba(81,168,193,1) 100%);
-      }
-      .night{
-        background: rgb(62,62,62);
-        background: linear-gradient(0deg, rgba(62,62,62,1) 0%, rgba(31,35,89,1) 100%);
-      }
+  .rise-set{
+    background: rgb(244,161,157);
+    background: linear-gradient(0deg, rgba(244,161,157,1) 40%, rgba(164,204,198,1) 100%);
+  }
+  .day{
+    background: rgb(241,245,192);
+    background: linear-gradient(0deg, rgba(241,245,192,1) 0%, rgba(81,168,193,1) 100%);
+  }
+  .night{
+    background: rgb(62,62,62);
+    background: linear-gradient(0deg, rgba(62,62,62,1) 0%, rgba(31,35,89,1) 100%);
+  }
 
-      #logo{
-        height: 90%;
-        margin: 10px auto;
-      }
+#logo{
+  height: 100%;
+  margin: auto;
+}
+
+#sunrise-ico, #sun-ico, #sunset-ico, #night-ico {
+  font-size: 30px;
+  background-color: rgba(255, 255, 255, 0.419);
+  padding: 10px;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 3px;
+  &:hover{
+    background-color: rgba(255, 255, 255, 0.775);
+  }
+  &:active{
+    background-color: rgba(255, 174, 0, 0.892);
+  }
+}
+
+.time-container{
+  position: absolute;
+  bottom: 5%;
+  right: 3%
+}
