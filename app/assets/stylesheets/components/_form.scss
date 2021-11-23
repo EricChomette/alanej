@@ -1,0 +1,52 @@
+.logo-pos{
+    width: 450px;
+    position: absolute;
+    bottom: 35%;
+    left:35%;
+}
+.srcContainer{
+    padding: 10px;
+    background:rgba(36, 36, 36, 0.904);
+    
+    border-radius: 10px;
+}
+.src{
+width: 100%;
+
+}
+.Flex-Form{
+    display: flex;
+    flex-direction: column;
+    
+}
+.boxChamps{
+    width: 100%;
+    padding-top: 1%;
+    padding-bottom: 2%;
+}
+.normal-input{
+    border: black !important;
+    color:honeydew !important;
+    width: 48%;
+    background: rgba(106, 126, 114, 0.356);
+    
+}
+.normal-input:nth-child(1){
+    margin-left:2 ;
+}
+.normal-input:nth-child(2){
+    margin-left:7px ;
+}
+.large-input{
+  color:honeydew !important;
+  width: 100%;  
+  margin-bottom:2%;
+  background: rgba(106, 126, 114, 0.356);
+  border:black;
+}
+.home-logo{
+    width: 45%;
+    height: 45%;
+    margin-left: 24%;
+  
+}
