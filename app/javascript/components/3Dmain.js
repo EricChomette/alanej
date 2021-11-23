@@ -28,7 +28,7 @@ const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector('#bg'), antialias: true ,alpha: true
 });
 
-renderer.setSize(window.innerWidth, window.innerHeight - 19 );
+renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.outputEncoding = THREE.sRGBEncoding;
 renderer.setClearColor( 0x000000, 0 );
 

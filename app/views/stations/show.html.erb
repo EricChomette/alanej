@@ -1,3 +1,5 @@
+<%= render 'shared/navbar' %>
+
 <% sum = 0 %>
 <% if @station.reviews.count.positive? %>
   <% @station.reviews.each do |review|%>
@@ -85,3 +87,5 @@
   </div>
 
 </div>
+
+<%= render 'shared/footer' %>
