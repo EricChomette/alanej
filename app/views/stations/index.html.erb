@@ -11,31 +11,53 @@
   <div class="container-cards-stations">
 
     <% @stations.each do |station| %>
-      <%= link_to station_path(station) do %>
+      <div class="container-card-station">
+        <%= link_to station_path(station) do %>
+          <div class="card-station">
 
-        <div class="card-station">
+            <div class="card-station-img">
+              <img src="<%= station.cardphoto %>" alt="Photo de la station">
+            </div>
 
-          <div class="card-station-img">
-            <img src="<%= station.cardphoto %>" alt="Photo de la station">
+            <div class="card-description">
+
+              <div class="card-station-name">
+                <h3><%= station.name%></h3>
+              </div>
+
+              <div class="card-station-info">
+                <div class="card-station-factors">
+                    <p>Temps de trajet:</p>
+                    <p>Météo:</p>
+                    <p>Enneigement:</p>
+                    <p>Budget:</p>
+                </div>
+
+                <div class="card-station-slops">
+                  <div class="Flag-total">
+                    <p>Ouverture domaine skiable:</p>
+                    <p><%= station.total_slopes%> pistes ouvertes / <%= station.total_slopes%></p>
+                  </div>
+                  <div class="Flag-array">
+                    <p><i class="fas fa-flag green"></i>  <%= station.green_slopes %></p>
+                    <p><i class="fas fa-flag blue"></i>  <%= station.blue_slopes %></p>
+                    <p><i class="fas fa-flag red"></i>  <%= station.red_slopes %></p>
+                    <p><i class="fas fa-flag black"></i>  <%= station.black_slopes %></p>
+                  </div>
+
+                </div>
+
+                <div class="rating-alanej">
+                  <%= image_tag 'rating5.png' , :class => "img_rating" %>
+                </div>
+              </div>
+
+            </div>
+
           </div>
-          <div class="card-station-info">
-              <h3><%= station.name%></h3>
-              <p>Temps de trajet:</p>
-              <p>Météo:</p>
-              <p>Enneigement:</p>
-              <p>Budget:</p>
-          </div>
-          <div class="card-station-slops">
-            <p>Total des pistes:<%= station.total_slopes%></p>
-            <p>Pistes vertes:<%= station.green_slopes %></p>
-            <p>Pistes blues:<%= station.blue_slopes %></p>
-            <p>Pistes rouges:<%= station.red_slopes %></p>
-            <p>Pistes noires:<%= station.black_slopes %></p>
-          </div>
 
-        </div>
-
-      <% end %>
+        <% end %>
+      </div>
     <% end %>
 
   </div>
