@@ -18,7 +18,8 @@ villard_de_lans = Station.create!(
                         green_slopes: 15,
                         blue_slopes: 12,
                         red_slopes: 16,
-                        black_slopes: 10
+                        black_slopes: 10,
+                        cardphoto: "https://www.isere-tourisme.com/sites/default/files/sitra/445089_625778.jpg"
                         )
 les_arcs = Station.create!(
                         name: "Les Arcs",
@@ -31,7 +32,8 @@ les_arcs = Station.create!(
                         green_slopes: 1,
                         blue_slopes: 54,
                         red_slopes: 34,
-                        black_slopes: 18
+                        black_slopes: 18,
+                        cardphoto: "https://resize-elle.ladmedia.fr/rcrop/638,,forcex/img/var/plain_site/storage/images/loisirs/evasion/que-faire-aux-arcs/76922096-2-fre-FR/Que-faire-aux-Arcs.jpg"
                       )
 serre_che = Station.create!(
                         name: "Serre Chevalier",
@@ -44,7 +46,8 @@ serre_che = Station.create!(
                         green_slopes: 13,
                         blue_slopes: 26,
                         red_slopes: 29,
-                        black_slopes: 13
+                        black_slopes: 13,
+                        cardphoto: "https://www.yonder.fr/sites/default/files/destinations/serre%20chevalier%20figure%20snow%20Serre%20Chevalier%20Vall%C3%A9e%20Brian%C3%A7on%20-%20%40laurapeythieu.jpg"
                       )
 autrans = Station.create!(name: "Domaine alpin Autrans",
                         address:"D218, 38880 Autrans",
@@ -56,7 +59,8 @@ autrans = Station.create!(name: "Domaine alpin Autrans",
                         green_slopes:5,
                         blue_slopes:4,
                         red_slopes:4,
-                        black_slopes:2
+                        black_slopes:2,
+                        cardphoto: "https://autrans-meaudre.com/wp-content/uploads/2014/10/autrans-meaudre_najo-grez-11_1500.jpg"
                       )
 
 
