@@ -1,0 +1,14 @@
+.reviews-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reviews {
+  width: 76%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+.form-review {
+  width: 20%;
+}

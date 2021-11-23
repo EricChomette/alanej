@@ -1,56 +1,87 @@
+<% sum = 0 %>
+<% if @station.reviews.count.positive? %>
+  <% @station.reviews.each do |review|%>
+    <% sum += review.vibes_rating %>
+    <% sum += review.ski_rating  %>
+    <% sum += review.value_rating  %>
+  <% end %>
+<% end %>
 
 
 <h1><%= @station.name%></h1>
- <%# <img src="<%= @station.banner %>
-  <a href="#container-station"></a>
-  <a href="#container-condition"></a>
-  <a href="#container-trip"></a>
-  <a href="#container-field"></a>
-  <a href="#container-extras"></a>
-  <a href="#container-reviews"></a>
+ <%# <img src="<%= @station.bannerphoto %>
+  <a href="#container-station">La Station</a>
+  <a href="#container-condition">Météo et enneigement</a>
+  <a href="#container-trip">Trajet</a>
+  <a href="#container-ski-area">Domaine skiable</a>
+  <a href="#container-extras">Extras</a>
+  <a href="#container-reviews">Reviews</a>
 
-<div id="container-station" >
-  <p><%= @station.address %></p>
-  <p><%= @station.description%></p>
+<div class="container">
 
-
-  <p>review user</p>
-   <% sum = 0 %>
-  <% if @station.reviews.count.positive? %>
-    <% @station.reviews.each do |review|%>
-      <% sum += review.vibes_rating %>
-      <% sum += review.ski_rating  %>
-      <% sum += review.value_rating  %>
-    <% end %>
-    <%= result = (sum.to_f / (@station.reviews.count * 3)).round(2) %>
-  <% end %>
-</div>
-
-<div id="container-condition">
-</div>
-
-<div id="container-trip">
-</div>
-
-<div id="container-field">
-</div>
-
-<div id="container-extras">
-</div>
-
-<div id="container-reviews">
-
-  <div class="form-review">
-    <%= simple_form_for [@station, @review] do |f| %>
-      <%= f.input :visitor_pseudo %>
-      <%= f.input :vibes_rating, input_html: { min: 1, max: 5} %>
-      <%= f.input :ski_rating, input_html: { min: 1, max: 5} %>
-      <%= f.input :value_rating, input_html: { min: 1, max: 5} %>
-      <%= f.button :submit %>
-    <% end %>
+  <div id="container-station" >
+    <h2>La Station</h2>
+    <p><%= @station.address %></p>
+    <p><%= @station.description%></p>
   </div>
 
-  <div class="reviews-display">
+
+
+  <div id="container-condition">
+    <h2>Météo et enneigement</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab vero repellendus consequuntur nisi molestiae adipisci est, incidunt possimus voluptatibus cum laboriosam. Eius cumque alias cum iste voluptatibus veritatis dolorum pariatur.</p>
+  </div>
+
+
+  <div id="container-trip">
+  <h2>Trajet</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab vero repellendus consequuntur nisi molestiae adipisci est, incidunt possimus voluptatibus cum laboriosam. Eius cumque alias cum iste voluptatibus veritatis dolorum pariatur.</p>
+  </div>
+
+
+  <div id="container-ski-area">
+  <h2>Domaine skiable</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab vero repellendus consequuntur nisi molestiae adipisci est, incidunt possimus voluptatibus cum laboriosam. Eius cumque alias cum iste voluptatibus veritatis dolorum pariatur.</p>
+  </div>
+
+  <h2>Les Extras</h2>
+
+  <div id="container-extras">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab vero repellendus consequuntur nisi molestiae adipisci est, incidunt possimus voluptatibus cum laboriosam. Eius cumque alias cum iste voluptatibus veritatis dolorum pariatur.</p>
+  </div>
+
+
+
+  <div id="container-reviews">
+    <h2>reviews</h2>
+  <%# <%= (sum.to_f / ( @station.reviews.count * 3 )).round(2) %>
+    <div class="reviews-container">
+      <div class="reviews">
+
+        <% @station.reviews.each do |review| %>
+          <div class="review">
+            <div class="d-flex">
+              <p><%= review.visitor_pseudo %> <%= (review.value_rating + review.ski_rating + review.value_rating) / 3%> stars</p>
+            </div>
+            <p><%= review.vibes_rating %> stars</p>
+            <p><%= review.ski_rating %> stars</p>
+            <p><%= review.value_rating %> stars</p>
+          </div>
+        <% end %>
+
+      </div>
+
+
+      <div class="form-review">
+        <%= simple_form_for [@station, @review] do |f| %>
+          <%= f.input :visitor_pseudo %>
+          <%= f.input :vibes_rating, input_html: { min: 1, max: 5} %>
+          <%= f.input :ski_rating, input_html: { min: 1, max: 5} %>
+          <%= f.input :value_rating, input_html: { min: 1, max: 5} %>
+          <%= f.button :submit %>
+        <% end %>
+      </div>
+    </div>
   </div>
 
 </div>
