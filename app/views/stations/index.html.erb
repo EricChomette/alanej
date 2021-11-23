@@ -17,19 +17,29 @@
           <div class="card-station-img">
             <img src="<%= station.cardphoto %>" alt="Photo de la station">
           </div>
+
+          <div class="card-station-name">
+            <h3><%= station.name%></h3>
+          </div>
+
           <div class="card-station-info">
-              <h3><%= station.name%></h3>
               <p>Temps de trajet:</p>
               <p>Météo:</p>
               <p>Enneigement:</p>
               <p>Budget:</p>
           </div>
+
           <div class="card-station-slops">
-            <p>Total des pistes:<%= station.total_slopes%></p>
-            <p>Pistes vertes:<%= station.green_slopes %></p>
-            <p>Pistes blues:<%= station.blue_slopes %></p>
-            <p>Pistes rouges:<%= station.red_slopes %></p>
-            <p>Pistes noires:<%= station.black_slopes %></p>
+            <p>Ouverture domaine skiable:</p>
+            <p><%= station.total_slopes%> pistes ouvertes / <%= station.total_slopes%></p>
+            <p><i class="far fa-flag green"></i> Pistes vertes: <%= station.green_slopes %></p>
+            <p><i class="far fa-flag blue"></i> Pistes blues: <%= station.blue_slopes %></p>
+            <p><i class="far fa-flag red"></i> Pistes rouges: <%= station.red_slopes %></p>
+            <p><i class="far fa-flag black"></i> Pistes noires: <%= station.black_slopes %></p>
+          </div>
+
+          <div class="review-alanej">
+            <img src="rating5.png" alt="rating alanej">
           </div>
 
         </div>
