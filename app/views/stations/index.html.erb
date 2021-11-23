@@ -1,9 +1,35 @@
-<h1>Stations#index</h1>
-<p>Find me in app/views/stations/index.html.erb</p>
-<% @stations.each do |station| %>
-  <%= link_to station_path(station) do %>
-    <h3><%= station.name%></h3>
-    <p><%= station.description%></p>
-    <p><%= station.address %></p>
-  <% end %>
-<% end %>
+
+<div class="container">
+
+  <h1>Stations</h1>
+
+  <div class="research-priorities">
+      <h2>Changer vos prioritées</h2>
+  </div>
+
+  <div class="container-cards-stations">
+
+    <% @stations.each do |station| %>
+      <%= link_to station_path(station) do %>
+
+        <div class="card-station">
+
+          <div class="card-station-img">
+            <img src="<%= station.cardphoto %>" alt="Photo de la station">
+          </div>
+
+          <div class="card-station-info">
+            <h3><%= station.name%></h3>
+            <p><%= station.description%></p>
+            <p><%= station.address %></p>
+          </div>
+
+        </div>
+
+      <% end %>
+    <% end %>
+
+  </div>
+
+
+</div>

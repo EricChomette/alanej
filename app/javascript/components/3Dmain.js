@@ -45,8 +45,6 @@ loader.load( 'SAPINS.glb', function ( gltf ) {
   let modell =  gltf.scene;
 
 
-
-
 	scene.add( modell );
 
 

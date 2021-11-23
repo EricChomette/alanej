@@ -6,4 +6,5 @@ class Review < ApplicationRecord
   validates :ski_rating, presence: true
   validates :value_rating, presence: true
   validates :station, presence: true
+
 end
