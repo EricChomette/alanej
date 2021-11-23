@@ -47,7 +47,7 @@ loader.load( 'SAPINS.glb', function ( gltf ) {
   
 	scene.add( modell );
 
-app/assets/images/SAPINS.glb
+
 
 
 }, undefined, function ( error ) {
