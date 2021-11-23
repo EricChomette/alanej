@@ -1,0 +1,42 @@
+.footer{
+  position: absolute;
+  bottom: 0;
+  align-items: center;
+  height: 150px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 10px rgb(204, 204, 204);
+  display: flex;
+  height: 200px;
+  width: 100%;
+}
+
+.footer p{
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  font-weight: normal;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.footer a{
+  text-decoration: none;
+  font-size: 40px;
+  color: rgb(0, 156, 191);
+}
+
+.footer a:hover{
+  color: rgb(250, 163, 0);
+}
+
+.footer a, .footer p{
+  margin: 12px;
+}
+
+#flake{
+  color: rgb(0, 156, 191);
+  font-size: 20px;
+}
+
+#ftr{
+  text-align: center;
+}

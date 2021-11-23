@@ -21,8 +21,8 @@ console.log(time);
     };script.src='//mrdoob.github.io/stats.js/build/stats.min.js';document.head.appendChild(script);})()
 
 
- 
-    
+
+
 
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector('#bg'), antialias: true ,alpha: true
@@ -43,11 +43,9 @@ loader.load( 'SAPINS.glb', function ( gltf ) {
   gltf.scene.translateY(-16)
   object.push(gltf.scene) ;
   let modell =  gltf.scene;
- 
-  
-	scene.add( modell );
 
-app/assets/images/SAPINS.glb
+
+	scene.add( modell );
 
 
 }, undefined, function ( error ) {
@@ -101,7 +99,7 @@ if(time >= 9 && time < 17)
   pointLight.intensity = 1;
   const ambientLight = new THREE.AmbientLight(0xfffbcf);
   scene.add(pointLight, ambientLight)
-  
+
 
   }
 if (time >= 17 && time < 18)
@@ -144,10 +142,10 @@ function animate() {
   requestAnimationFrame(animate);
   snows.forEach(snow => (snow.position.y > -50) ? snow.position.y -=0.2   : snow.position.y = Math.random() * 100
     );
-   
+
    // console.log(camera.position);
     camera.rotateOnAxis( 5 );
-  
+
   controls.update();
 
   renderer.render(scene,camera);

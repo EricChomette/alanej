@@ -1,12 +1,10 @@
 // Specific CSS for your home-page
 #bg{
     margin-left: -8px;
-      
-      
       }
       .rise-set{
         background: rgb(244,161,157);
-        background: linear-gradient(0deg, rgba(244,161,157,1) 40%, rgba(164,204,198,1) 100%); 
+        background: linear-gradient(0deg, rgba(244,161,157,1) 40%, rgba(164,204,198,1) 100%);
       }
       .day{
         background: rgb(241,245,192);
@@ -14,15 +12,10 @@
       }
       .night{
         background: rgb(62,62,62);
-        background: linear-gradient(0deg, rgba(62,62,62,1) 0%, rgba(31,35,89,1) 100%); 
+        background: linear-gradient(0deg, rgba(62,62,62,1) 0%, rgba(31,35,89,1) 100%);
       }
-      .logo{
-        background: url('logoALA.png');
-        background-size: cover;
-        width: 100px;
-        height: 100px;
-        position: absolute;
-        left: 900px;
-        top:15px;
+
+      #logo{
+        height: 90%;
+        margin: 10px auto;
       }
-      
