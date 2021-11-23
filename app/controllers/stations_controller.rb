@@ -8,5 +8,4 @@ class StationsController < ApplicationController
     @review = Review.new
   end
 
-
 end
