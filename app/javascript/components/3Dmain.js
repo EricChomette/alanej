@@ -223,10 +223,10 @@ sun_ico.addEventListener('click', function() {
   Deftheme();
  });
 
-  sunset_ico.addEventListener('click', function() {
-  sun_ico_trigger = true;
+  night_ico.addEventListener('click', function() {
+
   scene.clear();
-  time = 17;
+  time = 21;
   loader.load( 'SAPINS.glb', function ( gltf ) {
     gltf.scene.scale.set(6,6,6)
     gltf.scene.translateX(-150)
