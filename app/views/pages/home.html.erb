@@ -1,8 +1,8 @@
 <canvas id="bg"></canvas>
 
 <div class="home-container">
-
-  <img src="https://res.cloudinary.com/robintrllt/image/upload/v1637666260/logo_alanej_horizontal_wbmtr9.png" id="home-logo">
+  <%= image_tag("https://res.cloudinary.com/robintrllt/image/upload/v1637666260/logo_alanej_horizontal_wbmtr9.png",
+      id:"home-logo") %>
 
   <%= simple_form_for :query, method: :get,
                               url: stations_path,
