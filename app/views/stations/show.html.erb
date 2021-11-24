@@ -11,17 +11,22 @@
 
 
 <h1><%= @station.name%></h1>
- <%# <img src="<%= @station.bannerphoto %>
-  <a href="#container-station">La Station</a>
-  <a href="#container-condition">Météo et enneigement</a>
-  <a href="#container-trip">Trajet</a>
-  <a href="#container-ski-area">Domaine skiable</a>
-  <a href="#container-extras">Extras</a>
-  <a href="#container-reviews">Reviews</a>
+<%# <img src="<%= @station.bannerphoto %>
+
+
 
 <div class="container">
 
-  <div id="container-station" >
+  <div class="nav-btns">
+    <a href="#container-station" class="btn btn-anchor">La Station</a>
+    <a href="#container-condition" class="btn btn-anchor">Météo et enneigement</a>
+    <a href="#container-trip" class="btn btn-anchor">Trajet</a>
+    <a href="#container-ski-area" class="btn btn-anchor">Domaine skiable</a>
+    <a href="#container-extras" class="btn btn-anchor">Extras</a>
+    <a href="#container-reviews" class="btn btn-anchor">Reviews</a>
+  </div>
+
+  <div id="container-station" class="container-anchor">
     <h2>La Station</h2>
     <p><%= @station.address %></p>
     <p><%= @station.description%></p>
@@ -29,34 +34,35 @@
 
 
 
-  <div id="container-condition">
-
+  <div id="container-condition" class="container-anchor">
+    <h2>Météo et enneigement</h2>
   </div>
 
 
-  <div id="container-trip">
-  <h2>Trajet</h2>
+  <div id="container-trip" class="container-anchor">
+    <h2>Trajet</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab vero repellendus consequuntur nisi molestiae adipisci est, incidunt possimus voluptatibus cum laboriosam. Eius cumque alias cum iste voluptatibus veritatis dolorum pariatur.</p>
   </div>
 
 
-  <div id="container-ski-area">
-  <h2>Domaine skiable</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab vero repellendus consequuntur nisi molestiae adipisci est, incidunt possimus voluptatibus cum laboriosam. Eius cumque alias cum iste voluptatibus veritatis dolorum pariatur.</p>
-  </div>
-
-  <h2>Les Extras</h2>
-
-  <div id="container-extras">
+  <div id="container-ski-area" class="container-anchor">
+    <h2>Domaine skiable</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab vero repellendus consequuntur nisi molestiae adipisci est, incidunt possimus voluptatibus cum laboriosam. Eius cumque alias cum iste voluptatibus veritatis dolorum pariatur.</p>
   </div>
 
 
+  <div id="container-extras" class="container-anchor">
+    <h2>Les Extras</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab vero repellendus consequuntur nisi molestiae adipisci est, incidunt possimus voluptatibus cum laboriosam. Eius cumque alias cum iste voluptatibus veritatis dolorum pariatur.</p>
+  </div>
 
-  <div id="container-reviews">
+
+
+  <div id="container-reviews" class="container-anchor">
     <h2>reviews</h2>
-  <%# <%= (sum.to_f / ( @station.reviews.count * 3 )).round(2) %>
+    <%# <%= (sum.to_f / ( @station.reviews.count * 3 )).round(2) %>
     <div class="reviews-container">
+
       <div class="reviews">
 
         <% @station.reviews.each do |review| %>
@@ -74,6 +80,7 @@
 
 
       <div class="form-review">
+
         <%= simple_form_for [@station, @review] do |f| %>
           <%= f.input :visitor_pseudo %>
           <%= f.input :vibes_rating, input_html: { min: 1, max: 5} %>
@@ -81,8 +88,11 @@
           <%= f.input :value_rating, input_html: { min: 1, max: 5} %>
           <%= f.button :submit %>
         <% end %>
+
       </div>
+
     </div>
+
   </div>
 
 </div>
