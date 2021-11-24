@@ -3,10 +3,9 @@ require "net/http"
 require "awesome_print"
 require "json"
 require 'open-uri'
-require 'json'
 
 WEATHER = {
-	0 => "Soleil",
+  0 => "Soleil",
 	1 => "Peu nuageux",
 	2 => "Ciel voilé",
 	3 => "Nuageux",
@@ -107,29 +106,32 @@ INSEE = {
   megeve: 74173,
   deux_alpes: 38253,
   courchevel: 73227,
-  tignes: 73296
+  tignes: 73296,
+  chamonix: 74056,
 }
-
-
 
 ### test
 
-URI.open("https://api.meteo-concept.com/api/forecast/daily/2?token=25b726a85bb8874026726594e8131564066e1794ef1e71a60a86f019e5e1968d&insee=#{INSEE[:megeve]}") do |stream|
-  ap forecast = JSON.parse(stream.read)['forecast']
-  puts WEATHER[forecast['weather']]
+URI.open("https://api.meteo-concept.com/api/forecast/daily/2?token=25b726a85bb8874026726594e8131564066e1794ef1e71a60a86f019e5e1968d&insee=74191") do |stream|
+  forecast = JSON.parse(stream.read)['forecast']
+  puts "météo : #{WEATHER[forecast['weather']]}"
+  meteo = WEATHER[forecast['weather']]
+  puts "la probabilité de gel est de #{forecast['probafrost']} %"
+  probagel = forecast['probafrost']
+  puts "la probabilité de brouillard est de #{forecast['probafog']} %"
+  probabrouillard = forecast['probafog']
+  puts "la probabilité de pluie est de #{forecast['probarain']} %"
+  probapluie = forecast['probarain']
 end
-
-
-
 
 ### code a prendre dans le show
 
-#<% date_debut = params[:start_date] - Time.now.day %>
-#    <% date_fin = params[:end_date] - Time.now.day %>
-#    <% dates = (date_debut..date_fin) %>
-#    <% dates.each do |date| %>
-#      <% open("https://api.meteo-concept.com/api/forecast/daily/#{date}/period/2?token=25b726a85bb8874026726594e8131564066e1794ef1e71a60a86f019e5e1968d&amp;insee=#{@station.insee}") do |stream| %>
-#        <% forecast = JSON.parse(stream.read)['forecast'] %>
-#        <%= "La météo sera #{WEATHER[forecast['weather']]}." %>
-#      <% end %>
-#    <% end %>
+# <% date_debut = params[:start_date].split("-").last - Time.now.day %>
+# <% date_fin = params[:end_date].split("-").last - Time.now.day %>
+# <% dates = (date_debut..date_fin) %>
+# <% dates.each do |date| %>
+#   <% open("https://api.meteo-concept.com/api/forecast/daily/#{date}/period/2?token=25b726a85bb8874026726594e8131564066e1794ef1e71a60a86f019e5e1968d&amp;insee=#{@station.insee}") do |stream| %>
+#     <% forecast = JSON.parse(stream.read)['forecast'] %>
+#     <%= "La météo sera #{WEATHER[forecast['weather']]}." %>
+#   <% end %>
+# <% end %>
