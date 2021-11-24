@@ -2,6 +2,14 @@
 #bg{
   margin: 0 0 -240px 0;
 }
+.blocker{
+  background:rgba(224, 224, 224, 0);
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:-1%;
+}
+
 
 .rise-set{
   background: rgb(244,161,157);
@@ -39,6 +47,7 @@
   margin: 5px 3px;
   &:hover{
     background-color: rgba(255, 255, 255, 0.775);
+    
   }
   &:active{
     background-color: rgba(255, 174, 0, 0.892);

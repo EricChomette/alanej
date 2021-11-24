@@ -38,7 +38,7 @@ const renderer = new THREE.WebGLRenderer({
 });
 
 
-renderer.setSize(window.innerWidth, window.innerHeight - 19 );
+renderer.setSize(window.innerWidth, window.innerHeight - 7 );
 renderer.outputEncoding = THREE.sRGBEncoding;
 renderer.setClearColor( 0x000000, 0 );
 
@@ -79,6 +79,9 @@ function addSnow(){
 snow.position.set(x, y, z);
 snows.push(snow)
 scene.add(snow);
+}
+function activebutton(){
+  
 }
 function setnight(){
   canva.classList.remove("rise-set");
@@ -134,20 +137,37 @@ function setset(){
 function Deftheme(){
   if(time >= 0 && time <= 6 ){
   setnight();
+  
 }
 if(time > 6 &&  time < 9 ){
  setrise();
+ sunrise_ico.classList.add("activeTime");
+ sunset_ico.classList.remove("activeTime");
+ sun_ico.classList.remove("activeTime");
+ night_ico.classList.remove("activeTime");
 }
 if(time >= 9 && time < 17 )
 {
  setday();
+ sunrise_ico.classList.remove("activeTime");
+ sunset_ico.classList.remove("activeTime");
+ sun_ico.classList.add("activeTime");
+ night_ico.classList.remove("activeTime");
   }
 if (time >= 17 && time < 18 )
 {
 setset();
+sunrise_ico.classList.remove("activeTime");
+sunset_ico.classList.add("activeTime");
+sun_ico.classList.remove("activeTime");
+night_ico.classList.remove("activeTime");
 }
 if(time >= 18 ||  night_ico_trigger == true){
 setnight();
+sunrise_ico.classList.remove("activeTime");
+sunset_ico.classList.remove("activeTime");
+sun_ico.classList.remove("activeTime");
+night_ico.classList.add("activeTime");
 }
 }
 
