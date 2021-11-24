@@ -20,7 +20,8 @@
   padding: 10px;
 }
 
-.card-station-img img{
+
+.card-station-img > img {
   max-width: 100%;
   height: 100%;
   object-fit: cover;
@@ -84,21 +85,7 @@
   width: 100%;
 }
 
-.green {
-  color: green;
-}
 
-.blue {
-  color: blue;
-}
-
-.red {
-  color: red;
-}
-
-.black {
-  color: black;
-}
 
 .card-station-name {
   color: black;
