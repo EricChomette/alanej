@@ -38,7 +38,7 @@ const renderer = new THREE.WebGLRenderer({
 });
 
 
-renderer.setSize(window.innerWidth, window.innerHeight - 19 );
+renderer.setSize(window.innerWidth, window.innerHeight - 7 );
 renderer.outputEncoding = THREE.sRGBEncoding;
 renderer.setClearColor( 0x000000, 0 );
 
