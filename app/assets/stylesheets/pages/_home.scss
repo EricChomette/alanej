@@ -1,7 +1,8 @@
 // Specific CSS for your home-page
 #bg{
-
+  margin: 0 0 -240px 0;
 }
+
 .rise-set{
   background: rgb(244,161,157);
   background: linear-gradient(0deg, rgba(244,161,157,1) 40%, rgba(164,204,198,1) 100%);
@@ -16,10 +17,15 @@
 }
 
 #home-logo{
-  height: 30%;
-  width: 60%;
-  margin: 0 auto;
+  width: 350px;
+  margin: 0 12% 0 8%;
   border: none;
+}
+
+@media (max-width: 600px){
+  #home-logo {
+    width: 200px;
+  }
 }
 
 #sunrise-ico, #sun-ico, #sunset-ico, #night-ico {
@@ -30,7 +36,7 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  margin: 0 3px;
+  margin: 5px 3px;
   &:hover{
     background-color: rgba(255, 255, 255, 0.775);
   }
