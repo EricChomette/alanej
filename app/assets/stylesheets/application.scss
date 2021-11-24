@@ -12,8 +12,28 @@
 @import "components/index";
 @import "pages/index";
 
-body{
+html {
   position: relative;
-  margin: 0;
+  min-height: 100%;
+}
+
+body{
+  margin: 0 0 240px 0;
   background: rgb(255, 255, 255);
+}
+
+.green {
+  color: green;
+}
+
+.blue {
+  color: blue;
+}
+
+.red {
+  color: red;
+}
+
+.black {
+  color: black;
 }
