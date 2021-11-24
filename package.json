@@ -8,12 +8,13 @@
     "@rails/webpacker": "4.3.0",
     "bootstrap": "4.6",
     "jquery": "^3.6.0",
+    "places.js": "^1.19.0",
     "popper.js": "^1.16.1",
     "three": "^0.134.0",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
   "devDependencies": {
-    "webpack-dev-server": "^4.5.0"
+    "webpack-dev-server": "^3.11.2"
   }
 }
