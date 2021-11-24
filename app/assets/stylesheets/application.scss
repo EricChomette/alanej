@@ -12,6 +12,8 @@
 @import "components/index";
 @import "pages/index";
 
+
+
 html {
   position: relative;
   min-height: 100%;
@@ -36,4 +38,16 @@ body{
 
 .black {
   color: black;
+}
+
+.bluesnow {
+  color: rgb(40, 97, 119);
+}
+
+.yellow {
+  color: rgb(198, 201, 26);
+}
+
+.grey {
+  color: rgb(92, 92, 92)
 }
