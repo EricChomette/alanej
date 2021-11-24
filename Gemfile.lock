@@ -118,6 +118,8 @@ GEM
     mime-types-data (3.2021.1115)
     mini_mime (1.1.2)
     minitest (5.14.4)
+    momentjs-rails (2.20.1)
+      railties (>= 3.1)
     msgpack (1.4.2)
     netrc (0.11.0)
     nio4r (2.5.8)
@@ -163,6 +165,8 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.2)
       loofah (~> 2.3)
+    rails_bootstrap_sortable (2.0.7)
+      momentjs-rails (>= 2.8.3)
     railties (6.0.4.1)
       actionpack (= 6.0.4.1)
       activesupport (= 6.0.4.1)
@@ -254,11 +258,13 @@ DEPENDENCIES
   font-awesome-sass
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  momentjs-rails
   pg (>= 0.18, < 2.0)
   pry-byebug
   pry-rails
   puma (~> 4.1)
   rails (~> 6.0.4, >= 6.0.4.1)
+  rails_bootstrap_sortable
   sass-rails (>= 6)
   selenium-webdriver
   simple_form

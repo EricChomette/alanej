@@ -1,0 +1,23 @@
+.list-item {
+  display: flex;
+  justify-content: row;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.picto-parameter {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+
+.picto {
+  font-size: 60px;
+}
+
+.description-parameter {
+  flex-grow: 1;
+  padding: 10px;
+  margin-bottom: 0;
+}
