@@ -24,14 +24,50 @@
   border-radius: 5px;
 }
 
+.dates{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+@media (max-width: 850px){
+  .dates{
+  display: flex;
+  flex-direction: column;
+  }
+}
+
 #query_city{
-  background-color: rgba(255, 255, 255, 0.712);
+  background-color: rgba(255, 255, 255, 0.755);
   width: 418px;
   border-radius: 5px;
 }
 
-.dates{
+@media (max-width: 850px){
+  .home-container{
+  position: absolute;
+  top: 20%;
+  left: 10%;
   display: flex;
-  justify-content: space-evenly;
-  margin: 0;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px auto;
+  width: 80%;
+  height: 50%;
+  }
+}
+
+@media (min-width: 2000px){
+  #query_date {
+    width: 200px;
+    height: 90px;
+    font-size: 25px;
+  }
+  #query_city {
+    width: 600px;
+    height: 90px;
+    font-size: 28px;
+  }
 }
