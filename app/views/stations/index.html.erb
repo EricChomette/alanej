@@ -6,8 +6,6 @@
 
 <div class="container">
 
-  <h1>Stations</h1>
-
   <div class="research-priorities">
 
     <h2>Quelles sont vos priorités ?</h2>
@@ -23,7 +21,7 @@
           <div class="card-station">
 
             <div class="card-station-img">
-              <img src="<%= station.cardphoto %>" alt="Photo de la station">
+              <img class="image-card-index" src="<%= station.cardphoto %>" alt="Photo de la station">
             </div>
 
             <div class="card-description">
@@ -35,9 +33,7 @@
               <div class="card-station-info">
                 <div class="card-station-factors">
                     <p>Temps de trajet:</p>
-                    <p>Météo: <%= @meteos[station.id] %>
-
-                    </p>
+                    <p>Météo: <%= @meteos[station.id] %></p>
                     <p>Enneigement:</p>
                     <p>Budget:</p>
                 </div>
@@ -56,11 +52,13 @@
 
                 </div>
 
-                <div class="rating-alanej">
-                  <%= image_tag 'rating5.png' , :class => "img_rating" %>
-                </div>
               </div>
 
+
+            </div>
+
+            <div class="rating-alanej">
+              <%= image_tag 'rating5.png' , :class => "img_rating" %>
             </div>
 
           </div>
