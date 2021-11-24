@@ -10,7 +10,6 @@
   top:-1%;
 }
 
-
 .rise-set{
   background: rgb(244,161,157);
   background: linear-gradient(0deg, rgba(244,161,157,1) 40%, rgba(164,204,198,1) 100%);
@@ -30,9 +29,15 @@
   border: none;
 }
 
-@media (max-width: 600px){
+@media (max-width: 850px){
   #home-logo {
     width: 200px;
+  }
+}
+
+@media (min-width: 2400px){
+  #home-logo {
+    width: 500px;
   }
 }
 
@@ -47,10 +52,16 @@
   margin: 5px 3px;
   &:hover{
     background-color: rgba(255, 255, 255, 0.775);
-    
   }
-  &:active{
-    background-color: rgba(255, 174, 0, 0.892);
+}
+
+@media (min-width: 2000px){
+  #sunrise-ico, #sun-ico, #sunset-ico, #night-ico {
+    font-size: 40px;
+    margin: 5px 8px;
+    width: 70px;
+    height: 70px;
+    padding: 15px;
   }
 }
 
