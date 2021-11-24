@@ -135,14 +135,14 @@ function Deftheme(){
   if(time >= 0 && time <= 6 ){
   setnight();
 }
-if(time > 6 &&  time < 9 || sunrise_ico_trigger == true ){
+if(time > 6 &&  time < 9 ){
  setrise();
 }
-if(time >= 9 && time < 17  || sun_ico_trigger == true)
+if(time >= 9 && time < 17 )
 {
  setday();
   }
-if (time >= 17 && time < 18 || sunset_ico_trigger == true )
+if (time >= 17 && time < 18 )
 {
 setset();
 }
@@ -223,10 +223,10 @@ sun_ico.addEventListener('click', function() {
   Deftheme();
  });
 
-night_ico.addEventListener('click', function() {
+  sunset_ico.addEventListener('click', function() {
   sun_ico_trigger = true;
   scene.clear();
-  time = 18;
+  time = 17;
   loader.load( 'SAPINS.glb', function ( gltf ) {
     gltf.scene.scale.set(6,6,6)
     gltf.scene.translateX(-150)
