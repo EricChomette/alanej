@@ -96,10 +96,12 @@ class StationsController < ApplicationController
   }
 
   def index
-    @stations = Station.all
     @meteos = {}
-    @stations.each do |station|
-      @meteos[station.id] = meteo(station)
+    @stations = Station.all
+    if (params[:start_date] != "") && (params[:end_date] != "")
+      @stations.each do |station|
+        @meteos[station.id] = meteo(station)
+      end
     end
   end
 
