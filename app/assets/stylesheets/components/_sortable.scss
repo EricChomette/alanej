@@ -13,10 +13,14 @@
 
 }
 .container-fluids {
-  display: flex;
-  flex-grow: 1;
+  // flex-grow: 1;
+  border: solid black;
 }
 
+#sortable {
+  float: left;
+  display:inline-table
+}
 .positions > h2 {
   height: 25%;
   padding: 15px;
@@ -32,6 +36,7 @@
   flex-grow: 1;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
+
 
 .picto-parameter {
   width: 10%;
