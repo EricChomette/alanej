@@ -19,7 +19,9 @@ villard_de_lans = Station.create!(name: 'Villard de Lans',
                                   red_slopes: 16,
                                   black_slopes: 10,
                                   insee: "38548",
-                                  cardphoto: "https://www.isere-tourisme.com/sites/default/files/sitra/445089_625778.jpg")
+                                  cardphoto: "https://www.isere-tourisme.com/sites/default/files/sitra/445089_625778.jpg",
+                                  lat: "45.046258",
+                                  long:"5.557192")
 les_arcs = Station.create!(name: "Les Arcs",
                            address: "73700 Bourg-Saint-Maurice",
                            description: "Les Arcs est une station de sports d'hiver et un nom de domaine skiable de la vallée de la Tarentaise, situés sur le territoire communal des communes de Bourg-Saint-Maurice, Landry, Peisey-Nancroix, et de Villaroger, dans le département de la Savoie en région Auvergne-Rhône-Alpes. Les stations-villages des Arcs — Arc 1600, Arc 1800, Arc 2000 — sont des stations intégrées, dites de « troisième génération », voire de « quatrième génération » pour Arc 1950, installées sur la commune de Bourg-Saint-Maurice et édifiée à partir de la fin des années 1960. La dernière a été construite en 2003. Le domaine skiable associe également les stations de Peisey-Vallandry, situées sur les communes de Landry et Peisey-Nancroix, et de Villaroger. Les domaines des Arcs et de Peisey-Vallandry sont reliés, depuis 2003, par le téléphérique du « Vanoise Express » à celui de Grande Plagne, formant ainsi l'un des plus grands domaines de ski français, Paradiski, avec plus de 425 km de pistes revendiquées.",
@@ -32,7 +34,10 @@ les_arcs = Station.create!(name: "Les Arcs",
                            red_slopes: 34,
                            black_slopes: 18,
                            insee: "73054",
-                           cardphoto: "https://resize-elle.ladmedia.fr/rcrop/638,,forcex/img/var/plain_site/storage/images/loisirs/evasion/que-faire-aux-arcs/76922096-2-fre-FR/Que-faire-aux-Arcs.jpg")
+                           cardphoto: "https://resize-elle.ladmedia.fr/rcrop/638,,forcex/img/var/plain_site/storage/images/loisirs/evasion/que-faire-aux-arcs/76922096-2-fre-FR/Que-faire-aux-Arcs.jpg",
+                           lat: "45.616770",
+                           long: "6.769290")
+
 serre_che = Station.create!(name: "Serre Chevalier",
                             address: "Le, Rte de Pré-Long, 05240 La Salle-les-Alpes",
                             description: "Serre Chevalier, dans le Briançonnais, est une station de sports d'hiver située dans la vallée de la Guisane dans le département des Hautes-Alpes, près du parc national des Écrins. Elle est créée en 1941 avec l'édification du téléphérique depuis Chantemerle vers le sommet de Serre-Chevalier.",
@@ -45,9 +50,11 @@ serre_che = Station.create!(name: "Serre Chevalier",
                             red_slopes: 29,
                             black_slopes: 13,
                             insee: "05161",
-                            cardphoto: "https://www.yonder.fr/sites/default/files/destinations/serre%20chevalier%20figure%20snow%20Serre%20Chevalier%20Vall%C3%A9e%20Brian%C3%A7on%20-%20%40laurapeythieu.jpg")
+                            cardphoto: "https://www.yonder.fr/sites/default/files/destinations/serre%20chevalier%20figure%20snow%20Serre%20Chevalier%20Vall%C3%A9e%20Brian%C3%A7on%20-%20%40laurapeythieu.jpg",
+                            lat: "44.946249",
+                            long:"6.558491")
 
-autrans = Station.create!(name: "Domaine alpin Autrans",
+autrans = Station.create!(name: "Autrans - La Sure",
                           address: "D218, 38880 Autrans",
                           description: "Autrans-Méaudre en Vercors est une station village à la fois alpine et nordique… ici nous pratiquons toutes les glisses ! En ski alpin, la station est le site idéal pour débuter, progresser et profiter de la glisse en famille ou entre amis. Le domaine nordique rivalise avec les plus beaux sites Européens en ski de fond, randonnée nordique, chiens de traîneaux ou marche nordique sur neige. ",
                           budget: 1,
@@ -59,6 +66,8 @@ autrans = Station.create!(name: "Domaine alpin Autrans",
                           red_slopes: 4,
                           black_slopes: 2,
                           insee: "38225",
-                          cardphoto: "https://autrans-meaudre.com/wp-content/uploads/2014/10/autrans-meaudre_najo-grez-11_1500.jpg")
+                          cardphoto: "https://autrans-meaudre.com/wp-content/uploads/2014/10/autrans-meaudre_najo-grez-11_1500.jpg",
+                          lat: "45.229519",
+                          long: "5.581669")
 
 puts "#{Station.count} stations has been created"
