@@ -96,18 +96,28 @@ class StationsController < ApplicationController
   }
 
   def index
-    @stations = Station.all
     @meteos = {}
     @TrajTemps = {}
-    @stations.each do |station|
-      @meteos[station.id] = meteo(station)
-      @TrajTemps[station.id] = tmpTrajet(station)
+    
+    @stations = Station.all
+      
+    if (params[:start_date] != "") && (params[:end_date] != "")
+      @stations.each do |station|
+        @meteos[station.id] = meteo(station)
+      end
+    end
+    if params[:city] != ""
+      @stations.each do |station|
+        @TrajTemps[station.id] = tmpTrajet(station)
+      end
     end
   end
 
   def show
     @station = Station.find(params[:id])
     @review = Review.new
+    @reviews = @station.reviews
+    @average_rating = @reviews.average(:rating).round(2)
   end
 
   def meteo(station)

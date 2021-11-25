@@ -27,13 +27,16 @@ console.log(places)
 import "bootstrap";
 import "three";
 // Internal imports, e.g:
-import { } from '../components/3Dmain';
+// import { } from '../components/3Dmain';
+import { dynamicRating } from "../plugins/starsInReviewForm";
 
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  dynamicRating();
+
   var placesAutocomplete = places({
     appId: "plKLD0BHQSLV",
     apiKey: "2beec28782dce9d19be43046ba53dd6f",

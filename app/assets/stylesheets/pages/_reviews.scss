@@ -1,14 +1,36 @@
+@import url(https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+@import url(http://fonts.googleapis.com/css?family=Calibri:400,300,700);
+
 .reviews-container {
   display: flex;
   justify-content: space-between;
 }
 
 .reviews {
-  width: 76%;
+  width: 70%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
 }
 .form-review {
-  width: 20%;
+  width: 30%;
+}
+.fa-star {
+  color:#FFD700;
+}
+#star-average {
+  font-size: large;
+}
+#number-coms {
+  color: rgb(73, 73, 73);
+  font-size: large;
+}
+
+.review-rating {
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+.title-reviews {
+  display: flex;
+  align-items: center;
 }

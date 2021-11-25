@@ -1,6 +1,35 @@
+.container-postions-fluids {
+  display: flex;
+  justify-content: row;
+  padding: 15px;
+}
+.positions {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-row {
+  width: 100%;
+
+}
+.container-fluids {
+  display: flex;
+  flex-grow: 1;
+}
+
+.positions > h2 {
+  height: 25%;
+  padding: 15px;
+  margin-bottom: 0;
+  margin-top: 6px;
+  font-size: 3rem;
+}
+
 .list-item {
   display: flex;
   justify-content: row;
+  width: 100%;
+  flex-grow: 1;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 

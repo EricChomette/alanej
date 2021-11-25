@@ -4,7 +4,7 @@ class CreateStations < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :address
       t.text :description
-      t.integer :budget
+      t.string :budget
       t.integer :alt_min
       t.integer :alt_max
       t.integer :total_slopes
