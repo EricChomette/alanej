@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_23_203734) do
+ActiveRecord::Schema.define(version: 2021_11_25_102819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2021_11_23_203734) do
     t.string "name"
     t.string "address"
     t.text "description"
-    t.integer "budget"
+    t.string "budget"
     t.integer "alt_min"
     t.integer "alt_max"
     t.integer "total_slopes"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2021_11_23_203734) do
     t.string "bannerphoto"
     t.string "cardphoto"
     t.string "insee"
+    t.string "logo"
   end
 
   add_foreign_key "conditions", "stations"
