@@ -98,6 +98,7 @@ class StationsController < ApplicationController
   def index
     @meteos = {}
     @traj_temps = {}
+    @budget = {}
 
     @stations = Station.all
 
@@ -106,7 +107,8 @@ class StationsController < ApplicationController
         @meteos[station.id] = meteo(station)
       end
       if params[:city] != ""
-        @traj_temps[station.id] = tmpTrajet(station)
+        @traj_temps[station.id] = tmp_trajet(station)
+        @budget[station.id] = budget(station)
       end
     end
   end
@@ -126,13 +128,13 @@ class StationsController < ApplicationController
     dates = (date_debut..date_fin)
     dates.each do |date|
       URI.open("https://api.meteo-concept.com/api/forecast/daily/#{date}/period/2?token=25b726a85bb8874026726594e8131564066e1794ef1e71a60a86f019e5e1968d&insee=#{station.insee}") do |stream|
-        forecast = JSON.parse(stream.read)['city']
-        return WEATHER[forecast['name']]
+        forecast = JSON.parse(stream.read)['forecast']
+        return WEATHER[forecast['weather']]
       end
     end
   end
 
-  def findStartCoordonates()
+  def find_start_coordonates
     coordonates = []
     url = "https://api.myptv.com/geocoding/v1/locations/by-text?searchText=#{params[:city]}&apiKey=NDNlYzA1M2M2YTBiNGU1YWIwMDI3NjJmZTZjZjUzNTI6MDU0NzgyOTYtMTgwZi00NTliLTg5NzYtMjA2YmEyODA3YjYw"
     url = url.chars.map { |char| char.ascii_only? ? char : CGI.escape(char) }.join
@@ -143,6 +145,7 @@ class StationsController < ApplicationController
       return coordonates
     end
   end
+
   def time_conversion(minutes)
     hours = minutes / 60
     rest = minutes % 60
@@ -150,24 +153,26 @@ class StationsController < ApplicationController
       rest = "0#{rest}"
     end
     return "#{hours}h#{rest}"
-end
-  def tmpTrajet(station)
-    lnglat_start = findStartCoordonates()
+  end
+
+  def tmp_trajet(station)
+    lnglat_start = find_start_coordonates
 
     URI.open("https://api.mapbox.com/directions/v5/mapbox/driving/#{lnglat_start[0]},#{lnglat_start[1]};#{station.long},#{station.lat}?geometries=geojson&access_token=pk.eyJ1IjoibWFlbHByIiwiYSI6ImNrd2RrM2U5bzBsc2Eyb24xYXB0cnJscW8ifQ.iFKMjM3OFf6oUgyejjfq8Q") do |stream|
       trajet = JSON.parse(stream.read)["routes"]
-      trajet_Duration = trajet[0]["duration"]
-      trajet_Longueur = trajet[0]["distance"]
+      trajet_duration = (trajet[0]["duration"] / 60).to_i
+      return time_conversion(trajet_duration)
+    end
 
-      trajet_Duration = trajet_Duration / 60
-      trajet_Duration = trajet_Duration.to_i
-      trajet_Longueur = trajet_Longueur / 1000
-      trajet_Longueur = trajet_Longueur.to_i
-      budget_car =  trajet_Longueur * 0.246559
-      budget_car =  budget_car.to_i
-      return time_conversion(trajet_Duration)
-      end
+  end
 
+  def budget(station)
+    lnglat_start = find_start_coordonates
 
+    URI.open("https://api.mapbox.com/directions/v5/mapbox/driving/#{lnglat_start[0]},#{lnglat_start[1]};#{station.long},#{station.lat}?geometries=geojson&access_token=pk.eyJ1IjoibWFlbHByIiwiYSI6ImNrd2RrM2U5bzBsc2Eyb24xYXB0cnJscW8ifQ.iFKMjM3OFf6oUgyejjfq8Q") do |stream|
+      trajet = JSON.parse(stream.read)["routes"]
+      budget_car = (trajet[0]["distance"] / 1000 * 0.246559).to_i
+      return budget_car
+    end
   end
 end

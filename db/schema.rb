@@ -42,10 +42,15 @@ ActiveRecord::Schema.define(version: 2021_11_25_105621) do
     t.integer "alt_min"
     t.integer "alt_max"
     t.integer "total_slopes"
+    t.integer "open_slopes"
     t.integer "green_slopes"
+    t.integer "green_open_slopes"
     t.integer "blue_slopes"
+    t.integer "blue_open_slopes"
     t.integer "red_slopes"
+    t.integer "red_open_slopes"
     t.integer "black_slopes"
+    t.integer "black_open_slopes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "bannerphoto"
