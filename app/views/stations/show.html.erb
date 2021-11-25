@@ -1,15 +1,5 @@
 <%= render 'shared/navbar' %>
 
-<% sum = 0 %>
-<% if @station.reviews.count.positive? %>
-  <% @station.reviews.each do |review|%>
-    <% sum += review.vibes_rating %>
-    <% sum += review.ski_rating  %>
-    <% sum += review.value_rating  %>
-  <% end %>
-<% end %>
-
-
 <h1><%= @station.name%></h1>
 <%# <img src="<%= @station.bannerphoto %>
 
@@ -23,7 +13,7 @@
     <a href="#container-trip" class="btn btn-anchor">Trajet</a>
     <a href="#container-ski-area" class="btn btn-anchor">Domaine skiable</a>
     <a href="#container-extras" class="btn btn-anchor">Extras</a>
-    <a href="#container-reviews" class="btn btn-anchor">Reviews</a>
+    <a href="#container-reviews" class="btn btn-anchor">Commentaires</a>
   </div>
 
   <div id="container-station" class="container-anchor">
@@ -60,34 +50,45 @@
 
 
   <div id="container-reviews" class="container-anchor">
-    <h2>reviews</h2>
-    <%# <%= (sum.to_f / ( @station.reviews.count * 3 )).round(2) %>
+
+    <div class="title-reviews">
+      <h2>Commentaires </h2>
+      <h5 class="m-l p-t">
+        <i id= "star-average" class=" fas fa-star "></i>
+        <%= @average_rating %>
+        <span id="number-coms">(<%= @reviews.count %> commentaires)</span>
+      </h5>
+
+    </div>
+
     <div class="reviews-container">
 
       <div class="reviews">
 
-        <% @station.reviews.each do |review| %>
+        <% @reviews.each do |review| %>
           <div class="review">
-            <div class="d-flex">
-              <p><%= review.visitor_pseudo %> <%= (review.value_rating + review.ski_rating + review.value_rating) / 3%> stars</p>
-            </div>
-            <p><%= review.vibes_rating %> stars</p>
-            <p><%= review.ski_rating %> stars</p>
-            <p><%= review.value_rating %> stars</p>
+            <p><%= review.visitor_pseudo %></p>
+            <p>
+              <% Review::AUTHORIZED_RATINGS.each do |number| %>
+                <i class="fa<%= (number > review.rating) ? 'r' : 's' %> fa-star"></i>
+              <% end %>
+            </p>
           </div>
         <% end %>
 
       </div>
 
-
       <div class="form-review">
-
+        <h3>Laissez un commentaire</h3>
         <%= simple_form_for [@station, @review] do |f| %>
-          <%= f.input :visitor_pseudo %>
-          <%= f.input :vibes_rating, input_html: { min: 1, max: 5} %>
-          <%= f.input :ski_rating, input_html: { min: 1, max: 5} %>
-          <%= f.input :value_rating, input_html: { min: 1, max: 5} %>
-          <%= f.button :submit %>
+          <%= f.input :visitor_pseudo, label: "Votre pseudo" %>
+          <%= f.input :rating, as: :hidden  %>
+          <div class="my-3">
+            <% Review::AUTHORIZED_RATINGS.each do |index| %>
+              <i id="<%= index %>" class="review-rating far fa-star"></i>
+            <% end %>
+          </div>
+          <%= f.submit class: "btn", value: "Valider" %>
         <% end %>
 
       </div>
