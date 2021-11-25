@@ -140,7 +140,14 @@ la_plagne = Station.create!(
 val_isere = Station.create!(
   name: "Val d'Isère",
   address: "73150 Val d'Isère",
-  description: "",
+  description: "Val d'Isère - La station Implantée en fond de la Vallée de la Tarentaise (en Savoie), à quelques encablures seulement de sa voisine Tignes, la station de ski de Val d'Isère est aujourd’hui considérée comme l'une des meilleures destinations ski en France.
+  Val d’Isère doit avant tout sa notoriété à son panel de services de standing accessibles à tous. Élégance, qualité, bien-être y sont les mots d'ordre et attirent chaque hiver des skieurs venus de tous horizons pour profiter d’un domaine d’exception alliant des pistes olympiques et de Coupe du Monde, une multitude de spots de hors-piste et une très large variée de pistes.
+  Située à 1850m d’altitude, sa situation géographique et ses reliefs offrent de nombreuses possibilités pour aller explorer la montagne : des zones de ski de randonnée sont aménagées (balisées et sécurisées) pour skier sereinement, plusieurs activités hors-ski ont vu le jour afin de s’adapter à la situation actuelle (le VTT sur neige, le Moonbike, le Snooc, les minis motos neige, le golf sur neige, les balades en traineau à chiens) et bien-sûr les balades en raquettes, les visites guidées du village et les soins en institut. Les restaurants, étoilés pour certains, proposent un large choix de menus à emporter et/ou en livraison. De quoi recharger ses batteries, faire le plein d’oxygène et de grands espaces.
+  Les points forts de Val d’Isère :
+  • Son vaste choix de pistes variées jusqu’à haute altitude
+  • Le triptyque exposition + altitude + enneigement qui garantit une longue saison de ski de fin novembre à la première semaine de mai
+  • Ses hébergement skis aux pieds
+  • L’un des meilleurs domaines hors-pistes du monde",
   budget: "€€",
   alt_min: 1850,
   alt_max: 3456,

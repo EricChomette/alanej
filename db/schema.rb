@@ -51,11 +51,9 @@ ActiveRecord::Schema.define(version: 2021_11_25_105621) do
     t.string "bannerphoto"
     t.string "cardphoto"
     t.string "insee"
+    t.string "logo"
     t.string "lat"
     t.string "long"
-
-    t.string "logo"
-
   end
 
   add_foreign_key "conditions", "stations"
