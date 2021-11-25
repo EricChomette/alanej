@@ -64,13 +64,14 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
 }
 
 .Flag-array {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  padding: 10px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
 }
 
 .rating-alanej {
@@ -85,7 +86,10 @@
   width: 100%;
 }
 
-
+.fa-flag {
+  margin-top: 5px;
+  margin-left: 3px;
+}
 
 .card-station-name {
   color: black;

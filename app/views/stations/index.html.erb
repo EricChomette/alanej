@@ -29,23 +29,22 @@
               <div class="card-station-info">
                 <div class="card-station-factors">
 
-                    <p><%= @traj_temps[station.id] %> de trajet</p>
+                    <p><%= @traj_temps[station.id] %> de trajet (<%= @budget[station.id] %>€)</p>
                     <p>Météo: <%= @meteos[station.id] %></p>
 
                     <p>Enneigement:</p>
-                    <p>Budget:</p>
+                    <p>Budget: <%= station.budget %></p>
                 </div>
 
                 <div class="card-station-slops">
                   <div class="Flag-total">
-                    <p>Ouverture domaine skiable:</p>
-                    <p><%= station.total_slopes%> pistes ouvertes / <%= station.total_slopes%></p>
+                    <p><%= station.green_open_slopes + station.blue_open_slopes + station.red_open_slopes + station.black_open_slopes %> / <%= station.green_slopes + station.blue_slopes + station.red_slopes + station.black_slopes %> pistes ouvertes</p>
                   </div>
                   <div class="Flag-array">
-                    <p><i class="fas fa-flag green"></i>  <%= station.green_slopes %></p>
-                    <p><i class="fas fa-flag blue"></i>  <%= station.blue_slopes %></p>
-                    <p><i class="fas fa-flag red"></i>  <%= station.red_slopes %></p>
-                    <p><i class="fas fa-flag black"></i>  <%= station.black_slopes %></p>
+                    <p class="d-flex" ><%= station.green_open_slopes %> / <%= station.green_slopes %>  <i class="fas fa-flag green"></i></p>
+                    <p class="d-flex" ><%= station.blue_open_slopes %> / <%= station.blue_slopes %>  <i class="fas fa-flag blue"></i></p>
+                    <p class="d-flex" ><%= station.red_open_slopes %> / <%= station.red_slopes %>  <i class="fas fa-flag red"></i></p>
+                    <p class="d-flex" ><%= station.black_open_slopes %> / <%= station.black_slopes %>  <i class="fas fa-flag black"></i></p>
                   </div>
 
                 </div>
