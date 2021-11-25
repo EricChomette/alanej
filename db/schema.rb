@@ -27,9 +27,7 @@ ActiveRecord::Schema.define(version: 2021_11_25_102819) do
 
   create_table "reviews", force: :cascade do |t|
     t.string "visitor_pseudo"
-    t.integer "vibes_rating"
-    t.integer "ski_rating"
-    t.integer "value_rating"
+    t.integer "rating"
     t.bigint "station_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

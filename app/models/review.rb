@@ -1,10 +1,9 @@
 class Review < ApplicationRecord
+  AUTHORIZED_RATINGS = (1..5)
+
   belongs_to :station
 
   validates :visitor_pseudo, presence: true
-  validates :vibes_rating, presence: true
-  validates :ski_rating, presence: true
-  validates :value_rating, presence: true
+  validates :rating, inclusion: { in: AUTHORIZED_RATINGS }
   validates :station, presence: true
-
 end
