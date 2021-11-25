@@ -126,8 +126,8 @@ class StationsController < ApplicationController
     dates = (date_debut..date_fin)
     dates.each do |date|
       URI.open("https://api.meteo-concept.com/api/forecast/daily/#{date}/period/2?token=25b726a85bb8874026726594e8131564066e1794ef1e71a60a86f019e5e1968d&insee=#{station.insee}") do |stream|
-        forecast = JSON.parse(stream.read)['city']
-        return WEATHER[forecast['name']]
+        forecast = JSON.parse(stream.read)['forecast']
+        return WEATHER[forecast['weather']]
       end
     end
   end
