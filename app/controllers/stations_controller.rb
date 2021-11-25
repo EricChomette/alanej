@@ -97,18 +97,16 @@ class StationsController < ApplicationController
 
   def index
     @meteos = {}
-    @TrajTemps = {}
-    
+    @traj_temps = {}
+
     @stations = Station.all
-      
-    if (params[:start_date] != "") && (params[:end_date] != "")
-      @stations.each do |station|
+
+    @stations.each do |station|
+      if (params[:start_date] != "") && (params[:end_date] != "")
         @meteos[station.id] = meteo(station)
       end
-    end
-    if params[:city] != ""
-      @stations.each do |station|
-        @TrajTemps[station.id] = tmpTrajet(station)
+      if params[:city] != ""
+        @traj_temps[station.id] = tmpTrajet(station)
       end
     end
   end
@@ -117,7 +115,9 @@ class StationsController < ApplicationController
     @station = Station.find(params[:id])
     @review = Review.new
     @reviews = @station.reviews
-    @average_rating = @reviews.average(:rating).round(2)
+    if @reviews.count.positive?
+      @average_rating = @reviews.average(:rating).round(2)
+    end
   end
 
   def meteo(station)
@@ -126,8 +126,8 @@ class StationsController < ApplicationController
     dates = (date_debut..date_fin)
     dates.each do |date|
       URI.open("https://api.meteo-concept.com/api/forecast/daily/#{date}/period/2?token=25b726a85bb8874026726594e8131564066e1794ef1e71a60a86f019e5e1968d&insee=#{station.insee}") do |stream|
-        forecast = JSON.parse(stream.read)['forecast']
-        return WEATHER[forecast['weather']]
+        forecast = JSON.parse(stream.read)['city']
+        return WEATHER[forecast['name']]
       end
     end
   end
@@ -146,19 +146,19 @@ class StationsController < ApplicationController
   def time_conversion(minutes)
     hours = minutes / 60
     rest = minutes % 60
-    if rest < 10 
+    if rest < 10
       rest = "0#{rest}"
     end
-    return "#{hours}h#{rest}" 
+    return "#{hours}h#{rest}"
 end
   def tmpTrajet(station)
-    lnglat_start = findStartCoordonates() 
-    
+    lnglat_start = findStartCoordonates()
+
     URI.open("https://api.mapbox.com/directions/v5/mapbox/driving/#{lnglat_start[0]},#{lnglat_start[1]};#{station.long},#{station.lat}?geometries=geojson&access_token=pk.eyJ1IjoibWFlbHByIiwiYSI6ImNrd2RrM2U5bzBsc2Eyb24xYXB0cnJscW8ifQ.iFKMjM3OFf6oUgyejjfq8Q") do |stream|
       trajet = JSON.parse(stream.read)["routes"]
       trajet_Duration = trajet[0]["duration"]
       trajet_Longueur = trajet[0]["distance"]
-      
+
       trajet_Duration = trajet_Duration / 60
       trajet_Duration = trajet_Duration.to_i
       trajet_Longueur = trajet_Longueur / 1000
@@ -167,7 +167,7 @@ end
       budget_car =  budget_car.to_i
       return time_conversion(trajet_Duration)
       end
-      
-    
-  end  
+
+
+  end
 end

@@ -1,8 +1,8 @@
-
 import * as THREE from 'three';
-
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+
+const createBackground = () => {
 const canva = document.getElementById("bg");
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight , 0.1,2000);
@@ -34,7 +34,7 @@ console.log(time);
 
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector('#bg'), antialias: true ,alpha: true
-  
+
 });
 
 
@@ -81,7 +81,7 @@ snows.push(snow)
 scene.add(snow);
 }
 function activebutton(){
-  
+
 }
 function setnight(){
   canva.classList.remove("rise-set");
@@ -137,7 +137,7 @@ function setset(){
 function Deftheme(){
   if(time >= 0 && time <= 6 ){
   setnight();
-  
+
 }
 if(time > 6 &&  time < 9 ){
  setrise();
@@ -187,13 +187,13 @@ sun_ico.addEventListener('click', function() {
     gltf.scene.translateY(-16)
     object.push(gltf.scene) ;
     let modell =  gltf.scene;
-  
+
     scene.add( modell );
-  
+
   }, undefined, function ( error ) {
-  
+
     console.error( error );
-  
+
   } );
   Deftheme();
  });
@@ -210,13 +210,13 @@ sun_ico.addEventListener('click', function() {
     gltf.scene.translateY(-16)
     object.push(gltf.scene) ;
     let modell =  gltf.scene;
-  
+
     scene.add( modell );
-  
+
   }, undefined, function ( error ) {
-  
+
     console.error( error );
-  
+
   } );
   Deftheme();
  });
@@ -232,13 +232,13 @@ sun_ico.addEventListener('click', function() {
     gltf.scene.translateY(-16)
     object.push(gltf.scene) ;
     let modell =  gltf.scene;
-  
+
     scene.add( modell );
-  
+
   }, undefined, function ( error ) {
-  
+
     console.error( error );
-  
+
   } );
   Deftheme();
  });
@@ -254,13 +254,13 @@ sun_ico.addEventListener('click', function() {
     gltf.scene.translateY(-16)
     object.push(gltf.scene) ;
     let modell =  gltf.scene;
-  
+
     scene.add( modell );
-  
+
   }, undefined, function ( error ) {
-  
+
     console.error( error );
-  
+
   } );
   Deftheme();
  });
@@ -287,9 +287,24 @@ function animate() {
     camera.rotateOnAxis( 5 );
 
   controls.update();
-  
+
   renderer.render(scene,camera);
 }
 animate()
 console.log(camera.position);
 
+
+}
+
+
+
+
+const initBackgroundHomePage = () => {
+
+  if (document.querySelector('#bg')) {
+    createBackground()
+  }
+}
+
+
+export { initBackgroundHomePage };
