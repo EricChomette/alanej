@@ -7,6 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Station.destroy_all
 
+
+
+
+
 villard_de_lans = Station.create!(
   name: 'Villard de Lans',
   address: '62 Pl. Pierre Chabert, 38250 Villard-de-Lans',
@@ -22,6 +26,8 @@ villard_de_lans = Station.create!(
   insee: "38548",
   cardphoto: "https://www.isere-tourisme.com/sites/default/files/sitra/445089_625778.jpg",
   bannerphoto: "https://docs.ski-planet.com/stations/source/20831.jpg",
+  lat: "45.046258",
+  long:"5.557192",
   logo: "https://cdn-s-www.ledauphine.com/images/3B8C29C7-F38B-4A54-B500-7A6C21977D93/NW_raw/le-nouveau-logo-des-deux-stations-photo-le-dl-noel-coolen-1633098536.jpg"
 )
 
@@ -40,6 +46,8 @@ les_arcs = Station.create!(
   insee: "73054",
   cardphoto: "https://resize-elle.ladmedia.fr/rcrop/638,,forcex/img/var/plain_site/storage/images/loisirs/evasion/que-faire-aux-arcs/76922096-2-fre-FR/Que-faire-aux-Arcs.jpg",
   bannerphoto: "https://www.skieur.com/media/guide_station/img/arc_2000%C2%A9andyparant_1.jpg",
+  lat: "45.616770",
+  long: "6.769290",
   logo: "https://upload.wikimedia.org/wikipedia/commons/c/c6/Logo_officiel_de_la_station_de_ski_des_Arcs.jpg"
 )
 
@@ -60,6 +68,8 @@ serre_che = Station.create!(
   insee: "05161",
   cardphoto: "https://www.yonder.fr/sites/default/files/destinations/serre%20chevalier%20figure%20snow%20Serre%20Chevalier%20Vall%C3%A9e%20Brian%C3%A7on%20-%20%40laurapeythieu.jpg",
   bannerphoto: "https://www.terresens.com/wp-content/uploads/2018/03/Thibaut_Blais2.jpg",
+  lat: "44.946249",
+  long:"6.558491",
   logo: "https://www.e-briancon.com/wp-content/uploads/2017/08/logo-serre-chevalier.jpg"
 )
 
@@ -80,6 +90,8 @@ autrans = Station.create!(
   insee: "38225",
   cardphoto: "https://autrans-meaudre.com/wp-content/uploads/2014/10/autrans-meaudre_najo-grez-11_1500.jpg",
   bannerphoto: "https://vcdn.bergfex.at/images/resized/f3/925905e55a0a66f3_868f96f4c582a335@2x.jpg",
+    lat: "45.229519",
+    long: "5.581669",
   logo: "https://www.agopop.fr/wp-content/uploads/2021/02/logo-AUTRANS-MEAUDRE-verti-Rg.png"
 )
 
@@ -413,5 +425,6 @@ les_gets = Station.create!(
   bannerphoto: "https://hunterchalets.com/wp-content/uploads/2020/05/Copyright-JM.Baud_OTLesGets-1024x578.jpg",
   logo: "https://www.lesgets.com/app/uploads/2020/02/logo-gets-bleu.png"
 )
+
 
 puts "#{Station.count} stations has been created"
