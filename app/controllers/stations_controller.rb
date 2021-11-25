@@ -108,6 +108,8 @@ class StationsController < ApplicationController
   def show
     @station = Station.find(params[:id])
     @review = Review.new
+    @reviews = @station.reviews
+    @average_rating = @reviews.average(:rating).round(2)
   end
 
   def meteo(station)
