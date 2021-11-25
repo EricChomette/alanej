@@ -97,10 +97,18 @@ class StationsController < ApplicationController
 
   def index
     @meteos = {}
+    @TrajTemps = {}
+    
     @stations = Station.all
+      
     if (params[:start_date] != "") && (params[:end_date] != "")
       @stations.each do |station|
         @meteos[station.id] = meteo(station)
+      end
+    end
+    if params[:city] != ""
+      @stations.each do |station|
+        @TrajTemps[station.id] = tmpTrajet(station)
       end
     end
   end
@@ -123,4 +131,43 @@ class StationsController < ApplicationController
       end
     end
   end
+
+  def findStartCoordonates()
+    coordonates = []
+    url = "https://api.myptv.com/geocoding/v1/locations/by-text?searchText=#{params[:city]}&apiKey=NDNlYzA1M2M2YTBiNGU1YWIwMDI3NjJmZTZjZjUzNTI6MDU0NzgyOTYtMTgwZi00NTliLTg5NzYtMjA2YmEyODA3YjYw"
+    url = url.chars.map { |char| char.ascii_only? ? char : CGI.escape(char) }.join
+    URI.open(url) do |stream|
+      row = JSON.parse(stream.read)
+      coordonates.push(row["locations"][0]["referencePosition"]["longitude"])
+      coordonates.push(row["locations"][0]["referencePosition"]["latitude"])
+      return coordonates
+    end
+  end
+  def time_conversion(minutes)
+    hours = minutes / 60
+    rest = minutes % 60
+    if rest < 10 
+      rest = "0#{rest}"
+    end
+    return "#{hours}h#{rest}" 
+end
+  def tmpTrajet(station)
+    lnglat_start = findStartCoordonates() 
+    
+    URI.open("https://api.mapbox.com/directions/v5/mapbox/driving/#{lnglat_start[0]},#{lnglat_start[1]};#{station.long},#{station.lat}?geometries=geojson&access_token=pk.eyJ1IjoibWFlbHByIiwiYSI6ImNrd2RrM2U5bzBsc2Eyb24xYXB0cnJscW8ifQ.iFKMjM3OFf6oUgyejjfq8Q") do |stream|
+      trajet = JSON.parse(stream.read)["routes"]
+      trajet_Duration = trajet[0]["duration"]
+      trajet_Longueur = trajet[0]["distance"]
+      
+      trajet_Duration = trajet_Duration / 60
+      trajet_Duration = trajet_Duration.to_i
+      trajet_Longueur = trajet_Longueur / 1000
+      trajet_Longueur = trajet_Longueur.to_i
+      budget_car =  trajet_Longueur * 0.246559
+      budget_car =  budget_car.to_i
+      return time_conversion(trajet_Duration)
+      end
+      
+    
+  end  
 end
