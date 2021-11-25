@@ -1,6 +1,5 @@
 require "uri"
 require "net/http"
-require "awesome_print"
 require "json"
 require 'open-uri'
 
@@ -112,14 +111,11 @@ INSEE = {
 
 ### test
 
-URI.open("https://api.meteo-concept.com/api/forecast/daily/4?token=25b726a85bb8874026726594e8131564066e1794ef1e71a60a86f019e5e1968d&insee=13055") do |stream|
-  forecast = JSON.parse(stream.read)['forecast']
-  puts "météo : #{WEATHER[forecast['weather']]}"
-  meteo = WEATHER[forecast['weather']]
-  puts "la probabilité de gel est de #{forecast['probafrost']} %"
-  probagel = forecast['probafrost']
-  puts "la probabilité de brouillard est de #{forecast['probafog']} %"
-  probabrouillard = forecast['probafog']
-  puts "la probabilité de pluie est de #{forecast['probarain']} %"
-  probapluie = forecast['probarain']
+URI.open("https://api.meteo-concept.com/api/forecast/daily/4?token=25b726a85bb8874026726594e8131564066e1794ef1e71a60a86f019e5e1968d&insee=74134") do |stream|
+  p JSON.parse(stream.read)['city']['name']
+  # puts "météo : #{WEATHER[forecast['weather']]}"
+  # meteo = WEATHER[forecast['weather']]
+  # probagel = forecast['probafrost']
+  # probabrouillard = forecast['probafog']
+
 end
