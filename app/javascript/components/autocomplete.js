@@ -1,4 +1,5 @@
 const places = require("places.js")
+
 const initAutocomplete = () => {
   if (document.querySelector('#query_city')) {
     var placesAutocomplete = places({
