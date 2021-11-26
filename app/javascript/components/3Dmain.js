@@ -12,6 +12,7 @@ const sun_ico = document.getElementById("sun-ico");
 const sunrise_ico = document.getElementById("sunrise-ico");
 const sunset_ico = document.getElementById("sunset-ico");
 const night_ico = document.getElementById("night-ico");
+const btnload = document.querySelector("#goAnim");
 let modell = "Global Variable";
 let today = new Date();
 let time = today.getHours();
@@ -43,7 +44,7 @@ renderer.setSize(window.innerWidth, window.innerHeight - 7 );
 renderer.outputEncoding = THREE.sRGBEncoding;
 renderer.setClearColor( 0x000000, 0 );
 
-camera.position.set( 50, -9, 20);
+camera.position.set( -20, -9, 54);
 
 
 const object = []  ;
@@ -177,6 +178,8 @@ Deftheme();
 //const gridHelper = new THREE.GridHelper(200,50);
 //scene.add(gridHelper)
 
+
+
 sun_ico.addEventListener('click', function() {
   sun_ico_trigger = true;
   scene.clear();
@@ -270,8 +273,12 @@ sun_ico.addEventListener('click', function() {
 
 const controls = new OrbitControls(camera,renderer.domElement);
 
-controls.autoRotate = true;
-controls.autoRotateSpeed = 1.5;
+btnload.addEventListener("click", function(){
+  controls.autoRotate = true;
+  controls.autoRotateSpeed = 1.5;
+  console.log(camera.position);
+
+});
 
 
 

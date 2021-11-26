@@ -1,0 +1,36 @@
+.load-container{
+    position: absolute;
+    top: 5%;
+    left: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px auto;
+    width: 40%;
+    height: 50%;
+    opacity:0;
+ 
+}
+.load-text{
+    color:rgb(0, 15, 6);
+    font-weight: bold;
+    font-size: 4vh;
+}
+.elementToFadeIn {
+    animation: fadeIn 1s ease forwards;
+}
+.elementToFadeOut {
+    animation: fadeOut 1.2s ease forwards;
+}
+
+@keyframes fadeIn {
+ 0% { opacity:1; }
+
+  100% { opacity:0; transform:translateY(150px); } 
+}
+@keyframes fadeOut {
+ 0% { opacity:0; }
+
+  100% { opacity:1; transform:translateY(160px); } 
+}
