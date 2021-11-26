@@ -259,6 +259,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (~> 3.2)
   momentjs-rails
+  nokogiri
   pg (>= 0.18, < 2.0)
   pry-byebug
   pry-rails
