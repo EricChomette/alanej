@@ -53,55 +53,55 @@ les_arcs = Station.create!(
   logo: "https://upload.wikimedia.org/wikipedia/commons/c/c6/Logo_officiel_de_la_station_de_ski_des_Arcs.jpg"
 )
 
-serre_che = Station.create!(
-  name: "Serre Chevalier",
-  address: "Le, Rte de Pré-Long, 05240 La Salle-les-Alpes",
-  description: "Située à proximité du Parc national des Ecrins, Serre Chevalier Vallée est le regroupement de la ville de Briançon (ville inscrite au patrimoine mondial de l'UNESCO) et de 3 villages : Saint-Chaffrey/Chantemerle, Villeneuve/La Salle les Alpes et le Monêtier les Bains.
-  Avec 250 km de pistes, Serre Chevalier Vallée est le 1er domaine non relié français. Des pistes adaptées pour toutes les glisses, du ski en vallon ou en forêt de mélèzes, des ambiances haute montagne avec des hors pistes de renom, confèrent à cette station un caractère sportif et ludique.
-  Labellisée «Famille plus», Serre Chevalier propose plus de confort pour l'accueil des familles. Au-delà d'un accueil personnalisé, des activités à vivre ensemble ou séparément sont proposées, des animations et des événements adaptés pour tous les âges sont organisés toute la saison et des tarifs réduits permettent à la famille de profiter de son séjour.",
-  budget: "€€",
-  alt_min: 1200,
-  alt_max: 2830,
-  green_slopes: 13,
-  green_open_slopes: 11,
-  blue_slopes: 26,
-  blue_open_slopes: 23,
-  red_slopes: 29,
-  red_open_slopes: 28,
-  black_slopes: 13,
-  black_open_slopes: 7,
-  insee: "05161",
-  cardphoto: "https://www.yonder.fr/sites/default/files/destinations/serre%20chevalier%20figure%20snow%20Serre%20Chevalier%20Vall%C3%A9e%20Brian%C3%A7on%20-%20%40laurapeythieu.jpg",
-  bannerphoto: "https://www.terresens.com/wp-content/uploads/2018/03/Thibaut_Blais2.jpg",
-  lat: "44.946249",
-  long: "6.558491",
-  logo: "https://www.e-briancon.com/wp-content/uploads/2017/08/logo-serre-chevalier.jpg"
-)
+# serre_che = Station.create!(
+#   name: "Serre Chevalier",
+#   address: "Le, Rte de Pré-Long, 05240 La Salle-les-Alpes",
+#   description: "Située à proximité du Parc national des Ecrins, Serre Chevalier Vallée est le regroupement de la ville de Briançon (ville inscrite au patrimoine mondial de l'UNESCO) et de 3 villages : Saint-Chaffrey/Chantemerle, Villeneuve/La Salle les Alpes et le Monêtier les Bains.
+#   Avec 250 km de pistes, Serre Chevalier Vallée est le 1er domaine non relié français. Des pistes adaptées pour toutes les glisses, du ski en vallon ou en forêt de mélèzes, des ambiances haute montagne avec des hors pistes de renom, confèrent à cette station un caractère sportif et ludique.
+#   Labellisée «Famille plus», Serre Chevalier propose plus de confort pour l'accueil des familles. Au-delà d'un accueil personnalisé, des activités à vivre ensemble ou séparément sont proposées, des animations et des événements adaptés pour tous les âges sont organisés toute la saison et des tarifs réduits permettent à la famille de profiter de son séjour.",
+#   budget: "€€",
+#   alt_min: 1200,
+#   alt_max: 2830,
+#   green_slopes: 13,
+#   green_open_slopes: 11,
+#   blue_slopes: 26,
+#   blue_open_slopes: 23,
+#   red_slopes: 29,
+#   red_open_slopes: 28,
+#   black_slopes: 13,
+#   black_open_slopes: 7,
+#   insee: "05161",
+#   cardphoto: "https://www.yonder.fr/sites/default/files/destinations/serre%20chevalier%20figure%20snow%20Serre%20Chevalier%20Vall%C3%A9e%20Brian%C3%A7on%20-%20%40laurapeythieu.jpg",
+#   bannerphoto: "https://www.terresens.com/wp-content/uploads/2018/03/Thibaut_Blais2.jpg",
+#   lat: "44.946249",
+#   long: "6.558491",
+#   logo: "https://www.e-briancon.com/wp-content/uploads/2017/08/logo-serre-chevalier.jpg"
+# )
 
-autrans = Station.create!(
-  name: "Domaine alpin Autrans",
-  address: "D218, 38880 Autrans",
-  description: "Située en Isère (région Auvergne-Rhône-Alpes), dans le secteur septentrional du massif du Vercors, localement appelé « Les Quatre-Montagnes » ou encore « Le Val d’Autrans - Méaudre», à proximité de Grenoble (40 km), de Valence et de Lyon, la station-village d’Autrans - Méaudre en Vercors attire les familles et les débutants de par son domaine skiable au relief doux et son architecture montagnarde.
-  Au sein du Parc Naturel Régional du Vercors et entouré des sommets de moyenne altitude de La Sure, du Bec d'Orient, du sommet de Plénouze et de La Molière, le domaine skiable propose 35 pistes sur 2 domaines distincts accessibles avec le même forfait (Autrans - La Sure et Méaudre - Village).
-  L'Espace nordique d’Autrans - Méaudre en Vercors propose quant à lui 200 km de pistes, soit un des plus importants sites d’Europe pour la pratique du ski de fond, de la randonnée nordique, de chiens de traîneaux ou encore de la marche nordique sur neige.",
-  budget: "€",
-  alt_min: 1050,
-  alt_max: 1650,
-  green_slopes: 5,
-  green_open_slopes: 4,
-  blue_slopes: 4,
-  blue_open_slopes: 4,
-  red_slopes: 4,
-  red_open_slopes: 3,
-  black_slopes: 2,
-  black_open_slopes: 2,
-  insee: "38225",
-  cardphoto: "https://autrans-meaudre.com/wp-content/uploads/2014/10/autrans-meaudre_najo-grez-11_1500.jpg",
-  bannerphoto: "https://vcdn.bergfex.at/images/resized/f3/925905e55a0a66f3_868f96f4c582a335@2x.jpg",
-  lat: "45.229519",
-  long: "5.581669",
-  logo: "https://www.agopop.fr/wp-content/uploads/2021/02/logo-AUTRANS-MEAUDRE-verti-Rg.png"
-)
+# autrans = Station.create!(
+#   name: "Domaine alpin Autrans",
+#   address: "D218, 38880 Autrans",
+#   description: "Située en Isère (région Auvergne-Rhône-Alpes), dans le secteur septentrional du massif du Vercors, localement appelé « Les Quatre-Montagnes » ou encore « Le Val d’Autrans - Méaudre», à proximité de Grenoble (40 km), de Valence et de Lyon, la station-village d’Autrans - Méaudre en Vercors attire les familles et les débutants de par son domaine skiable au relief doux et son architecture montagnarde.
+#   Au sein du Parc Naturel Régional du Vercors et entouré des sommets de moyenne altitude de La Sure, du Bec d'Orient, du sommet de Plénouze et de La Molière, le domaine skiable propose 35 pistes sur 2 domaines distincts accessibles avec le même forfait (Autrans - La Sure et Méaudre - Village).
+#   L'Espace nordique d’Autrans - Méaudre en Vercors propose quant à lui 200 km de pistes, soit un des plus importants sites d’Europe pour la pratique du ski de fond, de la randonnée nordique, de chiens de traîneaux ou encore de la marche nordique sur neige.",
+#   budget: "€",
+#   alt_min: 1050,
+#   alt_max: 1650,
+#   green_slopes: 5,
+#   green_open_slopes: 4,
+#   blue_slopes: 4,
+#   blue_open_slopes: 4,
+#   red_slopes: 4,
+#   red_open_slopes: 3,
+#   black_slopes: 2,
+#   black_open_slopes: 2,
+#   insee: "38225",
+#   cardphoto: "https://autrans-meaudre.com/wp-content/uploads/2014/10/autrans-meaudre_najo-grez-11_1500.jpg",
+#   bannerphoto: "https://vcdn.bergfex.at/images/resized/f3/925905e55a0a66f3_868f96f4c582a335@2x.jpg",
+#   lat: "45.229519",
+#   long: "5.581669",
+#   logo: "https://www.agopop.fr/wp-content/uploads/2021/02/logo-AUTRANS-MEAUDRE-verti-Rg.png"
+# )
 
 # valloire = Station.create!(
 #   name: "Valloire",

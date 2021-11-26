@@ -14,57 +14,63 @@
     <% @stations.each do |station| %>
       <div class="container-card-station">
         <%= link_to station_path(station, city: params[:city], start_date: params[:start_date], end_date: params[:end_date]) do %>
-          <div class="card-station">
+          <div class="card-debug">
+            <div class="card-station">
 
-            <div class="card-station-img">
-              <img class="image-card-index" src="<%= station.cardphoto %>" alt="Photo de la station">
-            </div>
-
-            <div class="card-description">
-
-              <div class="card-station-name">
-                <h3><strong><%= station.name%></strong></h3>
+              <div class="card-station-img">
+                <img class="image-card-index" src="<%= station.cardphoto %>" alt="Photo de la station">
               </div>
 
-              <div class="card-station-info">
-                <div class="card-station-factors">
+              <div class="card-description">
 
-                    <p><%= @traj_temps[station.id] %> de trajet (<%= @budget[station.id] %>€)</p>
-                    <p>Météo: <%= @meteos[station.id] %></p>
-
-                    <p>Enneigement:</p>
-
-                    <% if station.budget == "€"%>
-                      <p>Budget: <i class="fas fa-euro-sign"></i></p>
-                    <% elsif station.budget == "€€"%>
-                      <p>Budget: <i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
-                    <% else %>
-                      <p>Budget: <i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
-                    <% end %>
+                <div class="card-station-name">
+                  <h3><strong><%= station.name%></strong></h3>
                 </div>
 
-                <div class="card-station-slops">
-                  <div class="Flag-total">
-                    <p><%= station.green_open_slopes + station.blue_open_slopes + station.red_open_slopes + station.black_open_slopes %> / <%= station.green_slopes + station.blue_slopes + station.red_slopes + station.black_slopes %> pistes ouvertes</p>
+                <div class="card-station-info">
+                  <div class="card-station-factors">
+
+                      <p>
+                        <%= @traj_temps[station.id] %> de trajet
+                        <%# <%= @budget[station.id] %>
+                      </p>
+
+                      <p>Météo: <%= @meteos[station.id] %></p>
+
+                      <p>Enneigement:</p>
+
+                      <% if station.budget == "€"%>
+                        <p>Budget: <i class="fas fa-euro-sign"></i></p>
+                      <% elsif station.budget == "€€"%>
+                        <p>Budget: <i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
+                      <% else %>
+                        <p>Budget: <i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
+                      <% end %>
                   </div>
-                  <div class="Flag-array">
-                    <p class="d-flex" ><%= station.green_open_slopes %> / <%= station.green_slopes %>  <i class="fas fa-flag green"></i></p>
-                    <p class="d-flex" ><%= station.blue_open_slopes %> / <%= station.blue_slopes %>  <i class="fas fa-flag blue"></i></p>
-                    <p class="d-flex" ><%= station.red_open_slopes %> / <%= station.red_slopes %>  <i class="fas fa-flag red"></i></p>
-                    <p class="d-flex" ><%= station.black_open_slopes %> / <%= station.black_slopes %>  <i class="fas fa-flag black"></i></p>
+
+                  <div class="card-station-slops">
+                    <div class="Flag-total">
+                      <p><%= station.green_open_slopes + station.blue_open_slopes + station.red_open_slopes + station.black_open_slopes %> / <%= station.green_slopes + station.blue_slopes + station.red_slopes + station.black_slopes %> pistes ouvertes</p>
+                    </div>
+                    <div class="Flag-array">
+                      <p class="d-flex" ><%= station.green_open_slopes %> / <%= station.green_slopes %>  <i class="fas fa-flag green"></i></p>
+                      <p class="d-flex" ><%= station.blue_open_slopes %> / <%= station.blue_slopes %>  <i class="fas fa-flag blue"></i></p>
+                      <p class="d-flex" ><%= station.red_open_slopes %> / <%= station.red_slopes %>  <i class="fas fa-flag red"></i></p>
+                      <p class="d-flex" ><%= station.black_open_slopes %> / <%= station.black_slopes %>  <i class="fas fa-flag black"></i></p>
+                    </div>
+
                   </div>
 
                 </div>
+
 
               </div>
 
+              <div class="rating-alanej">
+                <%= image_tag 'rating5.png' , :class => "img_rating" %>
+              </div>
 
             </div>
-
-            <div class="rating-alanej">
-              <%= image_tag 'rating5.png' , :class => "img_rating" %>
-            </div>
-
           </div>
 
         <% end %>

@@ -6,8 +6,9 @@
   align-items: center;
   position: sticky;
   top: 0;
-  background-color: white;
+  background-color: rgba(245, 253, 255, 0.705);
   height: 50px;
+  backdrop-filter: blur(8px);
 }
 
 .container-anchor {

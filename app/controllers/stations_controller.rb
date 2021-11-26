@@ -92,7 +92,7 @@ class StationsController < ApplicationController
     230 => "Pluie et neige mêlées",
     231 => "Pluie et neige mêlées",
     232 => "Pluie et neige mêlées",
-    235 => "Averses de grêle",
+    235 => "Averses de grêle"
   }
 
   def index
@@ -103,13 +103,10 @@ class StationsController < ApplicationController
     @stations = Station.all
 
     @stations.each do |station|
-      if (params[:start_date] != "") && (params[:end_date] != "")
-        @meteos[station.id] = meteo(station)
-      end
-      if params[:city] != ""
-        @traj_temps[station.id] = tmp_trajet(station)
-        @budget[station.id] = budget(station)
-      end
+      @meteos[station.id] = meteo(station) unless (params[:start_date] == "") && (params[:end_date] == "")
+
+      @traj_temps[station.id] = tmp_trajet(station) unless params[:city] == ""
+      # @budget[station.id] = budget(station) unless params[:city] == ""
     end
   end
 
@@ -118,7 +115,7 @@ class StationsController < ApplicationController
     date_fin = params[:end_date].split("-").last.to_i - Time.now.day
     dates = (date_debut..date_fin)
     dates.each do |date|
-      URI.open("https://api.meteo-concept.com/api/forecast/daily/#{date}/period/2?token=25b726a85bb8874026726594e8131564066e1794ef1e71a60a86f019e5e1968d&insee=#{station.insee}") do |stream|
+      URI.open("https://api.meteo-concept.com/api/forecast/daily/#{date}/period/2?token=2795e22b8eab493448975973cfc123f39c329acb1adbc901e2c0b257059bc02f&insee=#{station.insee}") do |stream|
         forecast = JSON.parse(stream.read)['forecast']
         return WEATHER[forecast['weather']]
       end
@@ -130,53 +127,47 @@ class StationsController < ApplicationController
     @review = Review.new
     @reviews = @station.reviews
 
-    if @reviews.count.positive?
-      @average_rating = @reviews.average(:rating).round(2)
-    end
-    if (params[:start_date] != "") && (params[:end_date] != "")
-      date_debut = params[:start_date].split("-").last.to_i - Time.now.day
-      date_fin = params[:end_date].split("-").last.to_i - Time.now.day
+    @average_rating = @reviews.average(:rating).round(2) if @reviews.count.positive?
+
+    unless (params[:start_date] == "") || (params[:end_date] == "")
       @weathers = {}
       @proba_frosts = {}
       @proba_rains = {}
       @proba_fogs = {}
-      @dates = (date_debut..date_fin)
+      @dates = ((params[:start_date].split("-").last.to_i - Time.now.day)..(params[:end_date].split("-").last.to_i - Time.now.day))
       @dates.each do |date|
         @weathers[date] = meteo_show(date, @station)
         @proba_frosts[date] = frost_show(date, @station)
         @proba_rains[date] = rain_show(date, @station)
         @proba_fogs[date] = fog_show(date, @station)
       end
+    end
+  end
 
+  def find_forecast(date, station)
+    URI.open("https://api.meteo-concept.com/api/forecast/daily/#{date}/period/2?token=2795e22b8eab493448975973cfc123f39c329acb1adbc901e2c0b257059bc02f&insee=#{station.insee}") do |stream|
+      return JSON.parse(stream.read)['forecast']
     end
   end
 
   def meteo_show(date, station)
-    URI.open("https://api.meteo-concept.com/api/forecast/daily/#{date}/period/2?token=25b726a85bb8874026726594e8131564066e1794ef1e71a60a86f019e5e1968d&insee=#{station.insee}") do |stream|
-      forecast = JSON.parse(stream.read)['forecast']
-      return (WEATHER[forecast['weather']])
-    end
+    forecast = find_forecast(date, station)
+    return (WEATHER[forecast['weather']])
   end
 
   def frost_show(date, station)
-    URI.open("https://api.meteo-concept.com/api/forecast/daily/#{date}/period/2?token=25b726a85bb8874026726594e8131564066e1794ef1e71a60a86f019e5e1968d&insee=#{station.insee}") do |stream|
-      forecast = JSON.parse(stream.read)['forecast']
-      return forecast['probafrost']
-    end
+    forecast = find_forecast(date, station)
+    return forecast['probafrost']
   end
 
   def rain_show(date, station)
-    URI.open("https://api.meteo-concept.com/api/forecast/daily/#{date}/period/2?token=25b726a85bb8874026726594e8131564066e1794ef1e71a60a86f019e5e1968d&insee=#{station.insee}") do |stream|
-      forecast = JSON.parse(stream.read)['forecast']
-      return forecast['probarain']
-    end
+    forecast = find_forecast(date, station)
+    return forecast['probarain']
   end
 
   def fog_show(date, station)
-    URI.open("https://api.meteo-concept.com/api/forecast/daily/#{date}/period/2?token=25b726a85bb8874026726594e8131564066e1794ef1e71a60a86f019e5e1968d&insee=#{station.insee}") do |stream|
-      forecast = JSON.parse(stream.read)['forecast']
-      return forecast['probafog']
-    end
+    forecast = find_forecast(date, station)
+    return forecast['probafog']
   end
 
   def find_start_coordonates
@@ -194,9 +185,7 @@ class StationsController < ApplicationController
   def time_conversion(minutes)
     hours = minutes / 60
     rest = minutes % 60
-    if rest < 10
-      rest = "0#{rest}"
-    end
+    rest = "0#{rest}" if rest < 10
     return "#{hours}h#{rest}"
   end
 
@@ -208,7 +197,6 @@ class StationsController < ApplicationController
       trajet_duration = (trajet[0]["duration"] / 60).to_i
       return time_conversion(trajet_duration)
     end
-
   end
 
   def budget(station)
@@ -216,8 +204,7 @@ class StationsController < ApplicationController
 
     URI.open("https://api.mapbox.com/directions/v5/mapbox/driving/#{lnglat_start[0]},#{lnglat_start[1]};#{station.long},#{station.lat}?geometries=geojson&access_token=pk.eyJ1IjoibWFlbHByIiwiYSI6ImNrd2RrM2U5bzBsc2Eyb24xYXB0cnJscW8ifQ.iFKMjM3OFf6oUgyejjfq8Q") do |stream|
       trajet = JSON.parse(stream.read)["routes"]
-      budget_car = (trajet[0]["distance"] / 1000 * 0.246559).to_i
-      return budget_car
+      return (trajet[0]["distance"] / 1000 * 0.246559).to_i
     end
   end
 end
