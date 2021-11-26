@@ -25,8 +25,10 @@ require("channels")
 import "bootstrap";
 import "three";
 // Internal imports, e.g:
+
 import { initBackgroundHomePage } from '../components/3Dmain';
 import { initAutocomplete } from '../components/autocomplete';
+
 import { dynamicRating } from "../plugins/starsInReviewForm";
 
 // import { initSelect2 } from '../components/init_select2';
