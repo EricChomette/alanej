@@ -28,7 +28,7 @@ import "three";
 
 import { initBackgroundHomePage } from '../components/3Dmain';
 import { initAutocomplete } from '../components/autocomplete';
-import {} from '../components/addClassToBtn';
+import {loading} from '../components/addClassToBtn';
 import { dynamicRating } from "../plugins/starsInReviewForm";
 
 import { initSortable } from '../components/sortable';
@@ -40,7 +40,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   dynamicRating();
   initBackgroundHomePage();
-  initSortable();
+  loading();
   initAutocomplete();
 
 });
