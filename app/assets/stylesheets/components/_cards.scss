@@ -1,19 +1,29 @@
 
 
 .card-station {
-  margin-top: 40px;
+  transition: 0.3s;
   text-decoration: none;
-  border-radius: 10px;
+  border-radius: 12px;
   display: flex;
   color: black;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  margin-top: 40px;
+  width: 95%;
+  height: 228px;
+  &:hover {
+    transition: 0.3s;
+    width: 96%;
+    height: 230px;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.275);
+  }
 }
 .container-card-station > a {
   text-decoration: none;
 }
 
 .card-station-img {
-  width: 30%;
+  width: 296px;
   padding: 10px;
   height: 100%;
 }

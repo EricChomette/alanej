@@ -33,7 +33,14 @@
                     <p>Météo: <%= @meteos[station.id] %></p>
 
                     <p>Enneigement:</p>
-                    <p>Budget: <%= station.budget %></p>
+
+                    <% if station.budget == "€"%>
+                      <p>Budget: <i class="fas fa-euro-sign"></i></p>
+                    <% elsif station.budget == "€€"%>
+                      <p>Budget: <i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
+                    <% else %>
+                      <p>Budget: <i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
+                    <% end %>
                 </div>
 
                 <div class="card-station-slops">
