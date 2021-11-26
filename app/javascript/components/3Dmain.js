@@ -113,11 +113,11 @@ function setday(){
   canva.classList.remove("rise-set");
   canva.classList.add("day");
 
-  const pointLight = new THREE.PointLight(0xfffbcf);
+  const pointLight = new THREE.PointLight(0xe7e4cc);
   pointLight.position.set(120,45,53);
   pointLight.intensity = 1;
 
-  const ambientLight = new THREE.AmbientLight(0xfffbcf);
+  const ambientLight = new THREE.AmbientLight(0xe7e4cc);
   scene.add(pointLight, ambientLight);
 }
 
@@ -181,7 +181,7 @@ sun_ico.addEventListener('click', function() {
   sun_ico_trigger = true;
   scene.clear();
   time = 10;
-  loader.load( 'SAPINS.glb', function ( gltf ) {
+  loader.load( 'Montagne.glb', function ( gltf ) {
     gltf.scene.scale.set(6,6,6)
     gltf.scene.translateX(-150)
     gltf.scene.translateZ(-16)
@@ -204,7 +204,7 @@ sun_ico.addEventListener('click', function() {
   sunrise_ico_trigger = true;
   scene.clear();
   time = 7;
-  loader.load( 'SAPINS.glb', function ( gltf ) {
+  loader.load( 'Montagne.glb', function ( gltf ) {
     gltf.scene.scale.set(6,6,6)
     gltf.scene.translateX(-150)
     gltf.scene.translateZ(-16)
@@ -226,7 +226,7 @@ sun_ico.addEventListener('click', function() {
   sun_ico_trigger = true;
   scene.clear();
   time = 17;
-  loader.load( 'SAPINS.glb', function ( gltf ) {
+  loader.load( 'Montagne.glb', function ( gltf ) {
     gltf.scene.scale.set(6,6,6)
     gltf.scene.translateX(-150)
     gltf.scene.translateZ(-16)
@@ -248,7 +248,7 @@ sun_ico.addEventListener('click', function() {
 
   scene.clear();
   time = 21;
-  loader.load( 'SAPINS.glb', function ( gltf ) {
+  loader.load( 'Montagne.glb', function ( gltf ) {
     gltf.scene.scale.set(6,6,6)
     gltf.scene.translateX(-150)
     gltf.scene.translateZ(-16)
