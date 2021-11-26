@@ -113,15 +113,6 @@ class StationsController < ApplicationController
     end
   end
 
-  def show
-    @station = Station.find(params[:id])
-    @review = Review.new
-    @reviews = @station.reviews
-    if @reviews.count.positive?
-      @average_rating = @reviews.average(:rating).round(2)
-    end
-  end
-
   def meteo(station)
     date_debut = params[:start_date].split("-").last.to_i - Time.now.day
     date_fin = params[:end_date].split("-").last.to_i - Time.now.day
@@ -131,6 +122,60 @@ class StationsController < ApplicationController
         forecast = JSON.parse(stream.read)['forecast']
         return WEATHER[forecast['weather']]
       end
+    end
+  end
+
+  def show
+    @station = Station.find(params[:id])
+    @review = Review.new
+    @reviews = @station.reviews
+
+    if @reviews.count.positive?
+      @average_rating = @reviews.average(:rating).round(2)
+    end
+    if (params[:start_date] != "") && (params[:end_date] != "")
+      date_debut = params[:start_date].split("-").last.to_i - Time.now.day
+      date_fin = params[:end_date].split("-").last.to_i - Time.now.day
+      @weathers = {}
+      @proba_frosts = {}
+      @proba_rains = {}
+      @proba_fogs = {}
+      @dates = (date_debut..date_fin)
+      @dates.each do |date|
+        @weathers[date] = meteo_show(date, @station)
+        @proba_frosts[date] = frost_show(date, @station)
+        @proba_rains[date] = rain_show(date, @station)
+        @proba_fogs[date] = fog_show(date, @station)
+      end
+
+    end
+  end
+
+  def meteo_show(date, station)
+    URI.open("https://api.meteo-concept.com/api/forecast/daily/#{date}/period/2?token=25b726a85bb8874026726594e8131564066e1794ef1e71a60a86f019e5e1968d&insee=#{station.insee}") do |stream|
+      forecast = JSON.parse(stream.read)['forecast']
+      return (WEATHER[forecast['weather']])
+    end
+  end
+
+  def frost_show(date, station)
+    URI.open("https://api.meteo-concept.com/api/forecast/daily/#{date}/period/2?token=25b726a85bb8874026726594e8131564066e1794ef1e71a60a86f019e5e1968d&insee=#{station.insee}") do |stream|
+      forecast = JSON.parse(stream.read)['forecast']
+      return forecast['probafrost']
+    end
+  end
+
+  def rain_show(date, station)
+    URI.open("https://api.meteo-concept.com/api/forecast/daily/#{date}/period/2?token=25b726a85bb8874026726594e8131564066e1794ef1e71a60a86f019e5e1968d&insee=#{station.insee}") do |stream|
+      forecast = JSON.parse(stream.read)['forecast']
+      return forecast['probarain']
+    end
+  end
+
+  def fog_show(date, station)
+    URI.open("https://api.meteo-concept.com/api/forecast/daily/#{date}/period/2?token=25b726a85bb8874026726594e8131564066e1794ef1e71a60a86f019e5e1968d&insee=#{station.insee}") do |stream|
+      forecast = JSON.parse(stream.read)['forecast']
+      return forecast['probafog']
     end
   end
 

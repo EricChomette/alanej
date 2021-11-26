@@ -1,6 +1,7 @@
 
 
 .card-station {
+  background: white;
   transition: 0.3s;
   text-decoration: none;
   border-radius: 12px;
@@ -103,4 +104,15 @@
 
 .card-station-name {
   color: black;
+}
+
+.cards-meteo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card-meteo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
