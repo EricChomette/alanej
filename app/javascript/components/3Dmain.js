@@ -120,6 +120,8 @@ function setday(){
 
   const ambientLight = new THREE.AmbientLight(0xe7e4cc);
   scene.add(pointLight, ambientLight);
+  Array(2000).fill().forEach(addSnow);
+
 }
 
 function setset(){
@@ -127,11 +129,11 @@ function setset(){
   canva.classList.remove("day");
   canva.classList.add("rise-set");
 
-  const pointLight = new THREE.PointLight(0xff2d2d)
+  const pointLight = new THREE.PointLight(0xff7474)
   pointLight.position.set(120,45,53)
   pointLight.intensity = 1;
 
-  const ambientLight = new THREE.AmbientLight(0xff5d5d);
+  const ambientLight = new THREE.AmbientLight(0xff7474);
   scene.add(pointLight, ambientLight)
   Array(2000).fill().forEach(addSnow);
 }
@@ -275,7 +277,7 @@ const controls = new OrbitControls(camera,renderer.domElement);
 
 btnload.addEventListener("click", function(){
   controls.autoRotate = true;
-  controls.autoRotateSpeed = 1.5;
+  controls.autoRotateSpeed = 1.8;
   console.log(camera.position);
 
 });
