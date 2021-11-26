@@ -13,7 +13,7 @@
 
     <% @stations.each do |station| %>
       <div class="container-card-station">
-        <%= link_to station_path(station) do %>
+        <%= link_to station_path(station, city: params[:city], start_date: params[:start_date], end_date: params[:end_date]) do %>
           <div class="card-station">
 
             <div class="card-station-img">

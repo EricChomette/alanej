@@ -1,7 +1,8 @@
 <%= render 'shared/navbar' %>
 
-<h1><%= @station.name%></h1>
-<%# <img src="<%= @station.bannerphoto %>
+<%# <h1><%= @station.name%></h1>
+<img class="banner-show" src="<%= @station.bannerphoto %>" >
+
 
 
 
@@ -18,7 +19,7 @@
 
 
   <div id="container-station" class="container-anchor">
-    <h2>La Station</h2>
+    <h2 class="category-title">La Station</h2>
     <p><%= @station.address %></p>
     <p><%= @station.description%></p>
   </div>
@@ -26,25 +27,35 @@
 
 
   <div id="container-condition" class="container-anchor">
-    <h2>Météo et enneigement</h2>
-
+    <h2 class="category-title">Météo et enneigement</h2>
+    <div class="cards-meteo">
+      <% @dates.each do |date|%>
+        <div class="card-meteo">
+          <p><%= date + Time.now.day %> / <%= Time.now.month %></p>
+          <p><%= @weathers[date] %></p>
+          <p>probabilité de gel <%= @proba_frosts[date] %> %</p>
+          <p>probabilité de pluie <%= @proba_rains[date] %> %</p>
+          <p>probabilité de brouillard <%= @proba_fogs[date] %> %</p>
+        </div>
+      <% end %>
+    </div>
   </div>
 
 
   <div id="container-trip" class="container-anchor">
-    <h2>Trajet</h2>
+    <h2 class="category-title">Trajet</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab vero repellendus consequuntur nisi molestiae adipisci est, incidunt possimus voluptatibus cum laboriosam. Eius cumque alias cum iste voluptatibus veritatis dolorum pariatur.</p>
   </div>
 
 
   <div id="container-ski-area" class="container-anchor">
-    <h2>Domaine skiable</h2>
+    <h2 class="category-title">Domaine skiable</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab vero repellendus consequuntur nisi molestiae adipisci est, incidunt possimus voluptatibus cum laboriosam. Eius cumque alias cum iste voluptatibus veritatis dolorum pariatur.</p>
   </div>
 
 
   <div id="container-extras" class="container-anchor">
-    <h2>Les Extras</h2>
+    <h2 class="category-title">Les Extras</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab vero repellendus consequuntur nisi molestiae adipisci est, incidunt possimus voluptatibus cum laboriosam. Eius cumque alias cum iste voluptatibus veritatis dolorum pariatur.</p>
   </div>
 
@@ -53,8 +64,8 @@
   <div id="container-reviews" class="container-anchor">
 
     <div class="title-reviews">
-      <h2>Commentaires </h2>
-      <h5 class="m-l p-t">
+      <h2 class="category-title">Commentaires </h2>
+      <h5 id="average-rating">
         <i id= "star-average" class=" fas fa-star "></i>
         <%= @average_rating %>
         <span id="number-coms">(<%= @reviews.count %> commentaires)</span>
