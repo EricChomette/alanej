@@ -94,7 +94,7 @@ class StationsController < ApplicationController
     232 => "Pluie et neige mêlées",
     235 => "Averses de grêle"
   }
-
+  MONTHS = ["rien", "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre"]
   def index
     @meteos = {}
     @traj_temps = {}
@@ -126,6 +126,7 @@ class StationsController < ApplicationController
     @station = Station.find(params[:id])
     @review = Review.new
     @reviews = @station.reviews
+    @mois = MONTHS[Time.now.month]
 
     @average_rating = @reviews.average(:rating).round(2) if @reviews.count.positive?
 

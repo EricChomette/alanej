@@ -6,107 +6,111 @@
 
 
 
-<div class="container">
+<div class="contain">
 
   <div class="nav-btns">
-    <a href="#container-station" class="btn btn-anchor">La Station</a>
-    <a href="#container-condition" class="btn btn-anchor">Météo et enneigement</a>
-    <a href="#container-trip" class="btn btn-anchor">Trajet</a>
-    <a href="#container-ski-area" class="btn btn-anchor">Domaine skiable</a>
-    <a href="#container-extras" class="btn btn-anchor">Extras</a>
-    <a href="#container-reviews" class="btn btn-anchor">Commentaires</a>
+    <div class="container container-btns">
+      <a href="#container-station" class="btn btn-anchor">La Station</a>
+      <a href="#container-conditions" class="btn btn-anchor">Météo et enneigement</a>
+      <a href="#container-trip" class="btn btn-anchor">Trajet</a>
+      <a href="#container-ski-area" class="btn btn-anchor">Domaine skiable</a>
+      <a href="#container-extras" class="btn btn-anchor">Extras</a>
+      <a href="#container-reviews" class="btn btn-anchor">Commentaires</a>
+    </div>
   </div>
 
+  <div class="container">
 
-  <div id="container-station" class="container-anchor">
-    <h2 class="category-title">La Station</h2>
-    <p><%= @station.address %></p>
-    <p><%= @station.description%></p>
-  </div>
+    <div id="container-station" class="container-anchor">
+      <h2 class="category-title">La Station</h2>
+      <p><%= @station.address %></p>
+      <p><%= @station.description%></p>
+    </div>
 
 
 
-  <div id="container-condition" class="container-anchor">
-    <h2 class="category-title">Météo et enneigement</h2>
-    <div class="cards-meteo">
-      <% @dates.each do |date|%>
-        <div class="card-meteo">
-          <p><%= date + Time.now.day %> / <%= Time.now.month %></p>
-          <p><%= @weathers[date] %></p>
-          <p>probabilité de gel <%= @proba_frosts[date] %> %</p>
-          <p>probabilité de pluie <%= @proba_rains[date] %> %</p>
-          <p>probabilité de brouillard <%= @proba_fogs[date] %> %</p>
+    <div id="container-conditions" class="container-anchor">
+      <h2 class="category-title">Météo et enneigement</h2>
+      <div class="cards-meteo">
+        <% @dates.each do |date|%>
+          <div class="card-meteo">
+            <p><%= date + Time.now.day %> <%= @mois %></p>
+            <p><%= @weathers[date] %></p>
+            <p>probabilité de gel <%= @proba_frosts[date] %> %</p>
+            <p>probabilité de pluie <%= @proba_rains[date] %> %</p>
+            <p>probabilité de brouillard <%= @proba_fogs[date] %> %</p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+
+    <div id="container-trip" class="container-anchor">
+      <h2 class="category-title">Trajet</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab vero repellendus consequuntur nisi molestiae adipisci est, incidunt possimus voluptatibus cum laboriosam. Eius cumque alias cum iste voluptatibus veritatis dolorum pariatur.</p>
+    </div>
+
+
+    <div id="container-ski-area" class="container-anchor">
+      <h2 class="category-title">Domaine skiable</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab vero repellendus consequuntur nisi molestiae adipisci est, incidunt possimus voluptatibus cum laboriosam. Eius cumque alias cum iste voluptatibus veritatis dolorum pariatur.</p>
+    </div>
+
+
+    <div id="container-extras" class="container-anchor">
+      <h2 class="category-title">Les Extras</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab vero repellendus consequuntur nisi molestiae adipisci est, incidunt possimus voluptatibus cum laboriosam. Eius cumque alias cum iste voluptatibus veritatis dolorum pariatur.</p>
+    </div>
+
+
+
+    <div id="container-reviews" class="container-anchor">
+
+      <div class="title-reviews">
+        <h2 class="category-title">Commentaires </h2>
+        <h5 id="average-rating">
+          <i id= "star-average" class=" fas fa-star "></i>
+          <%= @average_rating %>
+          <span id="number-coms">(<%= @reviews.count %> commentaires)</span>
+        </h5>
+
+      </div>
+
+      <div class="reviews-container">
+
+        <div class="reviews">
+
+          <% @reviews.each do |review| %>
+            <div class="review">
+              <p><%= review.visitor_pseudo %></p>
+              <p>
+                <% Review::AUTHORIZED_RATINGS.each do |number| %>
+                  <i class="fa<%= (number > review.rating) ? 'r' : 's' %> fa-star"></i>
+                <% end %>
+              </p>
+            </div>
+          <% end %>
+
         </div>
-      <% end %>
-    </div>
-  </div>
 
-
-  <div id="container-trip" class="container-anchor">
-    <h2 class="category-title">Trajet</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab vero repellendus consequuntur nisi molestiae adipisci est, incidunt possimus voluptatibus cum laboriosam. Eius cumque alias cum iste voluptatibus veritatis dolorum pariatur.</p>
-  </div>
-
-
-  <div id="container-ski-area" class="container-anchor">
-    <h2 class="category-title">Domaine skiable</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab vero repellendus consequuntur nisi molestiae adipisci est, incidunt possimus voluptatibus cum laboriosam. Eius cumque alias cum iste voluptatibus veritatis dolorum pariatur.</p>
-  </div>
-
-
-  <div id="container-extras" class="container-anchor">
-    <h2 class="category-title">Les Extras</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab vero repellendus consequuntur nisi molestiae adipisci est, incidunt possimus voluptatibus cum laboriosam. Eius cumque alias cum iste voluptatibus veritatis dolorum pariatur.</p>
-  </div>
-
-
-
-  <div id="container-reviews" class="container-anchor">
-
-    <div class="title-reviews">
-      <h2 class="category-title">Commentaires </h2>
-      <h5 id="average-rating">
-        <i id= "star-average" class=" fas fa-star "></i>
-        <%= @average_rating %>
-        <span id="number-coms">(<%= @reviews.count %> commentaires)</span>
-      </h5>
-
-    </div>
-
-    <div class="reviews-container">
-
-      <div class="reviews">
-
-        <% @reviews.each do |review| %>
-          <div class="review">
-            <p><%= review.visitor_pseudo %></p>
-            <p>
-              <% Review::AUTHORIZED_RATINGS.each do |number| %>
-                <i class="fa<%= (number > review.rating) ? 'r' : 's' %> fa-star"></i>
+        <div class="form-review">
+          <h3>Laissez un commentaire</h3>
+          <%= simple_form_for [@station, @review] do |f| %>
+            <%= f.input :visitor_pseudo, label: "Votre pseudo" %>
+            <%= f.input :rating, as: :hidden  %>
+            <div class="my-3">
+              <% Review::AUTHORIZED_RATINGS.each do |index| %>
+                <i id="<%= index %>" class="review-rating far fa-star"></i>
               <% end %>
-            </p>
-          </div>
-        <% end %>
+            </div>
+            <%= f.submit class: "btn", value: "Valider" %>
+          <% end %>
 
-      </div>
-
-      <div class="form-review">
-        <h3>Laissez un commentaire</h3>
-        <%= simple_form_for [@station, @review] do |f| %>
-          <%= f.input :visitor_pseudo, label: "Votre pseudo" %>
-          <%= f.input :rating, as: :hidden  %>
-          <div class="my-3">
-            <% Review::AUTHORIZED_RATINGS.each do |index| %>
-              <i id="<%= index %>" class="review-rating far fa-star"></i>
-            <% end %>
-          </div>
-          <%= f.submit class: "btn", value: "Valider" %>
-        <% end %>
+        </div>
 
       </div>
 
     </div>
-
   </div>
 
 </div>

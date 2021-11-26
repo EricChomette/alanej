@@ -1,14 +1,19 @@
 @import "reviews";
 
 .nav-btns {
+  position: sticky;
+  top: 0;
+  background-color: rgba(245, 253, 255, 0.651);
+  height: 50px;
+  width: 100vw;
+  backdrop-filter: blur(8px);
+}
+.container-btns {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  position: sticky;
-  top: 0;
-  background-color: rgba(245, 253, 255, 0.705);
-  height: 50px;
-  backdrop-filter: blur(8px);
+  padding: 0;
+  height: 100%;
 }
 
 .container-anchor {
