@@ -27,7 +27,7 @@ console.log(places)
 import "bootstrap";
 import "three";
 // Internal imports, e.g:
-// import { } from '../components/3Dmain';
+import { } from '../components/3Dmain';
 import { dynamicRating } from "../plugins/starsInReviewForm";
 
 // import { initSelect2 } from '../components/init_select2';

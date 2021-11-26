@@ -3,6 +3,9 @@ import * as THREE from 'three';
 
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+
+
+
 const canva = document.getElementById("bg");
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight , 0.1,2000);
@@ -46,7 +49,7 @@ camera.position.set( 50, -9, 20);
 
 
 const object = []  ;
-loader.load( 'SAPINS.glb', function ( gltf ) {
+loader.load( 'Montagne.glb', function ( gltf ) {
   gltf.scene.scale.set(6,6,6)
   gltf.scene.translateX(-150)
   gltf.scene.translateZ(-16)
