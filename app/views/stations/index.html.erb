@@ -50,7 +50,7 @@
 
                   <div class="card-station-slops">
                     <div class="Flag-total">
-                      <p><%= station.green_open_slopes + station.blue_open_slopes + station.red_open_slopes + station.black_open_slopes %> / <%= station.green_slopes + station.blue_slopes + station.red_slopes + station.black_slopes %> pistes ouvertes</p>
+                      <p><%= ((station.green_open_slopes + station.blue_open_slopes + station.red_open_slopes + station.black_open_slopes).to_f / (station.green_slopes + station.blue_slopes + station.red_slopes + station.black_slopes) * 100 ).round(0) %> % de pistes ouvertes</p>
                     </div>
                     <div class="Flag-array">
                       <p class="d-flex" ><%= station.green_open_slopes %> / <%= station.green_slopes %>  <i class="fas fa-flag green"></i></p>
