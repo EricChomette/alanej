@@ -105,12 +105,19 @@
 }
 
 .cards-meteo {
+  height: 350px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
 }
 
 .card-meteo {
+  background-color: rgb(0, 121, 177);
+  color: white;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  border-radius: 12px;
+  padding: 20px;
 }

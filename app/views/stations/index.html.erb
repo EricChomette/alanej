@@ -35,7 +35,7 @@
                         <%# <%= @budget[station.id] %>
                       </p>
 
-                      <p>Météo: <%= @meteos[station.id] %></p>
+                      <p>Météo: <%= station.conditions.last.weather %></p>
 
                       <p>Enneigement:</p>
 

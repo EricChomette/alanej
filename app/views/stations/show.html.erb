@@ -30,18 +30,23 @@
 
 
     <div id="container-conditions" class="container-anchor">
+
       <h2 class="category-title">Météo et enneigement</h2>
+
       <div class="cards-meteo">
-        <% @dates.each do |date|%>
-          <div class="card-meteo">
-            <p><%= date + Time.now.day %> <%= @mois %></p>
-            <p><%= @weathers[date] %></p>
-            <p>probabilité de gel <%= @proba_frosts[date] %> %</p>
-            <p>probabilité de pluie <%= @proba_rains[date] %> %</p>
-            <p>probabilité de brouillard <%= @proba_fogs[date] %> %</p>
-          </div>
+        <% @dates.each do |date| %>
+          <% @station.conditions.where(date: date).each do |condition| %>
+            <div class="card-meteo">
+              <p><%= condition.date %> <%= @month %></p>
+              <p><%= condition.weather %></p>
+              <p>probabilité de gel <%= condition.frost_prob %>%</p>
+              <p>probabilité de pluie <%= condition.rain_prob %>%</p>
+              <p>probabilité de brouillard <%= condition.fog_prob %>%</p>
+            </div>
+          <% end %>
         <% end %>
       </div>
+
     </div>
 
 
