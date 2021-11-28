@@ -12,18 +12,46 @@
   opacity:1;
 }
 
-.simple_form.d-flex {
+.simple_form{
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 0;
+  width: 100%;
 }
 
-#query_date{
-  background-color: rgba(255, 255, 255, 0.712);
-  font-size: 16px;
-  border-radius: 5px;
+#query_city{
+  width: 400px;
+  height: 45px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 187, 0, 0.4);
+  box-shadow: none;
+  font-weight: 600;
+  &:focus{
+    background: white;
+  }
 }
+
+@media (max-width: 850px){
+  #query_city{
+  width: 250px;
+  }
+}
+
+#range_start, #range_end{
+  width: 192px;
+  height: 45px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 187, 0, 0.4);
+  box-shadow: none;
+  font-weight: 600;
+  &:focus{
+    background: white;
+  }
+}
+
 
 .dates{
   display: flex;
@@ -39,12 +67,6 @@
   }
 }
 
-#query_city{
-  background-color: rgba(255, 255, 255, 0.755);
-  width: 418px;
-  border-radius: 5px;
-}
-
 @media (max-width: 850px){
   .home-container{
   position: absolute;
@@ -57,18 +79,5 @@
   margin: 10px auto;
   width: 80%;
   height: 50%;
-  }
-}
-
-@media (min-width: 2000px){
-  #query_date {
-    width: 200px;
-    height: 90px;
-    font-size: 25px;
-  }
-  #query_city {
-    width: 600px;
-    height: 90px;
-    font-size: 28px;
   }
 }
