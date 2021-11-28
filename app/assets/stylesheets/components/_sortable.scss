@@ -1,64 +1,39 @@
-// .container-postions-fluids {
-//   display: flex;
-//   padding: 15px;
-// }
-// .positions {
-//   display: flex;
-//   flex-direction: column;
-// }
-
-// .list-row {
-//   width: 100%;
-
-// }
-// .container-fluids {
-//   // flex-grow: 1;
-
-//   border: solid black;
-// }
-
-// #sortable {
-//   float: left;
-//   display: inline-table;
-// }
-// .positions > h2 {
-//   height: 25%;
-//   padding: 15px;
-//   margin-bottom: 0;
-//   margin-top: 6px;
-//   font-size: 3rem;
-// }
-
-// .list-item {
-//   display: flex;
-//   justify-content: row;
-//   width: 100%;
-//   flex-grow: 1;
-//   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-// }
-
-
-// .picto-parameter {
-//   width: 10%;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   padding: 15px;
-// }
-
-// .picto {
-//   font-size: 60px;
-// }
-
-// .description-parameter {
-//   flex-grow: 1;
-//   padding: 10px;
-//   margin-bottom: 0;
-// }
-
-#container-horizontal {
-    height: 100px;
+.research-priorities{
+  margin-top: 20px;
 }
-#container-horizontal .item {
-    width: 200px;
+
+#sortable-items{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0;
+}
+
+.sortable-item{
+  list-style: none;
+  padding: 10px 30px;
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+#prio-neige{
+  background: rgb(133, 133, 133);
+  width: 34%;
+}
+
+#prio-météo{
+  background: rgb(172, 117, 0);
+  width: 27%;
+}
+
+#prio-budget{
+  background: rgb(0, 155, 127);
+  width: 21%;
+}
+
+#prio-trajet{
+  background: rgb(28, 64, 206);
+  width: 17%;
 }
