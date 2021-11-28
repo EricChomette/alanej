@@ -1,0 +1,32 @@
+.index-form {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+#index_goAnim{
+  width: 100px;
+  height: 40px;
+  margin: 0;
+  padding: 5px 20px;
+}
+
+#index_query_city, #index_range_start, #index_range_end{
+  height: 40px;
+  margin: 0;
+  border-radius: 5px;
+  background: white;
+
+  &:focus{
+    box-shadow: rgba(0, 208, 255, 0.686);
+  }
+}
+
+#index_query_city{
+  width: 400px;
+}
+
+#index_range_start, #index_range_end{
+  width: 150px;
+}
