@@ -26,13 +26,18 @@
                   <div class="card-station-factors">
 
                       <p>
-                        <%= @traj_temps[station.id] %> de trajet
+                        <%# <%= @traj_temps[station.id] %>
                         <%# <%= @budget[station.id] %>
                       </p>
 
                       <p>Météo: <%= station.conditions.first.weather %></p>
 
-                      <p>Enneigement:</p>
+                      <p>
+                        Enneigement:
+                        <%= undegeuify(station.conditions.first.snow)[0] %>cm
+                        <%= undegeuify(station.conditions.first.snow)[1] %>cm
+
+                      </p>
 
                       <% if station.budget == "€"%>
                         <p>Budget: <i class="fas fa-euro-sign"></i></p>

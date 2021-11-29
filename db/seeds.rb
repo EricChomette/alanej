@@ -2,6 +2,7 @@ require "uri"
 require "net/http"
 require "json"
 require 'open-uri'
+require 'nokogiri'
 
 WEATHER = {
   0 => "Soleil",
@@ -97,29 +98,52 @@ WEATHER = {
 Station.destroy_all
 
 def find_forecast(date, station)
-  URI.open("https://api.meteo-concept.com/api/forecast/daily/#{date}/period/2?token=25b726a85bb8874026726594e8131564066e1794ef1e71a60a86f019e5e1968d&insee=#{station.insee}") do |stream|
+  URI.open("https://api.meteo-concept.com/api/forecast/daily/#{date}/period/2?token=2795e22b8eab493448975973cfc123f39c329acb1adbc901e2c0b257059bc02f&insee=#{station.insee}") do |stream|
     return JSON.parse(stream.read)['forecast']
   end
 end
 
-def meteo(date, station)
+def weather(date, station)
   forecast = find_forecast(date, station)
   return (WEATHER[forecast['weather']])
 end
 
-def frost_show(date, station)
+def frost(date, station)
   forecast = find_forecast(date, station)
   return forecast['probafrost']
 end
 
-def rain_show(date, station)
-  forecast = find_forecast(date, station)
-  return forecast['probarain']
-end
-
-def fog_show(date, station)
+def fog(date, station)
   forecast = find_forecast(date, station)
   return forecast['probafog']
+end
+
+def bot_snow(html_doc)
+  bot_array = []
+  html_doc.search('.snow-medium').each do |element|
+    bot_array << element.text.strip
+  end
+  return bot_array
+end
+
+def submit_snow(html_doc)
+  submit_array = []
+  html_doc.search('.snow-big').each do |element|
+    submit_array << element.text.strip
+  end
+  return submit_array
+end
+
+def snow(station)
+  bot_submit_array = []
+  html_file = URI.open("https://wepowder.com/fr/#{station.snowurl}").read
+  html_doc = Nokogiri::HTML(html_file)
+
+  bot_array = bot_snow(html_doc)
+  submit_array = submit_snow(html_doc)
+
+  bot_submit_array << submit_array.first
+  bot_submit_array << bot_array[1]
 end
 
 villard_de_lans = Station.create!(
@@ -142,7 +166,8 @@ villard_de_lans = Station.create!(
   bannerphoto: "https://docs.ski-planet.com/stations/source/20831.jpg",
   lat: "45.046258",
   long: "5.557192",
-  logo: "https://cdn-s-www.ledauphine.com/images/3B8C29C7-F38B-4A54-B500-7A6C21977D93/NW_raw/le-nouveau-logo-des-deux-stations-photo-le-dl-noel-coolen-1633098536.jpg"
+  logo: "https://cdn-s-www.ledauphine.com/images/3B8C29C7-F38B-4A54-B500-7A6C21977D93/NW_raw/le-nouveau-logo-des-deux-stations-photo-le-dl-noel-coolen-1633098536.jpg",
+  snowurl: "les-glovettes#belvedere"
 )
 
 les_arcs = Station.create!(
@@ -165,7 +190,8 @@ les_arcs = Station.create!(
   bannerphoto: "https://www.skieur.com/media/guide_station/img/arc_2000%C2%A9andyparant_1.jpg",
   lat: "45.616770",
   long: "6.769290",
-  logo: "https://upload.wikimedia.org/wikipedia/commons/c/c6/Logo_officiel_de_la_station_de_ski_des_Arcs.jpg"
+  logo: "https://upload.wikimedia.org/wikipedia/commons/c/c6/Logo_officiel_de_la_station_de_ski_des_Arcs.jpg",
+  snowurl: "arc-1950"
 )
 
 def new_condition(station)
@@ -174,17 +200,17 @@ def new_condition(station)
     Condition.create!(
       station: station,
       date: real_date,
-      weather: meteo(date, station),
-      frost_prob: frost_show(date, station),
-      rain_prob: rain_show(date, station),
-      fog_prob: fog_show(date, station)
+      weather: weather(date, station),
+      frost_prob: frost(date, station),
+      fog_prob: fog(date, station),
+      snow: snow(station)
     )
   end
 end
 
-new_condition(villard_de_lans)
-new_condition(les_arcs)
-
+Station.all.each do |station|
+  new_condition(station)
+end
 # serre_che = Station.create!(
 #   name: "Serre Chevalier",
 #   address: "Le, Rte de Pré-Long, 05240 La Salle-les-Alpes",
