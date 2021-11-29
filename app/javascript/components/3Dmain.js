@@ -3,11 +3,17 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 const createBackground = () => {
-
+let mixer;
+let movingAction1, movingAction2,movingAction3,movingAction4,movingAction5;
+let movingAction6, movingAction7;
+let activator = true;
+let actions;
+let clock ;
 const canva = document.getElementById("bg");
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight , 0.1,2000);
+const camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight , 0.1,1000);
 const loader = new GLTFLoader();
+clock = new THREE.Clock();
 const sun_ico = document.getElementById("sun-ico");
 const sunrise_ico = document.getElementById("sunrise-ico");
 const sunset_ico = document.getElementById("sunset-ico");
@@ -20,23 +26,15 @@ let  sun_ico_trigger =false;
 let sunrise_ico_trigger = false;
 let sunset_ico_trigger = false;
 let night_ico_trigger = false;
-console.log(time);
-(function(){
-  var script=document.createElement('script');
-  script.onload=function(){
-    var stats=new Stats();
-    document.body.appendChild(stats.dom);
-    requestAnimationFrame(function loop(){
-      stats.update();requestAnimationFrame(loop)}
-      );
-    };script.src='//mrdoob.github.io/stats.js/build/stats.min.js';document.head.appendChild(script);})()
+
+
 
 
 
 
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector('#bg'), antialias: true ,alpha: true
-
+  
 });
 
 
@@ -48,7 +46,8 @@ camera.position.set( -20, -9, 54);
 
 
 const object = []  ;
-loader.load( 'Montagne.glb', function ( gltf ) {
+loader.load( 'AnimatedTest.glb', function ( gltf ) {
+ 
   gltf.scene.scale.set(6,6,6)
   gltf.scene.translateX(-150)
   gltf.scene.translateZ(-16)
@@ -57,6 +56,25 @@ loader.load( 'Montagne.glb', function ( gltf ) {
   let modell =  gltf.scene;
 
 	scene.add( modell );
+  if(activator == true){
+  const animations = gltf.animations;
+
+					mixer = new THREE.AnimationMixer( modell );
+
+					movingAction1 = mixer.clipAction( animations[ 0 ] );
+          movingAction2 = mixer.clipAction( animations[ 1 ] ); 
+          movingAction3 = mixer.clipAction( animations[ 2 ] );
+          movingAction4 = mixer.clipAction( animations[ 3 ] );
+          movingAction5 = mixer.clipAction( animations[ 4 ] );
+          movingAction6 = mixer.clipAction( animations[ 5 ] );
+          movingAction7 = mixer.clipAction( animations[ 6 ] );
+          
+          
+					actions = [ movingAction1, movingAction2, movingAction3, movingAction4, movingAction5,movingAction6, movingAction7];
+
+					activateAllActions();
+
+        }			
 
 }, undefined, function ( error ) {
 
@@ -65,7 +83,15 @@ loader.load( 'Montagne.glb', function ( gltf ) {
 } );
 
 
+function activateAllActions() {
 
+  actions.forEach( function ( action ) {
+
+    action.play();
+
+  } );
+
+}
 
 
 
@@ -186,20 +212,40 @@ sun_ico.addEventListener('click', function() {
   sun_ico_trigger = true;
   scene.clear();
   time = 10;
-  loader.load( 'Montagne.glb', function ( gltf ) {
+  loader.load( 'AnimatedTest.glb', function ( gltf ) {
+ 
     gltf.scene.scale.set(6,6,6)
     gltf.scene.translateX(-150)
     gltf.scene.translateZ(-16)
     gltf.scene.translateY(-16)
     object.push(gltf.scene) ;
     let modell =  gltf.scene;
-
+  
     scene.add( modell );
-
+    const animations = gltf.animations;
+  
+            mixer = new THREE.AnimationMixer( modell );
+  
+            movingAction1 = mixer.clipAction( animations[ 0 ] );
+            movingAction2 = mixer.clipAction( animations[ 1 ] ); 
+            movingAction3 = mixer.clipAction( animations[ 2 ] );
+            movingAction4 = mixer.clipAction( animations[ 3 ] );
+            movingAction5 = mixer.clipAction( animations[ 4 ] );
+            movingAction6 = mixer.clipAction( animations[ 5 ] );
+            movingAction7 = mixer.clipAction( animations[ 6 ] );
+           
+           
+            
+            actions = [ movingAction1, movingAction2, movingAction3, movingAction4, movingAction5,movingAction6, movingAction7];
+  
+            activateAllActions();
+  
+           
+  
   }, undefined, function ( error ) {
-
+  
     console.error( error );
-
+  
   } );
   Deftheme();
  });
@@ -209,20 +255,39 @@ sun_ico.addEventListener('click', function() {
   sunrise_ico_trigger = true;
   scene.clear();
   time = 7;
-  loader.load( 'Montagne.glb', function ( gltf ) {
+  loader.load( 'AnimatedTest.glb', function ( gltf ) {
+ 
     gltf.scene.scale.set(6,6,6)
     gltf.scene.translateX(-150)
     gltf.scene.translateZ(-16)
     gltf.scene.translateY(-16)
     object.push(gltf.scene) ;
     let modell =  gltf.scene;
-
+  
     scene.add( modell );
-
+    const animations = gltf.animations;
+  
+            mixer = new THREE.AnimationMixer( modell );
+  
+            movingAction1 = mixer.clipAction( animations[ 0 ] );
+            movingAction2 = mixer.clipAction( animations[ 1 ] ); 
+            movingAction3 = mixer.clipAction( animations[ 2 ] );
+            movingAction4 = mixer.clipAction( animations[ 3 ] );
+            movingAction5 = mixer.clipAction( animations[ 4 ] );
+            movingAction6 = mixer.clipAction( animations[ 5 ] );
+            movingAction7 = mixer.clipAction( animations[ 6 ] );
+           
+            
+            actions = [ movingAction1, movingAction2, movingAction3, movingAction4, movingAction5,movingAction6, movingAction7];
+  
+            activateAllActions();
+  
+           
+  
   }, undefined, function ( error ) {
-
+  
     console.error( error );
-
+  
   } );
   Deftheme();
  });
@@ -231,20 +296,38 @@ sun_ico.addEventListener('click', function() {
   sun_ico_trigger = true;
   scene.clear();
   time = 17;
-  loader.load( 'Montagne.glb', function ( gltf ) {
+  loader.load( 'AnimatedTest.glb', function ( gltf ) {
+ 
     gltf.scene.scale.set(6,6,6)
     gltf.scene.translateX(-150)
     gltf.scene.translateZ(-16)
     gltf.scene.translateY(-16)
     object.push(gltf.scene) ;
     let modell =  gltf.scene;
-
+  
     scene.add( modell );
-
+    const animations = gltf.animations;
+  
+            mixer = new THREE.AnimationMixer( modell );
+  
+            movingAction1 = mixer.clipAction( animations[ 0 ] );
+            movingAction2 = mixer.clipAction( animations[ 1 ] ); 
+            movingAction3 = mixer.clipAction( animations[ 2 ] );
+            movingAction4 = mixer.clipAction( animations[ 3 ] );
+            movingAction5 = mixer.clipAction( animations[ 4 ] );
+            movingAction6 = mixer.clipAction( animations[ 5 ] );
+            movingAction7 = mixer.clipAction( animations[ 6 ] );
+            
+            actions = [ movingAction1, movingAction2, movingAction3, movingAction4, movingAction5,movingAction6, movingAction7];
+  
+            activateAllActions();
+  
+            
+  
   }, undefined, function ( error ) {
-
+  
     console.error( error );
-
+  
   } );
   Deftheme();
  });
@@ -278,30 +361,37 @@ const controls = new OrbitControls(camera,renderer.domElement);
 btnload.addEventListener("click", function(){
   controls.autoRotate = true;
   controls.autoRotateSpeed = 1.8;
-  console.log(camera.position);
+  activator = false;
 
 });
 
 
 
 
-
+function upfate(){
+  if (mixer && activator == true){
+    let mixerUpdateDelta = clock.getDelta();
+   mixer.update( mixerUpdateDelta );
+  }
+}
 
 
 function animate() {
   requestAnimationFrame(animate);
   snows.forEach(snow => (snow.position.y > -50) ? snow.position.y -=0.2   : snow.position.y = Math.random() * 100
     );
+    upfate();
 
-   // console.log(camera.position);
     camera.rotateOnAxis( 5 );
-
+    
+    
   controls.update();
 
   renderer.render(scene,camera);
+ 
 }
-animate()
-console.log(camera.position);
+
+animate();
 
 
 }
@@ -312,7 +402,7 @@ console.log(camera.position);
 const initBackgroundHomePage = () => {
 
   if (document.querySelector('#bg')) {
-    createBackground()
+    createBackground();
   }
 }
 
