@@ -31,7 +31,7 @@ class BestStations
     assign_durations
     assign_wheater
     assign_snow
-    # calcul_ratings
+    calcul_ratings
     # sort
     # @station_datas
   end
@@ -102,9 +102,9 @@ class BestStations
     end
   end
 
-  def calcul
-    @station_datas.each do |station_data|
-      calc_rating_duration(station_data)
+  def calcul_ratings
+    @stations_data.each do |station_data|
+      calc_rating_duration(@station_data)
       calc_rating_weather(station_data)
       calc_rating_snow(station_data)
       calc_rating_budget(station_data)
@@ -116,8 +116,17 @@ class BestStations
   # end
 
   def calc_rating_duration(station_data)
+    station_data[:duration]
+    station_data[:durating_rating] = station_data[:duration]
 
   end
+  # traj_temps_sorted = traj_temps.sort_by { |k, v| v }
+  # traj_notes = []
+  # traj_temps_sorted.each_with_index do |station, index|
+  #   traj_notes << [station[0], ((20 - index).to_f / 4).round(2)]
+  # end
+  # raise
+  # return traj_notes
 
   def calc_rating_weather(station_data)
 
@@ -129,16 +138,6 @@ class BestStations
 
   def calc_rating_budget(station_data)
 
-  end
-
-  def calc_rating_trip(traj_temps)
-    # traj_temps_sorted = traj_temps.sort_by { |k, v| v }
-    # traj_notes = []
-    # traj_temps_sorted.each_with_index do |station, index|
-    #   traj_notes << [station[0], ((20 - index).to_f / 4).round(2)]
-    # end
-    # raise
-    # return traj_notes
   end
 
 end

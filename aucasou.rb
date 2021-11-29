@@ -1,27 +1,8 @@
- <% @dates.each do |date|%>
-          <div class="card-meteo">
-            <p><%= date + Time.now.day %> <%= @mois %></p>
-            <p><%= @weathers[date] %></p>
-            <p>probabilité de gel <%= @proba_frosts[date] %> %</p>
-            <p>probabilité de pluie <%= @proba_rains[date] %> %</p>
-            <p>probabilité de brouillard <%= @proba_fogs[date] %> %</p>
-          </div>
-        <% end %>
-      </div>
+  # def budget(station)
+  #   lnglat_start = find_start_coordonates
 
-
-
-@stations.each do |station|
-  (0..7).each do |date|
-    @condition = Condition.new
-    @date = date + Time.now.day
-    URI.open("https://api.meteo-concept.com/api/forecast/daily/#{date}/period/2?token=25b726a85bb8874026726594e8131564066e1794ef1e71a60a86f019e5e1968d&insee=#{station.insee}") do |stream|
-      forecast = JSON.parse(stream.read)['forecast']
-      @weather = WEATHER[forecast['weather']]
-    end
-    @condition.weather = @weather
-    @condtion.station = station.id
-    @condtion.date_on = @date
-    @condition.save
-  end
-end
+  #   URI.open("https://api.mapbox.com/directions/v5/mapbox/driving/#{lnglat_start[0]},#{lnglat_start[1]};#{station_data.long},#{station.lat}?geometries=geojson&access_token=pk.eyJ1IjoibWFlbHByIiwiYSI6ImNrd2RrM2U5bzBsc2Eyb24xYXB0cnJscW8ifQ.iFKMjM3OFf6oUgyejjfq8Q") do |stream|
+  #     trajet = JSON.parse(stream.read)["routes"]
+  #     return (trajet[0]["distance"] / 1000 * 0.246559).to_i
+  #   end
+  # end
