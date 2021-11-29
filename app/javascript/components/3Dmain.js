@@ -5,7 +5,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 const createBackground = () => {
 let mixer;
 let movingAction1, movingAction2,movingAction3,movingAction4,movingAction5;
-let movingAction6, movingAction7,movingAction8,movingAction9,movingAction10;
+let movingAction6, movingAction7;
 let activator = true;
 let actions;
 let clock ;
