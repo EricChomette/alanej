@@ -1,11 +1,126 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require "uri"
+require "net/http"
+require "json"
+require 'open-uri'
+
+WEATHER = {
+  0 => "Soleil",
+  1 => "Peu nuageux",
+  2 => "Ciel voilé",
+  3 => "Nuageux",
+  4 => "Très nuageux",
+  5 => "Couvert",
+  6 => "Brouillard",
+  7 => "Brouillard givrant",
+  10 => "Pluie faible",
+  11 => "Pluie modérée",
+  12 => "Pluie forte",
+  13 => "Pluie faible verglaçante",
+  14 => "Pluie modérée verglaçante",
+  15 => "Pluie forte verglaçante",
+  16 => "Bruine",
+  20 => "Neige faible",
+  21 => "Neige modérée",
+  22 => "Neige forte",
+  30 => "Pluie et neige mêlées faibles",
+  31 => "Pluie et neige mêlées modérées",
+  32 => "Pluie et neige mêlées fortes",
+  40 => "Averses de pluie locales et faibles",
+  41 => "Averses de pluie locales",
+  42 => "Averses locales et fortes",
+  43 => "Averses de pluie faibles",
+  44 => "Averses de pluie",
+  45 => "Averses de pluie fortes",
+  46 => "Averses de pluie faibles et fréquentes",
+  47 => "Averses de pluie fréquentes",
+  48 => "Averses de pluie fortes et fréquentes",
+  60 => "Averses de neige localisées et faibles",
+  61 => "Averses de neige localisées",
+  62 => "Averses de neige localisées et fortes",
+  63 => "Averses de neige faibles",
+  64 => "Averses de neige",
+  65 => "Averses de neige fortes",
+  66 => "Averses de neige faibles et fréquentes",
+  67 => "Averses de neige fréquentes",
+  68 => "Averses de neige fortes et fréquentes",
+  70 => "Averses de pluie et neige mêlées localisées et faibles",
+  71 => "Averses de pluie et neige mêlées localisées",
+  72 => "Averses de pluie et neige mêlées localisées et fortes",
+  73 => "Averses de pluie et neige mêlées faibles",
+  74 => "Averses de pluie et neige mêlées",
+  75 => "Averses de pluie et neige mêlées fortes",
+  76 => "Averses de pluie et neige mêlées faibles et nombreuses",
+  77 => "Averses de pluie et neige mêlées fréquentes",
+  78 => "Averses de pluie et neige mêlées fortes et fréquentes",
+  100 => "Orages faibles et locaux",
+  101 => "Orages locaux",
+  102 => "Orages fort et locaux",
+  103 => "Orages faibles",
+  104 => "Orages",
+  105 => "Orages forts",
+  106 => "Orages faibles et fréquents",
+  107 => "Orages fréquents",
+  108 => "Orages forts et fréquents",
+  120 => "Orages faibles et locaux de neige ou grésil",
+  121 => "Orages locaux de neige ou grésil",
+  122 => "Orages locaux de neige ou grésil",
+  123 => "Orages faibles de neige ou grésil",
+  124 => "Orages de neige ou grésil",
+  125 => "Orages de neige ou grésil",
+  126 => "Orages faibles et fréquents de neige ou grésil",
+  127 => "Orages fréquents de neige ou grésil",
+  128 => "Orages fréquents de neige ou grésil",
+  130 => "Orages faibles et locaux de pluie et neige mêlées ou grésil",
+  131 => "Orages locaux de pluie et neige mêlées ou grésil",
+  132 => "Orages fort et locaux de pluie et neige mêlées ou grésil",
+  133 => "Orages faibles de pluie et neige mêlées ou grésil",
+  134 => "Orages de pluie et neige mêlées ou grésil",
+  135 => "Orages forts de pluie et neige mêlées ou grésil",
+  136 => "Orages faibles et fréquents de pluie et neige mêlées ou grésil",
+  137 => "Orages fréquents de pluie et neige mêlées ou grésil",
+  138 => "Orages forts et fréquents de pluie et neige mêlées ou grésil",
+  140 => "Pluies orageuses",
+  141 => "Pluie et neige mêlées à caractère orageux",
+  142 => "Neige à caractère orageux",
+  210 => "Pluie faible intermittente",
+  211 => "Pluie modérée intermittente",
+  212 => "Pluie forte intermittente",
+  220 => "Neige faible intermittente",
+  221 => "Neige modérée intermittente",
+  222 => "Neige forte intermittente",
+  230 => "Pluie et neige mêlées",
+  231 => "Pluie et neige mêlées",
+  232 => "Pluie et neige mêlées",
+  235 => "Averses de grêle"
+}
+
 Station.destroy_all
+
+def find_forecast(date, station)
+  URI.open("https://api.meteo-concept.com/api/forecast/daily/#{date}/period/2?token=25b726a85bb8874026726594e8131564066e1794ef1e71a60a86f019e5e1968d&insee=#{station.insee}") do |stream|
+    return JSON.parse(stream.read)['forecast']
+  end
+end
+
+def meteo(date, station)
+  forecast = find_forecast(date, station)
+  return (WEATHER[forecast['weather']])
+end
+
+def frost_show(date, station)
+  forecast = find_forecast(date, station)
+  return forecast['probafrost']
+end
+
+def rain_show(date, station)
+  forecast = find_forecast(date, station)
+  return forecast['probarain']
+end
+
+def fog_show(date, station)
+  forecast = find_forecast(date, station)
+  return forecast['probafog']
+end
 
 villard_de_lans = Station.create!(
   name: 'Villard de Lans',
@@ -53,55 +168,72 @@ les_arcs = Station.create!(
   logo: "https://upload.wikimedia.org/wikipedia/commons/c/c6/Logo_officiel_de_la_station_de_ski_des_Arcs.jpg"
 )
 
-serre_che = Station.create!(
-  name: "Serre Chevalier",
-  address: "Le, Rte de Pré-Long, 05240 La Salle-les-Alpes",
-  description: "Située à proximité du Parc national des Ecrins, Serre Chevalier Vallée est le regroupement de la ville de Briançon (ville inscrite au patrimoine mondial de l'UNESCO) et de 3 villages : Saint-Chaffrey/Chantemerle, Villeneuve/La Salle les Alpes et le Monêtier les Bains.
-  Avec 250 km de pistes, Serre Chevalier Vallée est le 1er domaine non relié français. Des pistes adaptées pour toutes les glisses, du ski en vallon ou en forêt de mélèzes, des ambiances haute montagne avec des hors pistes de renom, confèrent à cette station un caractère sportif et ludique.
-  Labellisée «Famille plus», Serre Chevalier propose plus de confort pour l'accueil des familles. Au-delà d'un accueil personnalisé, des activités à vivre ensemble ou séparément sont proposées, des animations et des événements adaptés pour tous les âges sont organisés toute la saison et des tarifs réduits permettent à la famille de profiter de son séjour.",
-  budget: "€€",
-  alt_min: 1200,
-  alt_max: 2830,
-  green_slopes: 13,
-  green_open_slopes: 11,
-  blue_slopes: 26,
-  blue_open_slopes: 23,
-  red_slopes: 29,
-  red_open_slopes: 28,
-  black_slopes: 13,
-  black_open_slopes: 7,
-  insee: "05161",
-  cardphoto: "https://www.yonder.fr/sites/default/files/destinations/serre%20chevalier%20figure%20snow%20Serre%20Chevalier%20Vall%C3%A9e%20Brian%C3%A7on%20-%20%40laurapeythieu.jpg",
-  bannerphoto: "https://www.terresens.com/wp-content/uploads/2018/03/Thibaut_Blais2.jpg",
-  lat: "44.946249",
-  long: "6.558491",
-  logo: "https://www.e-briancon.com/wp-content/uploads/2017/08/logo-serre-chevalier.jpg"
-)
+def new_condition(station)
+  (0..7).each do |date|
+    real_date = date + Time.now.day
+    Condition.create!(
+      station: station,
+      date: real_date,
+      weather: meteo(date, station),
+      frost_prob: frost_show(date, station),
+      rain_prob: rain_show(date, station),
+      fog_prob: fog_show(date, station)
+    )
+  end
+end
 
-autrans = Station.create!(
-  name: "Domaine alpin Autrans",
-  address: "D218, 38880 Autrans",
-  description: "Située en Isère (région Auvergne-Rhône-Alpes), dans le secteur septentrional du massif du Vercors, localement appelé « Les Quatre-Montagnes » ou encore « Le Val d’Autrans - Méaudre», à proximité de Grenoble (40 km), de Valence et de Lyon, la station-village d’Autrans - Méaudre en Vercors attire les familles et les débutants de par son domaine skiable au relief doux et son architecture montagnarde.
-  Au sein du Parc Naturel Régional du Vercors et entouré des sommets de moyenne altitude de La Sure, du Bec d'Orient, du sommet de Plénouze et de La Molière, le domaine skiable propose 35 pistes sur 2 domaines distincts accessibles avec le même forfait (Autrans - La Sure et Méaudre - Village).
-  L'Espace nordique d’Autrans - Méaudre en Vercors propose quant à lui 200 km de pistes, soit un des plus importants sites d’Europe pour la pratique du ski de fond, de la randonnée nordique, de chiens de traîneaux ou encore de la marche nordique sur neige.",
-  budget: "€",
-  alt_min: 1050,
-  alt_max: 1650,
-  green_slopes: 5,
-  green_open_slopes: 4,
-  blue_slopes: 4,
-  blue_open_slopes: 4,
-  red_slopes: 4,
-  red_open_slopes: 3,
-  black_slopes: 2,
-  black_open_slopes: 2,
-  insee: "38225",
-  cardphoto: "https://autrans-meaudre.com/wp-content/uploads/2014/10/autrans-meaudre_najo-grez-11_1500.jpg",
-  bannerphoto: "https://vcdn.bergfex.at/images/resized/f3/925905e55a0a66f3_868f96f4c582a335@2x.jpg",
-  lat: "45.229519",
-  long: "5.581669",
-  logo: "https://www.agopop.fr/wp-content/uploads/2021/02/logo-AUTRANS-MEAUDRE-verti-Rg.png"
-)
+new_condition(villard_de_lans)
+new_condition(les_arcs)
+
+# serre_che = Station.create!(
+#   name: "Serre Chevalier",
+#   address: "Le, Rte de Pré-Long, 05240 La Salle-les-Alpes",
+#   description: "Située à proximité du Parc national des Ecrins, Serre Chevalier Vallée est le regroupement de la ville de Briançon (ville inscrite au patrimoine mondial de l'UNESCO) et de 3 villages : Saint-Chaffrey/Chantemerle, Villeneuve/La Salle les Alpes et le Monêtier les Bains.
+#   Avec 250 km de pistes, Serre Chevalier Vallée est le 1er domaine non relié français. Des pistes adaptées pour toutes les glisses, du ski en vallon ou en forêt de mélèzes, des ambiances haute montagne avec des hors pistes de renom, confèrent à cette station un caractère sportif et ludique.
+#   Labellisée «Famille plus», Serre Chevalier propose plus de confort pour l'accueil des familles. Au-delà d'un accueil personnalisé, des activités à vivre ensemble ou séparément sont proposées, des animations et des événements adaptés pour tous les âges sont organisés toute la saison et des tarifs réduits permettent à la famille de profiter de son séjour.",
+#   budget: "€€",
+#   alt_min: 1200,
+#   alt_max: 2830,
+#   green_slopes: 13,
+#   green_open_slopes: 11,
+#   blue_slopes: 26,
+#   blue_open_slopes: 23,
+#   red_slopes: 29,
+#   red_open_slopes: 28,
+#   black_slopes: 13,
+#   black_open_slopes: 7,
+#   insee: "05161",
+#   cardphoto: "https://www.yonder.fr/sites/default/files/destinations/serre%20chevalier%20figure%20snow%20Serre%20Chevalier%20Vall%C3%A9e%20Brian%C3%A7on%20-%20%40laurapeythieu.jpg",
+#   bannerphoto: "https://www.terresens.com/wp-content/uploads/2018/03/Thibaut_Blais2.jpg",
+#   lat: "44.946249",
+#   long: "6.558491",
+#   logo: "https://www.e-briancon.com/wp-content/uploads/2017/08/logo-serre-chevalier.jpg"
+# )
+
+# autrans = Station.create!(
+#   name: "Domaine alpin Autrans",
+#   address: "D218, 38880 Autrans",
+#   description: "Située en Isère (région Auvergne-Rhône-Alpes), dans le secteur septentrional du massif du Vercors, localement appelé « Les Quatre-Montagnes » ou encore « Le Val d’Autrans - Méaudre», à proximité de Grenoble (40 km), de Valence et de Lyon, la station-village d’Autrans - Méaudre en Vercors attire les familles et les débutants de par son domaine skiable au relief doux et son architecture montagnarde.
+#   Au sein du Parc Naturel Régional du Vercors et entouré des sommets de moyenne altitude de La Sure, du Bec d'Orient, du sommet de Plénouze et de La Molière, le domaine skiable propose 35 pistes sur 2 domaines distincts accessibles avec le même forfait (Autrans - La Sure et Méaudre - Village).
+#   L'Espace nordique d’Autrans - Méaudre en Vercors propose quant à lui 200 km de pistes, soit un des plus importants sites d’Europe pour la pratique du ski de fond, de la randonnée nordique, de chiens de traîneaux ou encore de la marche nordique sur neige.",
+#   budget: "€",
+#   alt_min: 1050,
+#   alt_max: 1650,
+#   green_slopes: 5,
+#   green_open_slopes: 4,
+#   blue_slopes: 4,
+#   blue_open_slopes: 4,
+#   red_slopes: 4,
+#   red_open_slopes: 3,
+#   black_slopes: 2,
+#   black_open_slopes: 2,
+#   insee: "38225",
+#   cardphoto: "https://autrans-meaudre.com/wp-content/uploads/2014/10/autrans-meaudre_najo-grez-11_1500.jpg",
+#   bannerphoto: "https://vcdn.bergfex.at/images/resized/f3/925905e55a0a66f3_868f96f4c582a335@2x.jpg",
+#   lat: "45.229519",
+#   long: "5.581669",
+#   logo: "https://www.agopop.fr/wp-content/uploads/2021/02/logo-AUTRANS-MEAUDRE-verti-Rg.png"
+# )
 
 # valloire = Station.create!(
 #   name: "Valloire",
@@ -442,3 +574,4 @@ autrans = Station.create!(
 # )
 
 puts "#{Station.count} stations has been created"
+puts "#{Condition.count} conditions has been created"
