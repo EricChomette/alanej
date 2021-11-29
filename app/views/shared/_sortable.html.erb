@@ -1,32 +1,13 @@
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script>
-    $(function() {
-        $("#sortable3").sortable();
-        $("#sortable3").disableSelection();
-    });
-</script>
 
-<div id="container-horizontal">
+<div class="research-priorities">
 
-  <div class="item" data-id="1" >
-    <h4>Enneigement</h4>
-        <%# <p>Pour moi la neige c'est primordial</p> %>
-  </div>
+  <h3 class = "prio-title"><strong>Classez vos priorités :</strong></h3>
 
-  <div class="item" data-id="2">
-    <h4>Météo</h4>
-        <%# <p>Le soleil ça compte plus que tout</p> %>
-  </div>
-
-  <div class="item" data-id="3">
-    <h4>Buget</h4>
-    <%# <p>Mon budget est sérré</p> %>
-  </div>
-
-  <div class="item" data-id="4">
-    <h4>Temps de trajet</h4>
-    <%# <p>Je veux etre le plus vite possible sur mes skis</p> %>
-  </div>
+  <ul id="sortable-items">
+    <li class= "sortable-item" id="prio-neige" data-id="1">Enneigement</li>
+    <li class= "sortable-item" id="prio-météo" data-id="2">Météo</li>
+    <li class= "sortable-item" id="prio-budget" data-id="3">Budget</li>
+    <li class= "sortable-item" id="prio-trajet" data-id="4">Trajet</li>
+  </ul>
 
 </div>

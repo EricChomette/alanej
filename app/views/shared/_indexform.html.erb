@@ -1,0 +1,19 @@
+  <%= simple_form_for :query, method: :get,
+                              url: stations_path,
+                              defaults: { wrapper_html: { class: "mr-3" },required: false },
+                              html: { class: 'index-form' } do |f| %>
+    <%= f.input :city,  label:       false,
+                        placeholder: "D'où partez-vous ?",
+                        input_html:  { name: :city, value: params.dig(:city), id: "index_query_city"} %>
+    <div class="dates">
+      <%= f.input :start_date,  as: :string, label: false,
+                          required: false,
+                          input_html:    { id: "index_range_start", placeholder:"Date de départ"} %>
+
+      <%= f.input :end_date,  as: :string, label: false,
+                          required: false,
+                          input_html:    { id: "index_range_end", placeholder:"Date de retour" } %>
+    </div>
+
+    <%= f.submit "Go !", class: "btn btn-go" ,id:'index_goAnim'%>
+  <% end %>
