@@ -6,8 +6,10 @@ const loading= () =>{
   
     btn.addEventListener("click", function(){
       div.classList.add("elementToFadeIn");
-      div2.classList.add("elementToFadeOut");   
+      div2.classList.add("elementToFadeOut"); 
+        
     });
+    
   }
 }
 export {loading};
