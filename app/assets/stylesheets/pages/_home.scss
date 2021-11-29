@@ -70,3 +70,12 @@ background: linear-gradient(0deg, rgba(212,254,255,1) 0%, rgba(64,180,213,1) 100
   bottom: 5%;
   right: 3%
 }
+.clignote{
+  animation: fadepatern 5s ease infinite;
+}
+@keyframes fadepatern{
+  0%{opacity: 1;}
+  40%{opacity:0;}
+  60%{opacity:0;}
+  100%{opacity: 1;}
+}
