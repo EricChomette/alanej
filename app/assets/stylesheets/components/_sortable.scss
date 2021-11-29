@@ -16,24 +16,25 @@
   font-weight: 600;
   font-size: 20px;
   border-radius: 5px;
+
+  &:nth-child(1) { width: 33%; }
+  &:nth-child(2) { width: 26%; }
+  &:nth-child(3) { width: 21%; }
+  &:nth-child(4) { width: 17%; }
 }
 
 #prio-neige{
   background: rgb(133, 133, 133);
-  width: 33%;
 }
 
 #prio-météo{
   background: rgb(172, 117, 0);
-  width: 26%;
 }
 
 #prio-budget{
   background: rgb(0, 155, 127);
-  width: 21%;
 }
 
 #prio-trajet{
   background: rgb(28, 64, 206);
-  width: 17%;
 }
