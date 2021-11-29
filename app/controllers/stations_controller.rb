@@ -9,8 +9,10 @@ class StationsController < ApplicationController
   def index
     @stations = Station.all
     @traj_temps = {}
-    @dates = ((params[:start_date].split("-").last.to_i)..(params[:end_date].split("-").last.to_i))
-    @traj_temps[station.id] = tmp_trajet(station) unless params[:city] == ""
+    @dates = ((params[:query][:start_date].split("-").last.to_i)..(params[:query][:end_date].split("-").last.to_i))
+    @stations.each do |station|
+      @traj_temps[station.id] = tmp_trajet(station) unless params[:city] == ""
+    end
   end
 
   def show
