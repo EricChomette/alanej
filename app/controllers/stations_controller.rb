@@ -114,13 +114,15 @@ class StationsController < ApplicationController
   end
 
   def meteo(station)
-    date_debut = params[:start_date].split("-").last.to_i - Time.now.day
-    date_fin = params[:end_date].split("-").last.to_i - Time.now.day
+    date_debut = params[:query][:start_date].split("-").last.to_i - Time.now.day
+    date_fin = params[:query][:end_date].split("-").last.to_i - Time.now.day
     dates = (date_debut..date_fin)
-    dates.each do |date|
-      URI.open("https://api.meteo-concept.com/api/forecast/daily/#{date}/period/2?token=25b726a85bb8874026726594e8131564066e1794ef1e71a60a86f019e5e1968d&insee=#{station.insee}") do |stream|
-        forecast = JSON.parse(stream.read)['forecast']
-        return WEATHER[forecast['weather']]
+    if (params[:query][:start_date] != "") && (params[:query][:end_date] != "")
+      dates.each do |date|
+        URI.open("https://api.meteo-concept.com/api/forecast/daily/#{date}/period/2?token=25b726a85bb8874026726594e8131564066e1794ef1e71a60a86f019e5e1968d&insee=#{station.insee}") do |stream|
+          forecast = JSON.parse(stream.read)['forecast']
+          return WEATHER[forecast['weather']]
+        end
       end
     end
   end
@@ -133,9 +135,9 @@ class StationsController < ApplicationController
     if @reviews.count.positive?
       @average_rating = @reviews.average(:rating).round(2)
     end
-    if (params[:start_date] != "") && (params[:end_date] != "")
-      date_debut = params[:start_date].split("-").last.to_i - Time.now.day
-      date_fin = params[:end_date].split("-").last.to_i - Time.now.day
+    if (params[:query][:start_date] != "") && (params[:query][:end_date] != "")
+      date_debut = params[:query][:start_date].split("-").last.to_i - Time.now.day
+      date_fin = params[:query][:end_date].split("-").last.to_i - Time.now.day
       @weathers = {}
       @proba_frosts = {}
       @proba_rains = {}

@@ -1,5 +1,5 @@
 <div class="blocker"></div>
-<div class='load-container'><h2 class="load-text">L'aglo tabasse de la donnée...</h2></div>
+<div class='load-container'><h2 class="load-text">L'algo tabasse de la donnée...</h2></div>
 <div class="home-container" >
   <%= image_tag("https://res.cloudinary.com/robintrllt/image/upload/v1637666260/logo_alanej_horizontal_wbmtr9.png",
       id:"home-logo") %>
@@ -12,16 +12,15 @@
                         placeholder: "D'où partez-vous ?",
                         input_html:  { name: :city, value: params.dig(:city) } %>
     <div class="dates">
-      <%= f.input :date,  label:         false,
-                          placeholder: "Départ le ?",
-                          as: :date, html5: true,
-                          input_html:    { name: :start_date, value: params.dig(:date) } %>
+      <%= f.input :start_date,  as: :string, label: false,
+                          required: false,
+                          input_html:    { id: "range_start", placeholder:"Date de départ"} %>
 
-      <%= f.input :date,  label:         false,
-                          placeholder: "Retour le ?",
-                          as: :date, html5: true,
-                          input_html:    { name: :end_date, value: params.dig(:date) } %>
+      <%= f.input :end_date,  as: :string, label: false,
+                          required: false,
+                          input_html:    { id: "range_end", placeholder:"Date de retour" } %>
     </div>
+
     <%= f.submit "Go à la neige !", class: "btn btn-go" ,id:'goAnim'%>
   <% end %>
 </div>
