@@ -9,8 +9,13 @@ const initFlatpickr = () => {
     flatpickr("#range_start", {
       plugins: [new rangePlugin({ input: "#range_end" })],
       minDate: "today",
+      maxDate: new Date().fp_incr(7),
       inline: false,
       dateFormat: "Y-m-d",
+      "locale": {
+    "firstDayOfWeek": 1
+}
+
     })
   }
 
@@ -19,8 +24,12 @@ const initFlatpickr = () => {
     flatpickr("#index_range_start", {
       plugins: [new rangePlugin({ input: "#index_range_end" })],
       minDate: "today",
+      maxDate: new Date().fp_incr(7),
       inline: false,
       dateFormat: "Y-m-d",
+      "locale": {
+        "firstDayOfWeek": 1
+      }
     })
   }
 

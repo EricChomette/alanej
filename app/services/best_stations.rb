@@ -131,7 +131,7 @@ class BestStations
     weather_rating = station_data[:weather_rating]
     snow_rating = station_data[:snow_rating]
     budget_rating = station_data[:budget_rating]
-    case @criterias.first
+    case @criterias[0]
     when "snow"
       snow_rating *= 10
     when "weather"
@@ -185,7 +185,6 @@ class BestStations
   def calc_rating_duration
     @stations_data.sort! {|a, b| a[:duration] <=> b[:duration]}
     @stations_data.each_with_index do |station_data, index|
-      ap index
       station_data[:duration_rating] = ( (@stations_data.count - index) * (5.to_f / @stations_data.count) )
     end
   end

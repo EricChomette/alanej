@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   match "/404", to: "errors#not_found", via: :all
   match "/500", to: "errors#internal_server_error", via: :all
- 
-  get 'stations/index'
-  get 'stations/show'
+
+  # post 'stations/index-recup', to: "stations#create_from_sortable"
   root to: 'pages#home'
   resources :stations do
     resources :reviews, only: [:create]

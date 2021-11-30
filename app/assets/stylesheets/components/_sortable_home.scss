@@ -9,22 +9,22 @@
   width: 100%;
 
   &:nth-child(1) {
-    width: 30%;
+    width: 28%;
     background: rgb(233, 101, 0);
   }
 
   &:nth-child(2) {
-    width: 25%;
-    background:  rgba(233, 101, 0, 0.8);
+    width: 26%;
+    background:  rgba(233, 101, 0, 0.85);
   }
 
   &:nth-child(3) { width: 21%;
-    width: 22%;
+    width: 23%;
     background:  rgba(233, 101, 0, 0.65);
   }
 
   &:nth-child(4) {
-    width: 18%;
+    width: 20%;
     background:  rgba(233, 101, 0, 0.5);
   }
 }

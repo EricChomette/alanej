@@ -35,12 +35,14 @@
 
       <div class="cards-meteo">
         <% @station.conditions.each do |condition| %>
-          <div class="card-meteo">
-            <p><%= humanize(condition.date_on) %></p>
-            <p><%= condition.weather %></p>
-            <p>probabilité de gel <%= condition.frost_prob %>%</p>
-            <p>probabilité de brouillard <%= condition.fog_prob %>%</p>
-          </div>
+          <% if @dates.include?(condition.date_on.to_date) %>
+            <div class="card-meteo">
+              <p><%= humanize(condition.date_on) %></p>
+              <p><%= condition.weather %></p>
+              <p>probabilité de gel <%= condition.frost_prob %>%</p>
+              <p>probabilité de brouillard <%= condition.fog_prob %>%</p>
+            </div>
+          <% end %>
         <% end %>
       </div>
 

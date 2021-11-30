@@ -6,13 +6,13 @@
                         placeholder: "D'où partez-vous ?",
                         input_html:  { name: :city, value: params.dig(:city), id: "index_query_city"} %>
     <div class="dates">
-      <%= f.input :start_date,  as: :string, label: false,
-                          required: false,
-                          input_html:    { id: "index_range_start", placeholder:"Date de départ"} %>
+      <%= f.input :start_date, as: :string, label: false,
+                               required: false,
+                               input_html:    { value: params[:query][:start_date], id: "index_range_start"} %>
 
-      <%= f.input :end_date,  as: :string, label: false,
-                          required: false,
-                          input_html:    { id: "index_range_end", placeholder:"Date de retour" } %>
+      <%= f.input :end_date, as: :string, label: false,
+                             required: false,
+                             input_html:    { value: params[:query][:end_date], id: "index_range_end" } %>
     </div>
 
     <%= f.submit "Go !", class: "btn btn-go" ,id:'index_goAnim'%>
