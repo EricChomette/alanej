@@ -283,6 +283,8 @@ end
 #   insee: "73306",
 #   cardphoto: "https://cdn.snowplaza.com/images/ski-area/w_1024,h_768/valloire_214168.webp",
 #   bannerphoto: "https://www.grand-hotel-valloire.com/cache/e/2/3/8/d/e238d87250be931c61ad71bf60a6b895f7686260.jpeg",
+#   lat: "45.163904",
+#   long: "6.425500",
 #   logo: "https://upload.wikimedia.org/wikipedia/commons/8/80/Valloire-logo.jpg"
 #   snowurl: "valloire"
 # )
@@ -309,6 +311,8 @@ end
 #   insee: "73150",
 #   cardphoto: "https://fr.ski-france.com/media/cache/gallery_default/20875.jpg",
 #   bannerphoto: "https://www.la-plagne.com/sites/default/files/styles/slide_1920x1080/public/medias/images/DESTI_Aime-2000_batiment-vue_O-Allamand.jpg?h=5ca329e5&itok=hSJxWlYa",
+#   lat: "45.507937",
+#   long: "6.677156",
 #   logo: "https://go.la-plagne.com/logos/BellePlagne.png"
 #   snowurl: "plagne-centre"
 # )
@@ -338,6 +342,8 @@ end
 #   insee: "73304",
 #   cardphoto: "https://www.lalibre.be/resizer/j6SK9ie6w5dPZ5tgUvrZQvR_cdw=/768x512/filters:quality(70):format(jpg):focal(1353.5x684:1363.5x674)/cloudfront-eu-central-1.images.arcpublishing.com/ipmgroup/YIBHARBL3ZGATIDFVBPP5ZLCKQ.jpg",
 #   bannerphoto: "https://phototheque.mon-sejour-en-montagne.com/images/msem/1400_700/val-d-isere-photo2.jpg",
+#   lat:"45.450262",
+#   long:"6.977531",
 #   logo: "https://upload.wikimedia.org/wikipedia/commons/9/9d/Logo_val_d%27isere.png"
 #   snowurl: "val-disere#bellevarde"
 # )
@@ -364,6 +370,8 @@ end
 #   insee: "73296",
 #   cardphoto: "https://media.istockphoto.com/photos/tignes-alps-france-picture-id465967736?k=20&m=465967736&s=612x612&w=0&h=ctM2KRhmigcfVqZC1k4EHZVirbXG_sQJw3cwVBL832I=",
 #   bannerphoto: "https://phototheque.mon-sejour-en-montagne.com/images/msem/1400_700/tignes-le-lac-photo2-1.jpg",
+#   lat:"45.468640",
+#   long:"6.907050",
 #   logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/c/ce/Logo_Tignes.svg/1200px-Logo_Tignes.svg.png"
 #   snowurl: "tignes-le-lac#aiguille-percee"
 # )
@@ -388,6 +396,8 @@ end
 #   insee: "73227",
 #   cardphoto: "https://cdn.france-montagnes.com/sites/default/files/styles/station_slideshow_large/public/station/hiver/DavidAndre-domaineskiable-BD.jpg?itok=9S5OGQHR",
 #   bannerphoto: "https://www.les3vallees.com/media/cache/hero_default/hiver-paysage-discover-village-courchevel-1920x1080-davidandre-091.jpg",
+#   lat:"45.432828",
+#   long:"6.621404",
 #   logo: "https://www.courchevel.com/images/logo_couchevel_footer.png"
 #   snowurl: "courchevel-1850"
 # )
@@ -415,6 +425,8 @@ end
 #   insee: "74080",
 #   cardphoto: "https://www.hautesavoiephotos.com/villages/la_clusaz_img1651.jpg",
 #   bannerphoto: "https://www.mksport-mag.com/media/cache/place_detail_main_picture/2019/01/9357-village-c-pascal-lebeau.jpg",
+#   lat:"45.904149",
+#   long:"6.425063",
 #   logo: "https://www.laclusaz.com/download?t=page&id=768&ext=.png"
 #   snowurl: "la-clusaz"
 # )
@@ -441,6 +453,8 @@ end
 #   insee: "74191",
 #   cardphoto: "https://cdn-elle.ladmedia.fr/var/plain_site/storage/images/loisirs/evasion/avoriaz-3-raisons-de-loger-au-belambra-les-cimes-du-soleil-3760142/90012656-1-fre-FR/Avoriaz-3-raisons-de-loger-au-Belambra-Les-Cimes-du-soleil.jpg",
 #   bannerphoto: "https://media-exp1.licdn.com/dms/image/C561BAQF9xAIxCZlhbw/company-background_10000/0/1630412833345?e=2159024400&v=beta&t=oXCeeOVzz2h1WZrL0GboRlnACc8FqlOMN9u8RnWxo20",
+#   lat:"46.193869",
+#   long:"6.770071",
 #   logo: "https://www.mbh.fr/wp-content/uploads/2019/10/logo-avoriaz.png"
 #   snowurl: "avoriaz"
 # )
@@ -463,6 +477,8 @@ end
 #   insee: "74173",
 #   cardphoto: "http://media.sit.savoie-mont-blanc.com/620x425/55979/9-10955800.jpeg",
 #   bannerphoto: "https://skipass.fr/p/resorts/687/default-megeve-7767f-1.jpg",
+#   lat:"45.858096",
+#   long:"6.616235",
 #   logo: "https://mairie.megeve.fr/wp-content/uploads/2018/03/logo-bonne-qualit%C3%A9-650x288.jpg"
 #   snowurl: "megeve"
 # )
@@ -486,6 +502,8 @@ end
 #   insee: "38253",
 #   cardphoto: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Les2Alpes.jpg/1200px-Les2Alpes.jpg",
 #   bannerphoto: "https://woody.cloudly.space/app/uploads/les-deux-alpes/2020/11/thumbs/267-les-2-alpes-automne-hiver-1-1920x960.jpg",
+#   lat:"45.009607",
+#   long:"6.123940",
 #   logo: "https://www.ski-planet.com/photo/les-2-alpes/logo-les-2-alpes.jpg"
 #   snowurl: "les-2-alpes"
 # )
@@ -511,6 +529,8 @@ end
 #   insee: "74056",
 #   cardphoto: "https://images.lpcdn.ca/924x615/201512/04/1099568-chamonix-love-creux-sommets-parmi.jpg",
 #   bannerphoto: "https://www.skiloc-chamonix.fr/wp-content/uploads/2018/01/station-de-ski-chamonix-flegere.png",
+#   lat:"45.919218",
+#   long:"6.865332",
 #   logo: "https://www.mbh.fr/wp-content/uploads/2020/03/alt-logo-chamonix.png"
 #   snowurl: "chamonix"
 # )
@@ -536,6 +556,8 @@ end
 #   insee: "73132",
 #   cardphoto: "https://cdn.france-montagnes.com/sites/default/files/styles/station_slideshow_large/public/station/hiver/station2.jpg?itok=knuLXOmW",
 #   bannerphoto: "https://www.moka-mag.com/media/cache/place_detail_main_picture/2018/11/2793-les-saisies.jpg",
+#   lat:"45.757149",
+#   long:"6.539512",
 #   logo: "https://cheque-vacances-connect.com/collaborateur/wp-content/uploads/2021/06/lessaisies.jpg"
 #   snowurl: "les-saisies"
 # )
@@ -564,6 +586,8 @@ end
 #   insee: "38002",
 #   cardphoto: "https://d3u9sm4kpb9d1j.cloudfront.net/pictures/1454197",
 #   bannerphoto: "https://woody.cloudly.space/app/uploads/les-sept-laux/2019/09/thumbs/dji-0328-1920x960.jpg",
+#   lat:"45.256498",
+#   long:"5.992611",
 #   logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/a/a9/Logo_Les_7_Laux.svg/1280px-Logo_Les_7_Laux.svg.png"
 #   snowurl: "prapoutel"
 # )
@@ -587,6 +611,8 @@ end
 #   insee: "38567",
 #   cardphoto: "https://cdn.france-montagnes.com/sites/default/files/styles/station_slideshow_large/public/station/hiver/OTChamrousse-Roche-Beranger-Aeolus--9-.jpg?itok=rJVv0dSC",
 #   bannerphoto: "https://www.transaltitude.fr/media/filer_public_thumbnails/filer_public/11/5d/115debc2-6811-4654-8097-b8824085bccc/chamrousse_vue_avion_images-et-reves_1hd_rec.jpg__1920x350_q85_crop_subsampling-2.jpg",
+#   lat:"45.125045",
+#   long:"5.876118",
 #   logo: "https://www.chamrousse.com/medias/images/info_pages/logo-chamrousse-noir-fond-transparent-png-2968.png"
 #   snowurl: "chamrousse-1700-bachat-bouloud"
 # )
@@ -613,6 +639,8 @@ end
 #   insee: "73304",
 #   cardphoto: "https://www.snow-forecast.com/system/images/35751/large/Val-Thorens.jpg?1619614010",
 #   bannerphoto: "https://static.montagnettes.com/wp-content/uploads/2020/06/1600par900-couverture-val-thorens-v2-1600x900.jpg",
+#   lat:"45.298975",
+#   long:"6.576871",
 #   logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/b/b3/Logo_Val_Thorens_-_2009.svg/2560px-Logo_Val_Thorens_-_2009.svg.png"
 #   snowurl: "val-thorens"
 # )
@@ -636,6 +664,8 @@ end
 #   insee: "74136",
 #   cardphoto: "https://www.savoie-haute-savoie-nordic.com/wp-content/uploads/2020/04/Le-grand-bornand.jpg",
 #   bannerphoto: "https://www.barnes-montblanc.com/uploads/sectors/36/hero_pictures/53984/show.jpg?1573573424",
+#   lat:"45.943026",
+#   long:"6.429957",
 #   logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/4/4c/Le_grand_bornand_%28logo%29.svg/1024px-Le_grand_bornand_%28logo%29.svg.png"
 #   snowurl: "le-grand-bornand"
 # )
@@ -661,6 +691,8 @@ end
 #   insee: "74134",
 #   cardphoto: "https://www.skieur.com/media/guide_station/img/les_gets1%C2%A9v_ducrettet_ot_les_gets.jpg",
 #   bannerphoto: "https://hunterchalets.com/wp-content/uploads/2020/05/Copyright-JM.Baud_OTLesGets-1024x578.jpg",
+#   lat:"46.159494",
+#   long:"6.669911",
 #   logo: "https://www.lesgets.com/app/uploads/2020/02/logo-gets-bleu.png"
 #   snowurl: "les-gets"
 # )
