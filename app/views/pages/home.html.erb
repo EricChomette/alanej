@@ -20,7 +20,7 @@
                           required: false,
                           input_html:    { id: "range_end", placeholder:"Date de retour" } %>
     </div>
-
+    <%= render 'shared/sortable' %>
     <%= f.submit "Go à la neige !", class: "btn btn-go" ,id:'goAnim'%>
   <% end %>
 </div>

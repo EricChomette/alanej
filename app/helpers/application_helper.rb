@@ -9,4 +9,8 @@ module ApplicationHelper
     rest = "0#{rest}" if rest < 10
     return "#{hours}h#{rest}"
   end
+
+  def humanize(date)
+    date.strftime('%d %B %Y')
+  end
 end
