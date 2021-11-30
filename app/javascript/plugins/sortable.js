@@ -7,7 +7,7 @@ const sortableUpdated = () => {
 }
 
 const updateResults = (criterias) => {
-  console.log("je dois mettre à jour la liste avec cet ordre:", criterias)
+  console.log(criterias)
 }
 
 
