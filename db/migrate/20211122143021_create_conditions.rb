@@ -3,7 +3,7 @@ class CreateConditions < ActiveRecord::Migration[6.0]
     create_table :conditions do |t|
       t.string :snow
       t.string :weather
-      t.date :date_on
+      t.datetime :date_on
       t.references :station, null: false, foreign_key: true
 
       t.timestamps

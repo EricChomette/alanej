@@ -29,6 +29,7 @@
                       <p><%=  time_conversion(station_data[:duration]) %> de trajet</p>
 
                       <p> Météo:
+                        <%= humanize(station.conditions.last.date_on) %>
                         <%= station.conditions.first.weather  %>
                       </p>
                       <p>

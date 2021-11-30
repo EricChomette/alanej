@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 2021_11_29_125135) do
   create_table "conditions", force: :cascade do |t|
     t.string "snow"
     t.string "weather"
+    t.datetime "date_on"
     t.bigint "station_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "date"
     t.integer "rain_prob"
     t.integer "fog_prob"
     t.integer "frost_prob"
