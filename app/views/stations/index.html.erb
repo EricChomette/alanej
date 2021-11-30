@@ -26,15 +26,15 @@
                 <div class="card-station-info">
                   <div class="card-station-factors">
 
-                      <p><%= station_data[:duration] %> de trajet</p>
+                      <p><%=  time_conversion(station_data[:duration]) %> de trajet</p>
 
-                      <p>Météo: <%= station.conditions.first.weather %></p>
-
+                      <p> Météo:
+                        <%= station.conditions.first.weather  %>
+                      </p>
                       <p>
                         Enneigement:
                         <%= station_data[:snow][0] %>cm
                         <%= station_data[:snow][1] %>cm
-
                       </p>
 
                       <% if station.budget == "€"%>
@@ -65,7 +65,7 @@
               </div>
 
               <div class="rating-alanej">
-                <%= image_tag 'rating5.png' , :class => "img_rating" %>
+                <h3><%= station_data[:global_rating] %> / 5</h3>
               </div>
 
             </div>

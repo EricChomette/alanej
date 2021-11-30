@@ -1,19 +1,3 @@
-# [
-#   {
-#     station: <Station:0x00007fa77e031e20>,
-#     duration: 3456 # minutes
-#     snow: 12 cm
-#   }
-
-#   {
-#     station: <Station:0x00007fa79e029e20>,
-#     duration: 2863 # minutes
-#     weather:
-#     snow: 10 cm
-#   }
-
-
-# ]
 require 'open-uri'
 require 'date'
 
@@ -41,11 +25,19 @@ ONE_W = [
   "Orages forts et fréquents de pluie et neige mêlées ou grésil", "Pluies orageuses", "Pluie et neige mêlées à caractère orageux", "Neige à caractère orageux", "Pluie modérée intermittente", "Pluie forte intermittente", "Neige forte intermittente", "Pluie et neige mêlées", "Pluie et neige mêlées", "Pluie et neige mêlées", "Averses de grêle"
 ]
 
+NB_STATIONS = 5
+
 FIVE_S = (131..500)
 FOUR_S = (71..130)
 THREE_S = (41..70)
 TWO_S = (21..40)
 ONE_S = (0..20)
+
+FIVE_T = (0..60)
+FOUR_T = (61..90)
+THREE_T = (91..120)
+TWO_T = (121..240)
+
 
 class BestStations
   def initialize(start_date, end_date, address, criterias)
@@ -61,8 +53,8 @@ class BestStations
     assign_wheater
     assign_snow
     calcul_ratings
-    # sort
-    # @stations_data
+    sort
+    @stations_data
   end
 
   private
@@ -93,13 +85,6 @@ class BestStations
     end
   end
 
-  def time_conversion(minutes)
-    hours = minutes / 60
-    rest = minutes % 60
-    rest = "0#{rest}" if rest < 10
-    return "#{hours}h#{rest}"
-  end
-
   def tmp_trajet(station_data)
     lnglat_start = find_start_coordonates
 
@@ -107,7 +92,7 @@ class BestStations
       trajet = JSON.parse(stream.read)["routes"]
       trajet_duration = (trajet[0]["duration"] / 60).to_i
       # sleep(2.seconds)
-      return time_conversion(trajet_duration)
+      return trajet_duration
     end
   end
 
@@ -132,30 +117,78 @@ class BestStations
   end
 
   def calcul_ratings
+    calc_rating_duration
     @stations_data.each do |station_data|
-      # calc_rating_duration(station_data)
       calc_rating_weather(station_data)
       calc_rating_snow(station_data)
       calc_rating_budget(station_data)
+      calcul_global_rating(station_data)
     end
   end
 
-  # def sort
+  def calcul_global_rating(station_data)
+    duration_rating = station_data[:duration_rating]
+    weather_rating = station_data[:weather_rating]
+    snow_rating = station_data[:snow_rating]
+    budget_rating = station_data[:budget_rating]
+    case @criterias.first
+    when "snow"
+      snow_rating *= 10
+    when "weather"
+      weather_rating *= 10
+    when "budget"
+      budget_rating *= 10
+    when "trip"
+      duration_rating *= 10
+    end
 
-  # end
+    case @criterias[1]
+    when "snow"
+      snow_rating *= 7
+    when "weather"
+      weather_rating *= 7
+    when "budget"
+      budget_rating *= 7
+    when "trip"
+      duration_rating *= 7
+    end
 
-  def calc_rating_duration(station_data)
-    # station_data[:duration]
-    # station_data[:durating_rating] = station_data[:duration]
+    case @criterias[2]
+    when "snow"
+      snow_rating *= 3
+    when "weather"
+      weather_rating *= 3
+    when "budget"
+      budget_rating *= 3
+    when "trip"
+      duration_rating *= 3
+    end
 
+    case @criterias[3]
+    when "snow"
+      snow_rating *= 1
+    when "weather"
+      weather_rating *= 1
+    when "budget"
+      budget_rating *= 1
+    when "trip"
+      duration_rating *= 1
+    end
+
+    station_data[:global_rating] = ((duration_rating + weather_rating + snow_rating + budget_rating) / 21).round(2)
   end
-  # traj_temps_sorted = traj_temps.sort_by { |k, v| v }
-  # traj_notes = []
-  # traj_temps_sorted.each_with_index do |station, index|
-  #   traj_notes << [station[0], ((20 - index).to_f / 4).round(2)]
-  # end
-  # raise
-  # return traj_notes
+
+  def sort
+    @stations_data.sort! {|a, b| b[:global_rating] <=> a[:global_rating]}
+  end
+
+  def calc_rating_duration
+    @stations_data.sort! {|a, b| a[:duration] <=> b[:duration]}
+    @stations_data.each_with_index do |station_data, index|
+      ap index
+      station_data[:duration_rating] = ( (@stations_data.count - index) * (5.to_f / @stations_data.count) )
+    end
+  end
 
   def calc_rating_weather(station_data)
     array = []
@@ -198,15 +231,15 @@ class BestStations
   def calc_rating_budget(station_data)
     case station_data[:station].budget
     when "1"
-      station_data[:budget_rating] = 5
+      station_data[:budget_rating] = 5.0
     when "2"
-      station_data[:budget_rating] = 4
+      station_data[:budget_rating] = 4.0
     when "3"
-      station_data[:budget_rating] = 3
+      station_data[:budget_rating] = 3.0
     when "4"
-      station_data[:budget_rating] = 2
+      station_data[:budget_rating] = 2.0
     when "5"
-      station_data[:budget_rating] = 1
+      station_data[:budget_rating] = 1.0
     end
   end
 

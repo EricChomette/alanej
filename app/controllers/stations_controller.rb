@@ -9,15 +9,7 @@ class StationsController < ApplicationController
   def index
     # @stations = Station.all
     @dates = ((params[:query][:start_date].split("-").last.to_i)..(params[:query][:end_date].split("-").last.to_i))
-    # criterias = %w[weather snow budget trip]
-    # BestStations(params[:query][:start_date], params[:query][:end_date], params[:city], criterias)
-    # @traj_temps = {}
-    # @stations.each do |station|
-    #   @traj_temps[station.name] = tmp_trajet(station) unless params[:city] == ""
-    # end
-    # traj_rating(@traj_temps)
-    @stations_data = BestStations.new(params[:query][:start_date], params[:query][:end_date], params[:city], %w[weather snow budget trip]).call
-    raise
+    @stations_data = BestStations.new(params[:query][:start_date], params[:query][:end_date], params[:city], %w[trip snow weather budget]).call
   end
 
   def show
@@ -26,6 +18,6 @@ class StationsController < ApplicationController
     @month = MONTHS[Time.now.month]
     @reviews = @station.reviews
     @average_rating = @reviews.average(:rating).round(2) if @reviews.count.positive?
-    @dates = ((params[:start_date].split("-").last.to_i)..(params[:end_date].split("-").last.to_i))
+    @dates = ((params[:query][:start_date].split("-").last.to_i)..(params[:end_date].split("-").last.to_i))
   end
 end
