@@ -12,8 +12,8 @@ const updateResults = (criterias) => {
 
 
 const initSortable = () => {
-  if (document.querySelector('#sortable-items')) {
-    var el = document.getElementById('sortable-items');
+  if (document.querySelector('#sortable-items'||'#home-sortable-items')) {
+    var el = document.getElementById('sortable-items' || 'home-sortable-items');
     var sortable = Sortable.create(el, {
       sort: true,
       animation: 150,
