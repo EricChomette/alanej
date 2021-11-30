@@ -8,17 +8,18 @@
                               url: stations_path,
                               defaults: { wrapper_html: { class: "mr-3" },required: false },
                               html: { class: 'd-flex my-2' } do |f| %>
-    <%= f.input :city,  label:       false,
+    <%= f.input :city,  label: false,
                         placeholder: "D'où partez-vous ?",
-                        input_html:  { name: :city, value: params.dig(:city) } %>
+                        required: true,
+                        input_html: { name: :city, value: params.dig(:city) } %>
     <div class="dates">
-      <%= f.input :start_date,  as: :string, label: false,
-                          required: false,
-                          input_html:    { id: "range_start", placeholder:"Date de départ"} %>
+      <%= f.input :start_date, as: :string, label: false,
+                               required: true,
+                               input_html: { id: "range_start", placeholder:"Date de départ"} %>
 
-      <%= f.input :end_date,  as: :string, label: false,
-                          required: false,
-                          input_html:    { id: "range_end", placeholder:"Date de retour" } %>
+      <%= f.input :end_date, as: :string, label: false,
+                             required: true,
+                             input_html: { id: "range_end", placeholder:"Date de retour" } %>
     </div>
 
     <%= render 'shared/sortable_home' %>
