@@ -34,15 +34,13 @@
       <h2 class="category-title">Météo et enneigement</h2>
 
       <div class="cards-meteo">
-        <% @dates.each do |date| %>
-          <% @station.conditions.where(date: date).each do |condition| %>
-            <div class="card-meteo">
-              <p><%= condition.date %> <%= @month %></p>
-              <p><%= condition.weather %></p>
-              <p>probabilité de gel <%= condition.frost_prob %>%</p>
-              <p>probabilité de brouillard <%= condition.fog_prob %>%</p>
-            </div>
-          <% end %>
+        <% @station.conditions.each do |condition| %>
+          <div class="card-meteo">
+            <p><%= humanize(condition.date_on) %></p>
+            <p><%= condition.weather %></p>
+            <p>probabilité de gel <%= condition.frost_prob %>%</p>
+            <p>probabilité de brouillard <%= condition.fog_prob %>%</p>
+          </div>
         <% end %>
       </div>
 
