@@ -7,7 +7,7 @@ class StationsController < ApplicationController
   MONTHS = ["rien", "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre"]
 
   def index
-    @stations = Station.all
+    # @stations = Station.all
     @dates = ((params[:query][:start_date].split("-").last.to_i)..(params[:query][:end_date].split("-").last.to_i))
     # criterias = %w[weather snow budget trip]
     # BestStations(params[:query][:start_date], params[:query][:end_date], params[:city], criterias)
@@ -16,6 +16,8 @@ class StationsController < ApplicationController
     #   @traj_temps[station.name] = tmp_trajet(station) unless params[:city] == ""
     # end
     # traj_rating(@traj_temps)
+    @stations_data = BestStations.new(params[:query][:start_date], params[:query][:end_date], params[:city], %w[weather snow budget trip]).call
+    raise
   end
 
   def show
