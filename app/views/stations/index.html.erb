@@ -6,7 +6,8 @@
 
   <div class="container-cards-stations">
 
-    <% @stations.each do |station| %>
+    <% @stations_data.each do |station_data| %>
+      <% station = station_data[:station]%>
       <div class="container-card-station">
         <%= link_to station_path(station, city: params[:city], start_date: params[:query][:start_date], end_date: params[:query][:end_date]) do %>
           <div class="card-debug">
@@ -25,17 +26,14 @@
                 <div class="card-station-info">
                   <div class="card-station-factors">
 
-                      <p>
-                        <%# <%= @traj_temps[station.id] %>
-                        <%# <%= @budget[station.id] %>
-                      </p>
+                      <p><%= station_data[:duration] %> de trajet</p>
 
                       <p>Météo: <%= station.conditions.first.weather %></p>
 
                       <p>
                         Enneigement:
-                        <%= undegeuify(station.conditions.first.snow)[0] %>cm
-                        <%= undegeuify(station.conditions.first.snow)[1] %>cm
+                        <%= station_data[:snow][0] %>cm
+                        <%= station_data[:snow][1] %>cm
 
                       </p>
 
