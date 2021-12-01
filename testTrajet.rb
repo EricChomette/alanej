@@ -20,7 +20,6 @@ budget_car =  budget_car.to_i
 puts "durée #{ trajet_Duration} minutes, longueur: #{trajet_Longueur} Km, prix_moyen: #{budget_car} €"
 end
 
-
 coordonates = []
 url = "https://api.myptv.com/geocoding/v1/locations/by-text?searchText=259+Rue+des+Cordineaux%2C+Dommartin%2C+Auvergne-Rhône-Alpes%2C&apiKey=NDNlYzA1M2M2YTBiNGU1YWIwMDI3NjJmZTZjZjUzNTI6MDU0NzgyOTYtMTgwZi00NTliLTg5NzYtMjA2YmEyODA3YjYw"
 url = url.chars.map { |char| char.ascii_only? ? char : CGI.escape(char) }.join
