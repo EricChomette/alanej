@@ -62,7 +62,16 @@
   display: flex;
   align-items: center;
 }
-
+.trip {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+}
+.weather {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
 .card-station-snow-alt {
   display: flex;
   align-items: center;
@@ -93,7 +102,6 @@
   height: 7%;
   display: flex;
   justify-content: center;
-  align-items: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.152);
 }
 .card-station-slopes > p {
