@@ -12,6 +12,10 @@
                         placeholder: "D'où partez-vous ?",
                         required: true,
                         input_html: { name: :city, value: params.dig(:city) } %>
+    <%= f.input :criterias, as: :string, label: false,
+                            required: true,
+                            as: :hidden,
+                            input_html: { name: :criterias, value: "snow, budget, trip, weather" } %>
     <div class="dates">
       <%= f.input :start_date, as: :string, label: false,
                                required: true,

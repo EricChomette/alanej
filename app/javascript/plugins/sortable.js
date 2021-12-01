@@ -3,7 +3,10 @@ import Sortable from 'sortablejs/modular/sortable.complete.esm.js';
 const sortableUpdated = () => {
   const items = Array.from(document.querySelectorAll('#sortable-items li'))
   const criterias = items.map(x => x.dataset.id)
-  console.log(criterias)
+  const criteriasInput = document.querySelector("#query_criterias")
+  if (criteriasInput) {
+    criteriasInput.value = criterias.join(",")
+  }
   // storeCriterias(criterias)
 }
 
