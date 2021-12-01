@@ -44,7 +44,7 @@
             </div>
           <% end %>
         <% end %>
-        
+
       </div>
       <div class="cards-webcam">
       <h3>Webcam</h3>
@@ -54,6 +54,13 @@
 
     <div id="container-trip" class="container-anchor">
       <h2 class="category-title">Trajet</h2>
+      <div class="container-map">
+        <div id="map"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
+
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab vero repellendus consequuntur nisi molestiae adipisci est, incidunt possimus voluptatibus cum laboriosam. Eius cumque alias cum iste voluptatibus veritatis dolorum pariatur.</p>
     </div>
 
@@ -119,6 +126,8 @@
 
     </div>
   </div>
+
+<canvas id="mapbox"></canvas>
 
 </div>
 

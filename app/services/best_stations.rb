@@ -8,18 +8,24 @@ SUNCLOUD = [
   "Peu nuageux", "Ciel voilé"
 ]
 CLOUDS = [
-  "Nuageux", "Très nuageux", "Couvert"
+  "Nuageux", "Couvert"
+]
+BIGCLOUDS = [
+  "Très nuageux"
 ]
 BIGRAIN = [
   "Averses de pluie et neige mêlées fortes et fréquentes", "Pluie forte intermittente", "Averses de pluie fortes et fréquentes", "Averses locales et fortes", "Averses de pluie fortes", "Pluie forte verglaçante", "Averses de pluie et neige mêlées fortes"
 
 ]
 LITTLERAIN = [
-  "Pluie faible", "Pluie et neige mêlées faibles", "Averses de pluie locales et faibles", "Pluie faible intermittente", "Averses de pluie et neige mêlées localisées et faibles", "Pluie forte", "Pluie faible verglaçante", "Averses de pluie locales", "Averses de pluie faibles", "Averses de pluie faibles et fréquentes", "Averses de pluie et neige mêlées faibles","Averses de pluie et neige mêlées faibles et nombreuses"
+  "Pluie faible", "Averses de pluie locales et faibles", "Pluie faible intermittente", "Pluie forte", "Pluie faible verglaçante", "Averses de pluie locales", "Averses de pluie faibles", "Averses de pluie faibles et fréquentes"
 ]
 RAIN = [
   "Pluie modérée", "Pluie modérée verglaçante", "Pluie et neige mêlées modérées", "Averses de pluie", "Averses de pluie fréquentes", "Averses de pluie et neige mêlées localisées", "Averses de pluie et neige mêlées localisées et fortes", "Averses de pluie et neige mêlées", "Averses de pluie et neige mêlées fréquentes",  "Pluie et neige mêlées", "Pluie et neige mêlées", "Pluie et neige mêlées"
 ]
+RAINANDSNOW = [ "Pluie et neige mêlées faibles", "Averses de pluie et neige mêlées localisées et faibles", "Averses de pluie et neige mêlées faibles","Averses de pluie et neige mêlées faibles et nombreuses", "Pluie et neige mêlées fortes",
+]
+
 FOG = [
   "Bruine", "Brouillard", "Brouillard givrant"
 ]
@@ -27,11 +33,12 @@ GRELE = [
   "Averses de grêle"
 ]
 SNOW = [
-  "Neige forte", "Neige modérée", "Averses de neige localisées et fortes", "Averses de neige", "Averses de neige fortes", "Averses de neige fréquentes", "Averses de neige fortes et fréquentes", "Pluie et neige mêlées fortes","Neige forte intermittente"
+  "Neige forte", "Neige modérée", "Averses de neige localisées et fortes", "Averses de neige", "Averses de neige fortes", "Averses de neige fréquentes", "Averses de neige fortes et fréquentes", "Neige forte intermittente"
 ]
 LITTLESNOW = [
   "Neige faible", "Neige modérée", "Averses de neige localisées et faibles", "Averses de neige localisées", "Averses de neige faibles", "Averses de neige faibles et fréquentes", "Neige faible intermittente", "Neige modérée intermittente"
 ]
+
 STORM = [
   "Orages faibles et locaux", "Orages locaux", "Orages fort et locaux", "Orages faibles", "Orages", "Orages forts", "Orages faibles et fréquents", "Orages fréquents", "Orages forts et fréquents", "Orages faibles et locaux de neige ou grésil", "Orages locaux de neige ou grésil", "Orages locaux de neige ou grésil", "Orages faibles de neige ou grésil", "Orages de neige ou grésil", "Orages faibles et fréquents de neige ou grésil","Orages fréquents de neige ou grésil"
 ]
