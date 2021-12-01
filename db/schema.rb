@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_01_112847) do
+ActiveRecord::Schema.define(version: 2021_12_01_205628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2021_12_01_112847) do
     t.string "long"
     t.string "snowurl"
     t.string "webcamurl"
+    t.string "planurl"
   end
 
   add_foreign_key "conditions", "stations"

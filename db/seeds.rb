@@ -168,7 +168,8 @@ villard_de_lans = Station.create!(
   long: "5.557192",
   logo: "https://cdn-s-www.ledauphine.com/images/3B8C29C7-F38B-4A54-B500-7A6C21977D93/NW_raw/le-nouveau-logo-des-deux-stations-photo-le-dl-noel-coolen-1633098536.jpg",
   snowurl: "les-glovettes#belvedere",
-  webcamurl:"1462285756"
+  webcamurl:"1462285756",
+  planurl: "https://www.esf-villard-de-lans.net/phototheque/800x400/plan%20pistes%20alpin.jpg"
 )
 
 les_arcs = Station.create!(
@@ -193,7 +194,8 @@ les_arcs = Station.create!(
   long: "6.769290",
   logo: "https://upload.wikimedia.org/wikipedia/commons/c/c6/Logo_officiel_de_la_station_de_ski_des_Arcs.jpg",
   snowurl: "arc-1950",
-  webcamurl:"1454327366"
+  webcamurl:"1454327366",
+  planurl: "https://vcdn.bergfex.at/images/resized/4b/2370568a8e60fa4b_a5e8db6f64f0c493@2x.jpg"
 )
 
 def new_condition(station)
@@ -237,7 +239,8 @@ end
 #   long: "6.558491",
 #   logo: "https://www.e-briancon.com/wp-content/uploads/2017/08/logo-serre-chevalier.jpg"
 #   snowurl: "le-monetier-les-bains#pic-de-l-yret",
-#   webcamurl:"1480515718"
+#   webcamurl:"1480515718",
+#   planurl: "https://ublo-file-manager.valraiso.net/assets/esfserrechechantemerle/1200_700/plan-pistes-serreche.jpg"
 # )
 
 # autrans = Station.create!(
@@ -262,7 +265,8 @@ end
 #   long: "5.581669",
 #   logo: "https://www.agopop.fr/wp-content/uploads/2021/02/logo-AUTRANS-MEAUDRE-verti-Rg.png"
 #   snowurl: "autrans-la-sure",
-#   webcamurl:"1290174408"
+#   webcamurl:"1290174408",
+#   planurl: "https://zupimages.net/up/21/48/6esj.jpeg"
 # )
 
 # valloire = Station.create!(
@@ -288,7 +292,8 @@ end
 #   long: "6.425500",
 #   logo: "https://upload.wikimedia.org/wikipedia/commons/8/80/Valloire-logo.jpg"
 #   snowurl: "valloire",
-#   webcamurl:"1584650720"
+#   webcamurl:"1584650720",
+#   planurl: "https://www.valloire.com/medias/images/prestataires/plan-pistes-371.jpg"
 # )
 
 # la_plagne = Station.create!(
@@ -313,7 +318,8 @@ end
 #   long: "6.677156",
 #   logo: "https://go.la-plagne.com/logos/BellePlagne.png"
 #   snowurl: "plagne-centre",
-#   webcamurl:"1350036198"
+#   webcamurl:"1350036198",
+#   planurl: "https://www.esf-belleplagne.com/phototheque/800x400/Plan%20pistes%20BP.png"
 # )
 
 # val_isere = Station.create!(
@@ -339,7 +345,8 @@ end
 #   long:"6.977531",
 #   logo: "https://upload.wikimedia.org/wikipedia/commons/9/9d/Logo_val_d%27isere.png"
 #   snowurl: "val-disere#bellevarde",
-#   webcamurl:"1581970567"
+#   webcamurl:"1581970567",
+#   planurl: "https://ublo-file-manager.valraiso.net/assets/esftignesvalclaret/880x400/plan-des-pistes-2016-17-900x450-2017-18.jpg"
 # )
 
 # tignes = Station.create!(
@@ -365,7 +372,8 @@ end
 #   long:"6.907050",
 #   logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/c/ce/Logo_Tignes.svg/1200px-Logo_Tignes.svg.png"
 #   snowurl: "tignes-le-lac#aiguille-percee",
-#   webcamurl:"1582055006"
+#   webcamurl:"1582055006",
+#   planurl: "https://ublo-file-manager.valraiso.net/assets/esftignesvalclaret/880x400/plan-des-pistes-2016-17-900x450-2017-18.jpg"
 # )
 
 # courchevel = Station.create!(
@@ -390,7 +398,8 @@ end
 #   long:"6.621404",
 #   logo: "https://www.courchevel.com/images/logo_couchevel_footer.png"
 #   snowurl: "courchevel-1850",
-#   webcamurl:"1505220061"
+#   webcamurl:"1505220061",
+#   planurl: "https://zupimages.net/up/21/48/r3dj.jpeg"
 # )
 
 # la_clusaz = Station.create!(
@@ -418,7 +427,8 @@ end
 #   long:"6.425063",
 #   logo: "https://www.laclusaz.com/download?t=page&id=768&ext=.png"
 #   snowurl: "la-clusaz",
-#   webcamurl: "1611904694"
+#   webcamurl: "1611904694",
+#   planurl: "https://www.laclusaz.com/medias/images/info_pages/multitailles/1200x900_plan-domaine-alpin-la-clusaz-1033.jpg"
 # )
 
 # avoriaz = Station.create!(
@@ -444,7 +454,8 @@ end
 #   long:"6.770071",
 #   logo: "https://www.mbh.fr/wp-content/uploads/2019/10/logo-avoriaz.png"
 #   snowurl: "avoriaz",
-#   webcamurl:1558388745"
+#   webcamurl:1558388745",
+#   planurl: "https://zupimages.net/up/21/48/0wdg.jpeg"
 # )
 
 # megeve = Station.create!(
@@ -469,7 +480,8 @@ end
 #   long:"6.616235",
 #   logo: "https://mairie.megeve.fr/wp-content/uploads/2018/03/logo-bonne-qualit%C3%A9-650x288.jpg"
 #   snowurl: "megeve",
-#   webcamurl:"1583830168"
+#   webcamurl:"1583830168",
+#   planurl: "https://m.ski-planet.com/photo/megeve/pistes.jpg"
 # )
 
 # deux_alpes = Station.create!(
@@ -494,7 +506,8 @@ end
 #   long:"6.123940",
 #   logo: "https://www.ski-planet.com/photo/les-2-alpes/logo-les-2-alpes.jpg"
 #   snowurl: "les-2-alpes",
-#   webcamurl:"1385511010"
+#   webcamurl:"1385511010",
+#   planurl: "https://vcdn.bergfex.at/images/resized/08/2c7f2624b9d8b408_a8a73e0a04579e5d@2x.jpg"
 # )
 
 # chamonix = Station.create!(
@@ -520,7 +533,8 @@ end
 #   long:"6.865332",
 #   logo: "https://www.mbh.fr/wp-content/uploads/2020/03/alt-logo-chamonix.png"
 #   snowurl: "chamonix",
-#   webcamurl:"1385510422"
+#   webcamurl:"1385510422",
+#   planurl: "https://zupimages.net/up/21/48/huz8.jpeg"
 # )
 
 # les_saisies = Station.create!(
@@ -546,7 +560,8 @@ end
 #   long:"6.539512",
 #   logo: "https://cheque-vacances-connect.com/collaborateur/wp-content/uploads/2021/06/lessaisies.jpg"
 #   snowurl: "les-saisies",
-#   webcamurl:"1462285077"
+#   webcamurl:"1462285077",
+#   planurl: "https://www.sports-hiver.com/img/resort_media/planpistes/STATANMSM01730031/2416.jpg"
 # )
 
 # sept_laux = Station.create!(
@@ -574,7 +589,8 @@ end
 #   long:"5.992611",
 #   logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/a/a9/Logo_Les_7_Laux.svg/1280px-Logo_Les_7_Laux.svg.png"
 #   snowurl: "prapoutel",
-#   webcamurl:"1430822829"
+#   webcamurl:"1430822829",
+#   planurl: "https://www.sports-hiver.com/img/resort_media/planpistes/STATANMSM01380020/4400.jpg"
 # )
 
 # chamrousse = Station.create!(
@@ -599,7 +615,8 @@ end
 #   long:"5.876118",
 #   logo: "https://www.chamrousse.com/medias/images/info_pages/logo-chamrousse-noir-fond-transparent-png-2968.png"
 #   snowurl: "chamrousse-1700-bachat-bouloud",
-#   webcamurl:"1347033121"
+#   webcamurl:"1347033121",
+#   planurl: "https://zupimages.net/up/21/48/cm88.jpeg"
 # )
 
 # val_thorens = Station.create!(
@@ -625,7 +642,8 @@ end
 #   long:"6.576871",
 #   logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/b/b3/Logo_Val_Thorens_-_2009.svg/2560px-Logo_Val_Thorens_-_2009.svg.png"
 #   snowurl: "val-thorens",
-#   webcamurl:"1583634468"
+#   webcamurl:"1583634468",
+#   planurl: "https://ublo-file-manager.valraiso.net/assets/esfvalthorens/800_400/skimap-val-thorens.jpg"
 # )
 
 # grand_bornand = Station.create!(
@@ -650,7 +668,8 @@ end
 #   long:"6.429957",
 #   logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/4/4c/Le_grand_bornand_%28logo%29.svg/1024px-Le_grand_bornand_%28logo%29.svg.png"
 #   snowurl: "le-grand-bornand",
-#   webcamurl:"1578916164"
+#   webcamurl:"1578916164",
+#   planurl: "https://www.legrandbornand.com/medias/images/info_pages/multitailles/1920x1440_plan-aravis-2019-2146.jpg"
 # )
 
 # les_gets = Station.create!(
@@ -676,7 +695,8 @@ end
 #   long:"6.669911",
 #   logo: "https://www.lesgets.com/app/uploads/2020/02/logo-gets-bleu.png"
 #   snowurl: "les-gets",
-#   webcamurl:"1583619096"
+#   webcamurl:"1583619096",
+#   planurl: "https://www.lesgets.com/app/uploads/2020/09/Plan-des-pistes-LGM-h20-21-sans-pub-HD-scaled.jpg"
 # )
 
 puts "#{Station.count} stations has been created"
