@@ -14,7 +14,7 @@
 .card-station {
   margin: 0 auto;
   transition: .3s;
-  color: black;
+  color: $black ;
   border-radius: 15px;
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.076);
   width: 100%;
@@ -80,6 +80,10 @@
   height: 20%;
 }
 
+.montagne {
+  text-align: center;
+}
+
 .side-info {
   height: 100%;
   width: 18%;
@@ -87,14 +91,13 @@
   flex-direction: column;
   justify-content: space-around;
 }
+.left {
+  text-align: end;
+}
 
 .side-info  > p {
   margin: 0;
-}
-
-
-.montagne {
-  text-align: center;
+  font-size: 13px;
 }
 
 .card-station-slopes {
@@ -107,9 +110,12 @@
 .card-station-slopes > p {
   margin: 0;
 }
+.total-slopes {
+  font-size: 15px;
+}
 
 .card-station-rating {
-  height: 20%;
+  height: 27%;
   display: flex;
   align-items: center;
 }
