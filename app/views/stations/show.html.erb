@@ -3,88 +3,85 @@
 <%# <h1><%= @station.name%></h1>
 <img class="banner-show" src="<%= @station.bannerphoto %>" >
 
-
-
-
 <div class="contain">
 
   <div class="nav-btns">
     <div class="container container-btns">
-      <a href="#container-station" class="btn btn-anchor">La Station</a>
-      <a href="#container-weather" class="btn btn-anchor">Météo</a>
-      <a href="#container-snow" class="btn btn-anchor">Webcam</a>
+      <a href="#container-weather-webcam" class="btn btn-anchor">Météo et Webcam</a>
       <a href="#container-trip" class="btn btn-anchor">Trajet</a>
-      <a href="#container-ski-area" class="btn btn-anchor">Domaine skiable</a>
-      <a href="#container-extras" class="btn btn-anchor">Extras</a>
+      <a href="#container-station-plan" class="btn btn-anchor">La Station</a>
       <a href="#container-reviews" class="btn btn-anchor">Commentaires</a>
     </div>
   </div>
 
   <div class="container">
 
-    <div id="container-station" class="container-anchor">
-      <h2 class="category-title">La Station</h2>
-      <p><%= @station.address %></p>
-      <p><%= @station.description%></p>
-    </div>
+    <div id="container-weather-webcam" class="container-anchor">
 
+      <div class="container-weather">
 
+        <h2 class="category-title">Météo</h2>
 
-    <div id="container-weather" class="container-anchor">
+        <div class="cards-meteo">
 
-      <h2 class="category-title">Météo</h2>
+          <% @station.conditions.each do |condition| %>
+            <% if @dates.include?(condition.date_on.to_date) %>
 
-      <div class="cards-meteo">
-        <% @station.conditions.each do |condition| %>
-          <% if @dates.include?(condition.date_on.to_date) %>
-            <div class="card-meteo">
-              <p><%= humanize(condition.date_on) %></p>
-              <p><%= condition.weather %></p>
-              <p>probabilité de gel <%= condition.frost_prob %>%</p>
-              <p>probabilité de brouillard <%= condition.fog_prob %>%</p>
-            </div>
+              <div class="card-meteo">
+                <p><%= humanize(condition.date_on) %></p>
+                <p><%= condition.weather %></p>
+                <p>probabilité de gel <%= condition.frost_prob %>%</p>
+                <p>probabilité de brouillard <%= condition.fog_prob %>%</p>
+              </div>
+
+            <% end %>
           <% end %>
-        <% end %>
+
+        </div>
+
+      </div>
+
+      <div class="container-webcam">
+
+        <h2 class="category-title">Webcam</h2>
+
+        <div class="webcam">
+          <a class="webcamView" name="windy-webcam-timelapse-player" data-id=<%=@station.webcamurl%> % data-play="day" href="https://windy.com/webcams/1462285756" target="_blank">Bouilly: Le Vercors</a><script async type="text/javascript" src="https://webcams.windy.com/webcams/public/embed/script/player.js"></script>
+        </div>
+
       </div>
 
     </div>
-
-    <div id="container-snow" class="container-anchor">
-
-      <h2 class="category-title">Webcam</h2>
-
-      <div class="cards-webcam">
-        <a class="webcamView" name="windy-webcam-timelapse-player" data-id=<%=@station.webcamurl%> % data-play="day" href="https://windy.com/webcams/1462285756" target="_blank">Bouilly: Le Vercors</a><script async type="text/javascript" src="https://webcams.windy.com/webcams/public/embed/script/player.js"></script>
-      </div>
-
-    </div>
-
 
     <div id="container-trip" class="container-anchor">
       <h2 class="category-title">Trajet</h2>
+
       <div class="container-map">
         <div id="map"
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab vero repellendus consequuntur nisi molestiae adipisci est, incidunt possimus voluptatibus cum laboriosam. Eius cumque alias cum iste voluptatibus veritatis dolorum pariatur.</p>
+      
     </div>
 
+    <div id="container-station-plan" class="container-anchor">
 
-    <div id="container-ski-area" class="container-anchor">
-      <h2 class="category-title">Domaine skiable</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab vero repellendus consequuntur nisi molestiae adipisci est, incidunt possimus voluptatibus cum laboriosam. Eius cumque alias cum iste voluptatibus veritatis dolorum pariatur.</p>
+      <div class="container-plan">
+
+        <h2 class="category-title">Domaine skiable</h2>
+
+      </div>
+
+      <div class="container-station">
+
+        <h2 class="category-title">La Station</h2>
+        <p class="address"><%= @station.address %></p>
+        <p><%= @station.description%></p>
+
+      </div>
+
     </div>
-
-
-    <div id="container-extras" class="container-anchor">
-      <h2 class="category-title">Les Extras</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab vero repellendus consequuntur nisi molestiae adipisci est, incidunt possimus voluptatibus cum laboriosam. Eius cumque alias cum iste voluptatibus veritatis dolorum pariatur.</p>
-    </div>
-
-
 
     <div id="container-reviews" class="container-anchor">
 

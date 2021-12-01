@@ -1,12 +1,13 @@
 <%= render 'shared/navbar' %>
+<div class="index-banner">
+  <h1 id="index-title"><strong> Les meilleures stations pour votre séjour </strong></h1>
+  <%= render 'shared/indexform' %>
+</div>
 
 <div class="container">
-  <%= render 'shared/indexform' %>
-
   <div class="container-cards-stations">
 
     <% @stations_data.each do |station_data| %>
-      <%= raise %>
       <% station = station_data[:station]%>
       <div class="container-card-station">
         <%= link_to station_path(station, city: params[:city], start_date: params[:query][:start_date], end_date: params[:query][:end_date]) do %>
@@ -72,17 +73,17 @@
               <div class="card-station-snow-alt">
 
                 <div class="side-info">
-                  <p class="left"><%= station.alt_max %> m</p>
-                  <p class="left"><%= station.alt_min %> m</p>
+                  <p class="left">max: <%= station.alt_max %> m</p>
+                  <p class="left">min: <%= station.alt_min %> m</p>
                 </div>
 
                 <div class="montagne">
-                  <%= image_tag("mountainiconefinal.png", height: '60', width: '72') %>
+                  <%= image_tag("mountainiconefinal.png", height: '62', width: '80') %>
                 </div>
 
                 <div class="side-info">
-                  <p><%= station_data[:snow][0] %> cm</p>
-                  <p><%= station_data[:snow][1] %> cm</p>
+                  <p><i class="far fa-snowflake"></i> <%= station_data[:snow][0] %> cm</p>
+                  <p><i class="far fa-snowflake"></i> <%= station_data[:snow][1] %> cm</p>
                 </div>
 
               </div>
