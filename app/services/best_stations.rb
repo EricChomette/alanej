@@ -74,7 +74,6 @@ FOUR_T = (61..90)
 THREE_T = (91..120)
 TWO_T = (121..240)
 
-
 class BestStations
   def initialize(start_date, end_date, address, criterias)
     @start_date = start_date.to_date.yday - Time.now.yday

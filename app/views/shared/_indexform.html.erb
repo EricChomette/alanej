@@ -1,4 +1,5 @@
-<%= render 'shared/sortable' %>
+<%= render 'shared/sortable', criterias: params[:criterias].split(",") %>
+
 
 <%= simple_form_for :query, method: :get,
                             url: stations_path,
