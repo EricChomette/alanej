@@ -8,18 +8,24 @@
 }
 
 #index_goAnim{
-  width: 245px;
-  height: 50px;
+  width: 75px;
+  height: 40px;
   margin: 0;
   padding: 5px 5px;
   font-size: 20px;
 }
 
+.index-dates{
+  display: flex;
+  justify-content: center;
+  width: 75%;
+}
+
 #index_query_city, #index_range_start, #index_range_end{
-  height: 50px;
+  height: 40px;
   border-radius: 5px;
   background: white;
-  font-size: 17px;
+  font-size: 15px;
 
   &:focus{
     box-shadow: rgba(0, 208, 255, 0.686);
@@ -27,8 +33,8 @@
 }
 
 #index_query_city{
-  width: 500px;
-  padding-right: 45px;
+  width: 400px;
+  padding-right: 30px;
   margin-right: 10px;
 }
 
