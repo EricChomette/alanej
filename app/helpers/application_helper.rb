@@ -16,7 +16,7 @@ module ApplicationHelper
 
   def criteria_translate(criteria)
     criterias_map = {
-      snow: "Enneigement",
+      snow: "Neige",
       weather: "Météo",
       trip: "Trajet",
       budget: "Budget"
