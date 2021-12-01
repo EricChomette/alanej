@@ -135,7 +135,13 @@
     </div>
   </div>
 
-<canvas id="mapbox"></canvas>
+    <div class="container-map">
+        <div id="map"
+
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
 
 </div>
 
