@@ -67,12 +67,12 @@
               <div class="card-station-snow-alt">
 
                 <div class="side-info">
-                  <p><%= station.alt_max %> m</p>
-                  <p><%= station.alt_min %> m</p>
+                  <p class="left"><%= station.alt_max %> m</p>
+                  <p class="left"><%= station.alt_min %> m</p>
                 </div>
 
                 <div class="montagne">
-                  <%= image_tag("moutainico.png", height: '70', width: '83') %>
+                  <%= image_tag("mountainiconefinal.png", height: '60', width: '72') %>
                 </div>
 
                 <div class="side-info">
@@ -83,7 +83,7 @@
               </div>
 
               <div class="card-station-slopes">
-                <p><i class="far fa-flag"></i> <%= ((station.green_open_slopes + station.blue_open_slopes + station.red_open_slopes + station.black_open_slopes).to_f / (station.green_slopes + station.blue_slopes + station.red_slopes + station.black_slopes) * 100 ).round(0) %> % de pistes ouvertes</p>
+                <p class="total-slopes"><i class="far fa-flag"></i> <%= ((station.green_open_slopes + station.blue_open_slopes + station.red_open_slopes + station.black_open_slopes).to_f / (station.green_slopes + station.blue_slopes + station.red_slopes + station.black_slopes) * 100 ).round(0) %> % de pistes ouvertes</p>
               </div>
 
               <div class="card-station-rating">
