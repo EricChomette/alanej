@@ -13,4 +13,17 @@ module ApplicationHelper
   def humanize(date)
     date.strftime('%d %B %Y')
   end
+
+  def criteria_translate(criteria)
+    criterias_map = {
+      snow: "Enneigement",
+      weather: "Météo",
+      trip: "Trajet",
+      budget: "Budget"
+    }
+    if criterias_map[criteria.to_sym]
+      return criterias_map[criteria.to_sym]
+    end
+    criteria
+  end
 end

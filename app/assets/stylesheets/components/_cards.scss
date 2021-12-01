@@ -1,111 +1,125 @@
-.card-debug {
-  width: 100%;
-  height: 230px;
+.container-cards-stations {
   margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 3%;
+}
+.container-card-stations {
+  width: 31%;
+}
+.container-card-station > a{
+  text-decoration: none;
 }
 
 .card-station {
-  background: white;
-  transition: 0.3s;
-  text-decoration: none;
-  border-radius: 12px;
-  display: flex;
-  color: black;
-  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.109);
   margin: 0 auto;
-  padding: 10px;
-  width: 95%;
-  height: 228px;
+  transition: .3s;
+  color: black;
+  border-radius: 15px;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.076);
+  width: 100%;
+  height: 500px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   &:hover {
-    transition: 0.3s;
-    width: 96%;
-    height: 230px;
-    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.15);
+    transform: scale(1.01);
+    transition: .3s;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.145);
   }
 }
-.container-card-station > a {
-  text-decoration: none;
-}
-
-.card-station-img {
-  width: 296px;
-  height: 100%;
-}
-
-
 .image-card-index {
-  border-radius: 10px;
   width: 100%;
-  height: 208px;
-  object-fit: cover;
-  overflow: hidden;
+  height: 100%;
+  border-radius: 15px 15px 0 0;
+  filter: brightness(75%);
+
+}
+.station-name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+.card-station-img {
+  height: 42%;
+  width: 100%;
+  position: relative;
 }
 
-.card-description {
-  width: 55%;
+.card-station-trip-weather-budget {
+  width: 80%;
+  height: 11%;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.152);
 }
-
-.card-station-info {
+.card-station-trip-weather-budget > p {
+  margin: 0;
   display: flex;
-  justify-content: space-around;
-}
-.card-station-info p {
-  margin-bottom: 0.3rem;
-}
-
-.card-station-name h3 {
-  margin-bottom: 0;
-}
-
-.card-station-name {
-  padding-left: 10px;
-}
-.card-station-factors{
-  width: 45%;
-  padding: 10px;
-  border-right: solid 1px rgba(0, 0, 0, 0.568);
-}
-
-.card-station-slops {
-  width: 45%;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.Flag-array {
-  display: grid;
   align-items: center;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
 }
 
-.rating-alanej {
+.card-station-snow-alt {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 15%;
-  padding-right: 20px;
-}
-
-.img_rating {
   width: 100%;
+  height: 20%;
 }
 
-.fa-flag {
-  margin-top: 5px;
-  margin-left: 3px;
+.side-info {
+  height: 100%;
+  width: 18%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-.card-station-name {
-  color: black;
+.side-info  > p {
+  margin: 0;
 }
+
+
+.montagne {
+  text-align: center;
+}
+
+.card-station-slopes {
+  width: 85%;
+  height: 7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.152);
+}
+.card-station-slopes > p {
+  margin: 0;
+}
+
+.card-station-rating {
+  height: 20%;
+  display: flex;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .cards-meteo {
-  height: 350px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
