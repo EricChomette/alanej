@@ -17,7 +17,7 @@
   justify-content: center;
   align-items: center;
   padding: 0;
-  width: 100%;
+  width: 400px;
 }
 
 #query_city{
@@ -25,9 +25,9 @@
   height: 45px;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(255, 187, 0, 0.4);
   box-shadow: none;
   font-weight: 600;
+  padding-right: 40px;
   &:focus{
     background: white;
   }
@@ -40,23 +40,36 @@
 }
 
 #range_start, #range_end{
-  width: 192px;
+  width: 200px;
+  margin: 0;
   height: 45px;
-  border-radius: 8px;
   background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(255, 187, 0, 0.4);
   box-shadow: none;
   font-weight: 600;
+  border: none;
   &:focus{
     background: white;
   }
 }
 
+#range_start{
+  border-radius: 8px 0 0 8px;
+  border-bottom: 1px solid #ced4da;
+  border-left: 1px solid #ced4da;
+  border-top: 1px solid #ced4da;
+  border-right: 1px solid #e9eaebb8;
+}
+
+#range_end{
+  border-radius: 0 8px 8px 0;
+  border-bottom: 1px solid #ced4da;
+  border-right: 1px solid #ced4da;
+  border-top: 1px solid #ced4da;
+}
 
 .dates{
   display: flex;
   justify-content: center;
-  align-items: center;
   margin: 0;
 }
 

@@ -1,14 +1,14 @@
 
 <div class="research-priorities">
 
-  <h3 class = "prio-title"><strong><i class="fas fa-exchange-alt"></i> Classez vos priorités </strong></h3>
+  <h3 class = "prio-title"><strong><i class="fas fa-exchange-alt"></i> Reclassez vos priorités </strong></h3>
     <ul id="sortable-items">
       <% if criterias %>
         <% criterias.each do |criteria|  %>
           <li class= "sortable-item" id="prio-<%= criteria %>" data-id="<%= criteria %>"><%= criteria_translate(criteria) %></li>
         <% end %>
       <% else %>
-      <li class= "sortable-item" id="prio-snow" data-id="snow">Enneigement</li>
+      <li class= "sortable-item" id="prio-snow" data-id="snow">Neige</li>
       <li class= "sortable-item" id="prio-weather" data-id="weather">Météo</li>
       <li class= "sortable-item" id="prio-budget" data-id="budget">Budget</li>
       <li class= "sortable-item" id="prio-trip" data-id="trip">Trajet</li>

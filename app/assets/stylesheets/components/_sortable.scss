@@ -1,5 +1,6 @@
 .research-priorities{
-  margin-top: 20px;
+  margin: 15px auto 0 auto;
+  width: 96%;
 }
 
 #sortable-items{
@@ -10,9 +11,10 @@
 
 .sortable-item{
   list-style: none;
-  padding: 10px 30px;
+  padding: 10px 5px;
   text-align: center;
   color: white;
+  height: 50px;
   font-weight: 600;
   font-size: 20px;
   border-radius: 5px;
@@ -33,7 +35,11 @@
   }
 
   &:nth-child(4) {
-    width: 15%;
+    width: 16%;
     background:  rgba(233, 101, 0, 0.5);
   }
+}
+
+.prio-title{
+  font-size: 20px;
 }

@@ -1,22 +1,25 @@
 .index-form {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 0 auto;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: space-between;
+  width: 96%;
 }
 
 #index_goAnim{
-  width: 100px;
-  height: 40px;
+  width: 245px;
+  height: 50px;
   margin: 0;
-  padding: 5px 20px;
+  padding: 5px 5px;
+  font-size: 20px;
 }
 
 #index_query_city, #index_range_start, #index_range_end{
-  height: 40px;
-  margin: 0;
+  height: 50px;
   border-radius: 5px;
   background: white;
+  font-size: 17px;
 
   &:focus{
     box-shadow: rgba(0, 208, 255, 0.686);
@@ -24,10 +27,33 @@
 }
 
 #index_query_city{
-  width: 400px;
+  width: 500px;
   padding-right: 45px;
+  margin-right: 10px;
+}
+
+#index_query_city .ap-input-icon{
+  top: 15px;
+  right: 40px;
 }
 
 #index_range_start, #index_range_end{
   width: 150px;
+}
+
+#index_range_start{
+  border-radius: 8px 0 0 8px;
+  border-bottom: 1px solid #ced4da;
+  border-left: 1px solid #ced4da;
+  border-top: 1px solid #ced4da;
+  border-right: 1px solid #e9eaebb8;
+}
+
+#index_range_end{
+  border-radius: 0 8px 8px 0;
+  border-bottom: 1px solid #ced4da;
+  border-right: 1px solid #ced4da;
+  border-top: 1px solid #ced4da;
+  border-left: 1px solid #e9eaebb8;
+  margin-right: 10px;
 }

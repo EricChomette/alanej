@@ -1,9 +1,9 @@
 <%= render 'shared/navbar' %>
 
 <div class="container">
-  <%= render 'shared/indexform' %>
   <%= render 'shared/sortable', criterias: params[:criterias].split(",") %>
-
+  <%= render 'shared/indexform' %>
+  
   <div class="container-cards-stations">
 
     <% @stations_data.each do |station_data| %>
@@ -22,7 +22,34 @@
 
                 <p><i class="fas fa-road"></i>&nbsp;<%= time_conversion(station_data[:duration]) %></p>
 
-                <p><%= station.conditions.first.weather  %></p>
+                <p><%= station.conditions.first.weather  %>
+                        <% if BIGRAIN.include? station.conditions.first.weather %>
+                            <%= image_tag("bigrain.png", class: "picto-card") %>
+                          <% elsif CLOUDS.include? station.conditions.first.weather %>
+                            <%= image_tag("clouds.png", class: "picto-card") %>
+                          <% elsif FOG.include? station.conditions.first.weather %>
+                            <%= image_tag("fog.png", class: "picto-card") %>
+                          <% elsif GRELE.include? station.conditions.first.weather %>
+                            <%= image_tag("grele.png", class: "picto-card") %>
+                          <% elsif LITTLERAIN.include? station.conditions.first.weather %>
+                            <%= image_tag("littlerain.png", class: "picto-card") %>
+                          <% elsif LITTLESNOW.include? station.conditions.first.weather %>
+                            <%= image_tag("littlesnow.png", class: "picto-card") %>
+                          <% elsif RAIN.include? station.conditions.first.weather %>
+                            <%= image_tag("rain.png", class: "picto-card") %>
+                          <% elsif SNOW.include? station.conditions.first.weather %>
+                            <%= image_tag("snow.png", class: "picto-card") %>
+                          <% elsif STORM.include? station.conditions.first.weather %>
+                            <%= image_tag("storm.png", class: "picto-card") %>
+                          <% elsif STORMRAIN.include? station.conditions.first.weather %>
+                            <%= image_tag("stormrain.png", class: "picto-card") %>
+                          <% elsif SUNCLOUD.include? station.conditions.first.weather %>
+                            <%= image_tag("suncloud.png", class: "picto-card") %>
+                          <% elsif SUNICO.include? station.conditions.first.weather %>
+                            <%= image_tag("sunico.png", class: "picto-card") %>
+                          <% else %>
+                            <%= image_tag("wind.png") %>
+                          <% end %></p>
 
                 <% if station.budget == "1"%>
                   <p><i class="fas fa-euro-sign"></i></p>
@@ -36,7 +63,7 @@
                   <p><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
                 <% end %>
               </div>
-
+              
               <div class="card-station-snow-alt">
 
                 <div class="side-info">
