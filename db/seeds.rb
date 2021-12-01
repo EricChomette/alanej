@@ -98,7 +98,7 @@ WEATHER = {
 Station.destroy_all
 
 def find_forecast(date, station)
-  URI.open("https://api.meteo-concept.com/api/forecast/daily/#{date}/period/2?token=25b726a85bb8874026726594e8131564066e1794ef1e71a60a86f019e5e1968d&insee=#{station.insee}") do |stream|
+  URI.open("https://api.meteo-concept.com/api/forecast/daily/#{date}/period/2?token=2795e22b8eab493448975973cfc123f39c329acb1adbc901e2c0b257059bc02f&insee=#{station.insee}") do |stream|
     return JSON.parse(stream.read)['forecast']
   end
 end

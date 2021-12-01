@@ -33,12 +33,13 @@ import {loading} from '../components/addClassToBtn';
 import { dynamicRating } from "../plugins/starsInReviewForm";
 import { initFlatpickr } from '../plugins/flatpickr';
 import { initSortable } from '../plugins/sortable';
-
+import { barCirlce } from '../components/BarCircle';
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  barCirlce();
   dynamicRating();
   initBackgroundHomePage();
   loading();
