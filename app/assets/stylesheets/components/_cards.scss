@@ -1,5 +1,5 @@
 .container-cards-stations {
-  margin-top: 40px;
+  margin-top: 100px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 3%;
@@ -18,7 +18,7 @@
   border-radius: 15px;
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.076);
   width: 100%;
-  height: 500px;
+  height: 600px;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -45,13 +45,13 @@
   text-align: center;
 }
 .card-station-img {
-  height: 42%;
+  height: 35%;
   width: 100%;
   position: relative;
 }
 
 .card-station-trip-weather-budget {
-  width: 80%;
+  width: 90%;
   height: 11%;
   display: flex;
   justify-content: space-between;
@@ -71,13 +71,16 @@
   width: 50%;
   display: flex;
   justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 8px;
 }
 .card-station-snow-alt {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 20%;
+  height: 15%;
+  padding-top: 10px;
 }
 
 .montagne {
@@ -86,10 +89,11 @@
 
 .side-info {
   height: 100%;
-  width: 18%;
+  width: 25%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 7px 0 9px 0;
 }
 .left {
   text-align: end;
@@ -101,7 +105,7 @@
 }
 
 .card-station-slopes {
-  width: 85%;
+  width: 90%;
   height: 7%;
   display: flex;
   justify-content: center;
@@ -111,27 +115,16 @@
   margin: 0;
 }
 .total-slopes {
-  font-size: 16px;
+  font-size: 15px;
+  padding: 7px 0 10px 0;
+
 }
 
 .card-station-rating {
-  height: 27%;
+  height: 32%;
   display: flex;
   align-items: center;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .cards-meteo {
   display: flex;
