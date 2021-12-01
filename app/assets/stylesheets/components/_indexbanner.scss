@@ -1,0 +1,23 @@
+.index-banner{
+  height: 40vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://www.hautesavoiephotos.com/panoramas/panorama_alpes.jpg");
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  object-position: center;
+  object-fit: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+#index-title{
+  font-size: 35px;
+}
+
+.top-index-search{
+  position: absolute;
+  bottom: -18%;
+}
