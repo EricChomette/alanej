@@ -1,3 +1,38 @@
 .container {
+
   margin: 50px auto ; /* bottom = footer height */
+}
+.container-anchor {
+  padding-bottom: 50px;
+}
+.container-btns {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0;
+  height: 100%;
+}
+
+#container-weather-webcam {
+  width: 100%;
+  height: 350px;
+  display: flex;
+  justify-content: space-between;
+}
+.container-weather {
+  width: 57%;
+}
+
+.container-webcam {
+  width: 40%;
+}
+
+#container-station-plan {
+  display: flex;
+}
+.container-station {
+  width: 38%;
+}
+.container-plan {
+  width: 59%;
 }
