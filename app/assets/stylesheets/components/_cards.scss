@@ -14,7 +14,7 @@
 .card-station {
   margin: 0 auto;
   transition: .3s;
-  color: black;
+  color: $black ;
   border-radius: 15px;
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.076);
   width: 100%;
@@ -62,13 +62,26 @@
   display: flex;
   align-items: center;
 }
-
+.trip {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+}
+.weather {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
 .card-station-snow-alt {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 20%;
+}
+
+.montagne {
+  text-align: center;
 }
 
 .side-info {
@@ -78,14 +91,13 @@
   flex-direction: column;
   justify-content: space-around;
 }
+.left {
+  text-align: end;
+}
 
 .side-info  > p {
   margin: 0;
-}
-
-
-.montagne {
-  text-align: center;
+  font-size: 13px;
 }
 
 .card-station-slopes {
@@ -93,15 +105,17 @@
   height: 7%;
   display: flex;
   justify-content: center;
-  align-items: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.152);
 }
 .card-station-slopes > p {
   margin: 0;
 }
+.total-slopes {
+  font-size: 15px;
+}
 
 .card-station-rating {
-  height: 20%;
+  height: 27%;
   display: flex;
   align-items: center;
 }
@@ -136,7 +150,6 @@
   padding: 20px;
 }
 .cards-webcam {
-
   color: black;
   width: 500px;
   height: 300px;

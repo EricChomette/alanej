@@ -6,31 +6,16 @@
   #     return (trajet[0]["distance"] / 1000 * 0.246559).to_i
   #   end
   # end
-<img class="image-card-index" src="<%= station.cardphoto %>" alt="Photo de la station">
-   <% if station.budget == "1"%>
-                        <p>Budget: <i class="fas fa-euro-sign"></i></p>
-                      <% elsif station.budget == "2"%>
-                        <p>Budget: <i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
-                      <% elsif station.budget == "3"%>
-                        <p>Budget: <i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
-                      <% elsif station.budget == "4"%>
-                        <p>Budget: <i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
-                      <% else %>
-                        <p>Budget: <i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
-                      <% end %>
-
-    <p> Météo:<%= station.conditions.first.weather  %></p>
-
-
-          <p><%= time_conversion(station_data[:duration]) %> de trajet</p>
 
 
 
-          <p>
-                        Enneigement:
-                        <%= station_data[:snow][0] %>cm
-                        <%= station_data[:snow][1] %>cm
-                      </p>
+
+
+
+
+
+
+
 
 
 

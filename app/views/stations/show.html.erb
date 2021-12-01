@@ -11,7 +11,8 @@
   <div class="nav-btns">
     <div class="container container-btns">
       <a href="#container-station" class="btn btn-anchor">La Station</a>
-      <a href="#container-conditions" class="btn btn-anchor">Météo et enneigement</a>
+      <a href="#container-weather" class="btn btn-anchor">Météo</a>
+      <a href="#container-snow" class="btn btn-anchor">Webcam</a>
       <a href="#container-trip" class="btn btn-anchor">Trajet</a>
       <a href="#container-ski-area" class="btn btn-anchor">Domaine skiable</a>
       <a href="#container-extras" class="btn btn-anchor">Extras</a>
@@ -29,9 +30,9 @@
 
 
 
-    <div id="container-conditions" class="container-anchor">
+    <div id="container-weather" class="container-anchor">
 
-      <h2 class="category-title">Météo et enneigement</h2>
+      <h2 class="category-title">Météo</h2>
 
       <div class="cards-meteo">
         <% @station.conditions.each do |condition| %>
@@ -44,11 +45,18 @@
             </div>
           <% end %>
         <% end %>
-
       </div>
+
+    </div>
+
+    <div id="container-snow" class="container-anchor">
+
+      <h2 class="category-title">Webcam</h2>
+
       <div class="cards-webcam">
-      <h3>Webcam</h3>
-    <a class="webcamView" name="windy-webcam-timelapse-player" data-id=<%=@station.webcamurl%> % data-play="day" href="https://windy.com/webcams/1462285756" target="_blank">Bouilly: Le Vercors</a><script async type="text/javascript" src="https://webcams.windy.com/webcams/public/embed/script/player.js"></script>
+        <a class="webcamView" name="windy-webcam-timelapse-player" data-id=<%=@station.webcamurl%> % data-play="day" href="https://windy.com/webcams/1462285756" target="_blank">Bouilly: Le Vercors</a><script async type="text/javascript" src="https://webcams.windy.com/webcams/public/embed/script/player.js"></script>
+      </div>
+
     </div>
 
 

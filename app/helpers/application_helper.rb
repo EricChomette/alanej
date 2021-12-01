@@ -11,12 +11,12 @@ module ApplicationHelper
   end
 
   def humanize(date)
-    date.strftime('%d %B %Y')
+    date.strftime('%d %B')
   end
 
   def criteria_translate(criteria)
     criterias_map = {
-      snow: "Enneigement",
+      snow: "Neige",
       weather: "Météo",
       trip: "Trajet",
       budget: "Budget"
