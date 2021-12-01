@@ -4,8 +4,9 @@
   <%= render 'shared/indexform' %>
 
   <div class="container-cards-stations">
-
+  <% i = 0%>
     <% @stations_data.each do |station_data| %>
+    <% i += 1%>
       <% station = station_data[:station]%>
       <div class="container-card-station">
         <%= link_to station_path(station, city: params[:city], start_date: params[:query][:start_date], end_date: params[:query][:end_date]) do %>
@@ -89,7 +90,7 @@
               <div class="card-station-rating">
                 <div class="circular-progress">
                   <div class="value-container">
-                      <h2><span><%= station_data[:global_rating] %></span>/5</h2>
+                      <h2><span id="RatingNum<%=i%>"><%= station_data[:global_rating] %></span>/5</h2>
                   </div>
               </div>
               </div>

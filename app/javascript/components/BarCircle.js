@@ -1,20 +1,22 @@
 const barCirlce = () => {
 if(document.querySelector(".circular-progress")){
 let progressBars = document.querySelectorAll(".circular-progress");
-let valueContainers = document.querySelectorAll(".value-container span");
-
+let valueContainers = document.querySelector(".value-container span");
+let i = 1;
 progressBars.forEach((progressBar) => {
-valueContainers.forEach((valueContainer) => {
+    
+let valueContainer = document.querySelector(`#RatingNum${i}`);
 
 
 
 let colorPick = "a";
-console.log(progressBar,valueContainer);
+
 let progressValue = 0;
-const stocker = valueContainer.innerHTML;
+let stocker = valueContainer.innerHTML;
 let progressEndValue = (stocker*2) * 10;
 let textEndValue = stocker
 let speed = 20;
+
 function colorset(value){
 
 if (value >= 0 && value < 20){
@@ -45,8 +47,9 @@ let progress = setInterval(() => {
     clearInterval(progress);
   }
 },speed);
+i++;
 });
-});
+
 }
 }
 export {barCirlce};
