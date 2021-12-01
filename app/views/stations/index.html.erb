@@ -8,7 +8,6 @@
   <div class="container-cards-stations">
 
     <% @stations_data.each do |station_data| %>
-      <%= raise %>
       <% station = station_data[:station]%>
       <div class="container-card-station">
         <%= link_to station_path(station, city: params[:city], start_date: params[:query][:start_date], end_date: params[:query][:end_date]) do %>
