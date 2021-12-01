@@ -10,7 +10,7 @@ const loading= () =>{
         txt.classList.add("clignote");
         var titles = [
          "Recherche itinéraire...",
-         "Recupération des données méteo",
+         "Verifications méteos...",
          "Recherche de puff...",
          "Selection des stations..."
       ];
@@ -23,7 +23,7 @@ newTitle();
       setInterval(function(){ 
         //code goes here that will be run every 5 seconds.
         newTitle(); 
-    }, 4000);
+    }, 3000);
     });
     
   }

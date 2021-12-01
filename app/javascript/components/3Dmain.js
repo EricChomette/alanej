@@ -3,9 +3,10 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 const createBackground = () => {
+let logo = document.querySelector("img");
 let mixer;
 let movingAction1, movingAction2,movingAction3,movingAction4,movingAction5;
-let movingAction6, movingAction7;
+let movingAction6, movingAction7, movingAction8;
 let activator = true;
 let actions;
 let clock ;
@@ -29,7 +30,12 @@ let night_ico_trigger = false;
 
 
 
-
+var searchPic;
+function LoadImages() {
+    searchPic = new Image(100,100);
+    searchPic.src = "XXXX/YYYY/search.png";
+    // This is correct and the path is correct
+}
 
 
 const renderer = new THREE.WebGLRenderer({
@@ -68,9 +74,9 @@ loader.load( 'AnimatedTest.glb', function ( gltf ) {
           movingAction5 = mixer.clipAction( animations[ 4 ] );
           movingAction6 = mixer.clipAction( animations[ 5 ] );
           movingAction7 = mixer.clipAction( animations[ 6 ] );
+          movingAction8 = mixer.clipAction( animations[ 7 ] );
           
-          
-					actions = [ movingAction1, movingAction2, movingAction3, movingAction4, movingAction5,movingAction6, movingAction7];
+					actions = [ movingAction1, movingAction2, movingAction3, movingAction4, movingAction5,movingAction6, movingAction7, movingAction8 ];
 
 					activateAllActions();
 
@@ -112,6 +118,8 @@ function activebutton(){
 
 }
 function setnight(){
+  searchPic = "https://res.cloudinary.com/robintrllt/image/upload/v1638346582/logo_alanej_horizontal_blanc_hgaqxb.png";
+  logo.src = searchPic
   canva.classList.remove("rise-set");
   canva.classList.add("night");
   const pointLight = new THREE.PointLight(0xbec2ff)
@@ -120,22 +128,27 @@ function setnight(){
   const ambientLight = new THREE.AmbientLight(0xbec2ff);
   scene.add(pointLight, ambientLight)
   Array(2000).fill().forEach(addSnow);
+  
 }
 function setrise(){
+  searchPic = "https://res.cloudinary.com/robintrllt/image/upload/v1637666260/logo_alanej_horizontal_wbmtr9.png";
+  logo.src = searchPic
   canva.classList.remove("day");
   canva.classList.remove("night");
 canva.classList.add("rise-set");
 
-const pointLight = new THREE.PointLight(0xff2d2d)
+const pointLight = new THREE.PointLight(0xff7474)
 pointLight.position.set(-120,25,53)
 pointLight.intensity = 1;
 
-const ambientLight = new THREE.AmbientLight(0xff5d5d);
+const ambientLight = new THREE.AmbientLight(0xff7474);
 scene.add(pointLight, ambientLight)
 Array(2000).fill().forEach(addSnow);
 }
 
 function setday(){
+  searchPic = "https://res.cloudinary.com/robintrllt/image/upload/v1637666260/logo_alanej_horizontal_wbmtr9.png";
+  logo.src = searchPic
   canva.classList.remove("night");
   canva.classList.remove("rise-set");
   canva.classList.add("day");
@@ -151,6 +164,8 @@ function setday(){
 }
 
 function setset(){
+  searchPic = "https://res.cloudinary.com/robintrllt/image/upload/v1637666260/logo_alanej_horizontal_wbmtr9.png";
+  logo.src = searchPic
   canva.classList.remove("night");
   canva.classList.remove("day");
   canva.classList.add("rise-set");
@@ -193,6 +208,7 @@ sun_ico.classList.remove("activeTime");
 night_ico.classList.remove("activeTime");
 }
 if(time >= 18 ||  night_ico_trigger == true){
+  scene.clear();
 setnight();
 sunrise_ico.classList.remove("activeTime");
 sunset_ico.classList.remove("activeTime");
