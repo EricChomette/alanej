@@ -55,6 +55,14 @@
 
     <div id="container-trip" class="container-anchor">
       <h2 class="category-title">Trajet</h2>
+
+      <div class="container-map">
+        <div id="map"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
+      
     </div>
 
     <div id="container-station-plan" class="container-anchor">
@@ -123,6 +131,8 @@
 
     </div>
   </div>
+
+<canvas id="mapbox"></canvas>
 
 </div>
 
