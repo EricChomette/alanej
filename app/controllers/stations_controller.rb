@@ -11,8 +11,9 @@ class StationsController < ApplicationController
   # end
 
   def index
+
     if (params[:query][:start_date] != "") && (params[:query][:end_date] != "") && (params[:city] != "")
-      @stations_data = BestStations.new(params[:query][:start_date], params[:query][:end_date], params[:city], %w[snow budget trip weather]).call
+      @stations_data = BestStations.new(params[:query][:start_date], params[:query][:end_date], params[:city], params[:criterias].split(",")).call
     else
       render "home"
     end

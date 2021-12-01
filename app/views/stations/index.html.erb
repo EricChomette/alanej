@@ -1,35 +1,28 @@
 <%= render 'shared/navbar' %>
 
 <div class="container">
+  <%= render 'shared/sortable', criterias: params[:criterias].split(",") %>
   <%= render 'shared/indexform' %>
-
+  
   <div class="container-cards-stations">
 
     <% @stations_data.each do |station_data| %>
       <% station = station_data[:station]%>
       <div class="container-card-station">
         <%= link_to station_path(station, city: params[:city], start_date: params[:query][:start_date], end_date: params[:query][:end_date]) do %>
-          <div class="card-debug">
+
             <div class="card-station">
 
               <div class="card-station-img">
                 <img class="image-card-index" src="<%= station.cardphoto %>" alt="Photo de la station">
+                <h3 class="station-name"><strong><%= station.name %></strong></h3>
               </div>
 
-              <div class="card-description">
+              <div class="card-station-trip-weather-budget">
 
-                <div class="card-station-name">
-                  <h3><strong><%= station.name%></strong></h3>
-                </div>
+                <p><i class="fas fa-road"></i>&nbsp;<%= time_conversion(station_data[:duration]) %></p>
 
-                <div class="card-station-info">
-                  <div class="card-station-factors">
-
-                      <p><%=  time_conversion(station_data[:duration]) %> de trajet</p>
-
-                      <p> Météo:
-                        <%= humanize(station.conditions.last.date_on) %>
-                        <%= station.conditions.first.weather  %>
+                <p><%= station.conditions.first.weather  %>
                         <% if BIGRAIN.include? station.conditions.first.weather %>
                             <%= image_tag("bigrain.png", class: "picto-card") %>
                           <% elsif CLOUDS.include? station.conditions.first.weather %>
@@ -56,47 +49,47 @@
                             <%= image_tag("sunico.png", class: "picto-card") %>
                           <% else %>
                             <%= image_tag("wind.png") %>
-                          <% end %>
-                      </p>
-                      <p>
-                        Enneigement:
-                        <%= station_data[:snow][0] %>cm
-                        <%= station_data[:snow][1] %>cm
-                      </p>
+                          <% end %></p>
 
-                      <% if station.budget == "€"%>
-                        <p>Budget: <i class="fas fa-euro-sign"></i></p>
-                      <% elsif station.budget == "€€"%>
-                        <p>Budget: <i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
-                      <% else %>
-                        <p>Budget: <i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
-                      <% end %>
-                  </div>
+                <% if station.budget == "1"%>
+                  <p><i class="fas fa-euro-sign"></i></p>
+                <% elsif station.budget == "2"%>
+                  <p><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
+                <% elsif station.budget == "3"%>
+                  <p><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
+                <% elsif station.budget == "4"%>
+                  <p><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
+                <% else %>
+                  <p><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
+                <% end %>
+              </div>
+              
+              <div class="card-station-snow-alt">
 
-                  <div class="card-station-slops">
-                    <div class="Flag-total">
-                      <p><%= ((station.green_open_slopes + station.blue_open_slopes + station.red_open_slopes + station.black_open_slopes).to_f / (station.green_slopes + station.blue_slopes + station.red_slopes + station.black_slopes) * 100 ).round(0) %> % de pistes ouvertes</p>
-                    </div>
-                    <div class="Flag-array">
-                      <p class="d-flex" ><%= station.green_open_slopes %> / <%= station.green_slopes %>  <i class="fas fa-flag green"></i></p>
-                      <p class="d-flex" ><%= station.blue_open_slopes %> / <%= station.blue_slopes %>  <i class="fas fa-flag blue"></i></p>
-                      <p class="d-flex" ><%= station.red_open_slopes %> / <%= station.red_slopes %>  <i class="fas fa-flag red"></i></p>
-                      <p class="d-flex" ><%= station.black_open_slopes %> / <%= station.black_slopes %>  <i class="fas fa-flag black"></i></p>
-                    </div>
-
-                  </div>
-
+                <div class="side-info">
+                  <p><%= station.alt_max %> m</p>
+                  <p><%= station.alt_min %> m</p>
                 </div>
 
+                <div class="montagne">
+                  <%= image_tag("moutainico.png", height: '70', width: '83') %>
+                </div>
+
+                <div class="side-info">
+                  <p><%= station_data[:snow][0] %> cm</p>
+                  <p><%= station_data[:snow][1] %> cm</p>
+                </div>
 
               </div>
 
-              <div class="rating-alanej">
-                <h3><%= station_data[:global_rating] %> / 5</h3>
+              <div class="card-station-slopes">
+                <p><i class="far fa-flag"></i> <%= ((station.green_open_slopes + station.blue_open_slopes + station.red_open_slopes + station.black_open_slopes).to_f / (station.green_slopes + station.blue_slopes + station.red_slopes + station.black_slopes) * 100 ).round(0) %> % de pistes ouvertes</p>
               </div>
 
+              <div class="card-station-rating">
+                <h2><%= station_data[:global_rating] %> / 5</h2>
+              </div>
             </div>
-          </div>
 
         <% end %>
       </div>
