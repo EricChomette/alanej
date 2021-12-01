@@ -13,7 +13,7 @@
 
 
 
-
+        <img class="plan" src="<%= @station.plan %>" alt="plan">
 
 
 
@@ -31,8 +31,3 @@
                     </div>
 
                   </div>
-
-
-                  <div class="rating-alanej">
-                <h3><%= station_data[:global_rating] %> / 5</h3>
-              </div>

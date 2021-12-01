@@ -97,7 +97,7 @@
 
 .side-info  > p {
   margin: 0;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .card-station-slopes {
@@ -111,7 +111,7 @@
   margin: 0;
 }
 .total-slopes {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .card-station-rating {
@@ -134,26 +134,30 @@
 
 
 .cards-meteo {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 250px;
 }
 
 .card-meteo {
-  background-color: rgb(0, 121, 177);
-  color: white;
+  width: 300px;
+  height: 100%;
+  margin: 0 10px;
+  background-color: white;
+  border: 2px solid rgb(0, 117, 181);
+  color: $black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 12px;
   padding: 20px;
+
 }
-.cards-webcam {
+.webcam {
   color: black;
-  width: 500px;
-  height: 300px;
-  margin-bottom: 5%;
+  width: 100%;
+  height: 350px;
   border-radius: 12px;
-  padding: 5% 0;
 }
