@@ -134,18 +134,19 @@
 }
 
 .card-meteo {
-  width: 300px;
+  flex-shrink: 0;
+  width: 250px;
   height: 100%;
-  margin: 0 10px;
+  margin: 0 5px;
   background-color: white;
-  border: 2px solid rgb(0, 117, 181);
   color: $black;
+  border-radius: 15px;
+  border: 1px solid rgba(218, 218, 218, 0.651);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 12px;
-  padding: 20px;
+  padding: 10px 10px 0px 10px;
 
 }
 .webcam {
@@ -153,4 +154,35 @@
   width: 100%;
   height: 350px;
   border-radius: 12px;
+}
+
+.meteo-date{
+  margin-top: 10px;
+  height: 30px;
+}
+
+.picto-meteo-show-description{
+  height: 50px;
+}
+
+.picto-meteo-show{
+  height: 90px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.meteo-details{
+  height: 50px;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.picto-card-show{
+  width: 120px;
+}
+
+#meteo-gel, #meteo-brouillard{
+  margin: none;
 }
