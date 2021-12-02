@@ -118,10 +118,15 @@
         <h2 class="category-title">Enneigement</h2>
 
           <div class="snow-show">
-
             <div class="side-info-show">
-              <p class="left">max: <%= @station.alt_max %> m</p>
-              <p class="left">min: <%= @station.alt_min %> m</p>
+              <div class="top-mountain">
+                <p class="left">max: <%= @station.alt_max %> m</p>
+                <p><i class="far fa-snowflake"></i> <%= undegeuify(@station.conditions.first.snow)[0] %> cm</p>
+              </div>
+              <div class="bot-mountain">
+                <p><i class="far fa-snowflake"></i> <%= undegeuify(@station.conditions.first.snow)[1] %> cm</p>
+                <p class="left">min: <%= @station.alt_min %> m</p>
+              </div>
             </div>
 
             <div class="montagne">
@@ -129,8 +134,8 @@
             </div>
 
             <div class="side-info-show">
-              <p><i class="far fa-snowflake"></i> <%= undegeuify(@station.conditions.first.snow)[0] %> cm</p>
-              <p><i class="far fa-snowflake"></i> <%= undegeuify(@station.conditions.first.snow)[1] %> cm</p>
+
+
             </div>
 
           </div>
