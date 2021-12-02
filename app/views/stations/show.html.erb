@@ -1,10 +1,10 @@
-<%= render 'shared/navbar' %>
-
-<%# <h1><%= @station.name%></h1>
+<%= link_to root_path do%>
+<%= image_tag("logo alanej horizontal blanc.png", class: "logo-high") %>
+<% end %>
 <img class="banner-show" src="<%= @station.bannerphoto %>" >
 
 <div class="contain">
-
+<h1 class= "station-name-show"> <strong><%= @station.name%></strong></h1>
   <div class="nav-btns">
     <div class="container container-btns">
       <a href="#container-weather-webcam" class="btn btn-anchor">Météo et Webcam</a>
@@ -13,6 +13,7 @@
       <a href="#container-reviews" class="btn btn-anchor">Commentaires</a>
     </div>
   </div>
+
 
   <div class="container">
 
@@ -28,15 +29,54 @@
             <% if @dates.include?(condition.date_on.to_date) %>
 
               <div class="card-meteo">
-                <p><%= humanize(condition.date_on) %></p>
-                <p><%= condition.weather %></p>
-                <p>probabilité de gel <%= condition.frost_prob %>%</p>
-                <p>probabilité de brouillard <%= condition.fog_prob %>%</p>
+                <div class="meteo-date">
+                  <p><strong><%= humanize(condition.date_on) %></strong></p>
+                </div>
+                <div class="picto-meteo-show-description">
+                  <p><%= condition.weather %></p>
+                </div>
+                <div class="picto-meteo-show">
+                  <p>
+                    <% if BIGRAIN.include? condition.weather %>
+                      <%= image_tag("bigrain.png", class: "picto-card-show") %>
+                    <% elsif CLOUDS.include? condition.weather %>
+                      <%= image_tag("clouds.png", class: "picto-card-show") %>
+                    <% elsif FOG.include? condition.weather %>
+                      <%= image_tag("fog.png", class: "picto-card-show") %>
+                    <% elsif GRELE.include? condition.weather %>
+                      <%= image_tag("grele.png", class: "picto-card-show") %>
+                    <% elsif LITTLERAIN.include? condition.weather %>
+                      <%= image_tag("littlerain.png", class: "picto-card-show") %>
+                    <% elsif LITTLESNOW.include? condition.weather %>
+                      <%= image_tag("littlesnow.png", class: "picto-card-show") %>
+                    <% elsif RAIN.include? condition.weather %>
+                      <%= image_tag("rain.png", class: "picto-card-show") %>
+                    <% elsif SNOW.include? condition.weather %>
+                      <%= image_tag("snow.png", class: "picto-card-show") %>
+                    <% elsif STORM.include? condition.weather %>
+                      <%= image_tag("storm.png", class: "picto-card-show") %>
+                    <% elsif STORMRAIN.include? condition.weather %>
+                      <%= image_tag("stormrain.png", class: "picto-card-show") %>
+                    <% elsif SUNCLOUD.include? condition.weather %>
+                      <%= image_tag("suncloud.png", class: "picto-card-show") %>
+                    <% elsif SUNICO.include? condition.weather %>
+                      <%= image_tag("sunico.png", class: "picto-card-show") %>
+                    <% elsif BIGCLOUDS.include? condition.weather %>
+                      <%= image_tag("bigclouds.png", class: "picto-card-show") %>
+                    <% elsif RAINANDSNOW.include? condition.weather %>
+                      <%= image_tag("rainandsnow.png", class: "picto-card-show") %>
+                    <% else %>
+                      <%= image_tag("wind.png", class: "picto-card-show") %>
+                    <% end %>
+                  </p>
+                </div>
+                <div class="meteo-details">
+                  &#9658 Probabilité de gel <%= condition.frost_prob %> <br>
+                  &#9658 Probabilité de brouillard <%= condition.fog_prob %>
+                </div>
               </div>
-
             <% end %>
           <% end %>
-
         </div>
 
       </div>
@@ -56,6 +96,7 @@
     <div id="container-trip" class="container-anchor">
       <h2 class="category-title">Trajet</h2>
       <div class="container-map">
+<<<<<<< HEAD
         <div id="map"
           style="width: 100%; height: 600px;"
           data-start="<%= @point_start.to_json %>"
@@ -71,19 +112,22 @@
       <div class="container-plan">
 
         <h2 class="category-title">Domaine skiable</h2>
-          <div class="slopes">
-            <div class="total-slopes">
-              <p><%= ((@station.green_open_slopes + @station.blue_open_slopes + @station.red_open_slopes + @station.black_open_slopes).to_f / (@station.green_slopes + @station.blue_slopes + @station.red_slopes + @station.black_slopes) * 100 ).round(0) %> % de pistes ouvertes</p>
-            </div>
-            <div class="slope-array">
-              <p class="d-flex" ><%= @station.green_open_slopes %> / <%= @station.green_slopes %>  <i class="fas fa-flag green"></i></p>
-              <p class="d-flex" ><%= @station.blue_open_slopes %> / <%= @station.blue_slopes %>  <i class="fas fa-flag blue"></i></p>
-              <p class="d-flex" ><%= @station.red_open_slopes %> / <%= @station.red_slopes %>  <i class="fas fa-flag red"></i></p>
-              <p class="d-flex" ><%= @station.black_open_slopes %> / <%= @station.black_slopes %>  <i class="fas fa-flag black"></i></p>
+
+        <div class="slopes">
+          <div class="total-slopes">
+            <p><%= ((@station.green_open_slopes + @station.blue_open_slopes + @station.red_open_slopes + @station.black_open_slopes).to_f / (@station.green_slopes + @station.blue_slopes + @station.red_slopes + @station.black_slopes) * 100 ).round(0) %> % de pistes ouvertes</p>
           </div>
-          <div class="plan-slop">
+          <div class="slope-array">
+            <p class="d-flex" ><%= @station.green_open_slopes %> / <%= @station.green_slopes %>  <i class="fas fa-flag green"></i></p>
+            <p class="d-flex" ><%= @station.blue_open_slopes %> / <%= @station.blue_slopes %>  <i class="fas fa-flag blue"></i></p>
+            <p class="d-flex" ><%= @station.red_open_slopes %> / <%= @station.red_slopes %>  <i class="fas fa-flag red"></i></p>
+            <p class="d-flex" ><%= @station.black_open_slopes %> / <%= @station.black_slopes %>  <i class="fas fa-flag black"></i></p>
+          </div>
+        </div>
+
+        <div class="plan-slop">
           <img class="plan-slop-img" src="<%=@station.planurl%>" >
-          </div>
+        </div>
       </div>
 
       <div class="container-station">
@@ -93,7 +137,6 @@
         <p><%= @station.description%></p>
 
       </div>
-
     </div>
 
     <div id="container-reviews" class="container-anchor">
@@ -143,6 +186,7 @@
       </div>
 
     </div>
+
   </div>
 
 </div>
