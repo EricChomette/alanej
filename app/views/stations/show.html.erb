@@ -28,7 +28,7 @@
 
         <h2 class="category-title">Météo</h2>
 
-        <div class="cards-meteo">
+        <div class="horizontal-scroll-wrapper cards-meteo">
 
           <% @station.conditions.each do |condition| %>
             <% if @dates.include?(condition.date_on.to_date) %>

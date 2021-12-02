@@ -129,6 +129,8 @@
 .cards-meteo {
   display: flex;
   overflow-x: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
   overflow-y: hidden;
   height: 250px;
 }
