@@ -21,7 +21,7 @@
 
               <div class="card-station-trip-weather-budget">
 
-                <p class="trip"><i class="fas fa-car"></i>&nbsp;<%= time_conversion(station_data[:duration]) %></p>
+                <p class="side-big-info"><i class="fas fa-car"></i>&nbsp;<%= time_conversion(station_data[:duration]) %></p>
 
                 <p class="weather">
                   <% if BIGRAIN.include? station.conditions.first.weather %>
@@ -58,15 +58,15 @@
                 </p>
 
                 <% if station.budget == "1"%>
-                  <p class="trip"><i class="fas fa-euro-sign"></i></p>
+                  <p class="side-big-info"><i class="fas fa-euro-sign"></i></p>
                 <% elsif station.budget == "2"%>
-                  <p class="trip"><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
+                  <p class="side-big-info"><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
                 <% elsif station.budget == "3"%>
-                  <p class="trip"><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
+                  <p class="side-big-info"><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
                 <% elsif station.budget == "4"%>
-                  <p class="trip"><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
+                  <p class="side-big-info"><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
                 <% else %>
-                  <p class="trip"><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
+                  <p class="side-big-info"><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
                 <% end %>
               </div>
 
