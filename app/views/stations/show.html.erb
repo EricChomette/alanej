@@ -1,12 +1,17 @@
-<%= link_to root_path do%>
-<%= image_tag("logo alanej horizontal blanc.png", class: "logo-high") %>
-<% end %>
-<img class="banner-show" src="<%= @station.bannerphoto %>" >
+<div class="banner-show", style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('<%= @station.bannerphoto %>')">
+  <%= link_to root_path do%>
+    <%= image_tag("logo alanej horizontal blanc.png", class: "logo-high") %>
+  <% end %>
+  <h1 class= "station-name-show"> <strong><%= @station.name%></strong></h1>
+</div>
 
 <div class="contain">
-<h1 class= "station-name-show"> <strong><%= @station.name%></strong></h1>
+
   <div class="nav-btns">
     <div class="container container-btns">
+      <%= link_to request.referer.present? ? request.referer : default_path, id:"back-show" do %>
+        <i class="fas fa-arrow-circle-left"></i> Retour
+      <% end %>
       <a href="#container-weather-webcam" class="btn btn-anchor">Météo et Webcam</a>
       <a href="#container-trip" class="btn btn-anchor">Trajet</a>
       <a href="#container-station-plan" class="btn btn-anchor">Domaine et Station</a>
