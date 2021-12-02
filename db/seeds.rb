@@ -163,7 +163,7 @@ villard_de_lans = Station.create!(
   black_open_slopes: 10,
   insee: "38548",
   cardphoto: "https://www.isere-tourisme.com/sites/default/files/sitra/445089_625778.jpg",
-  bannerphoto: "https://docs.ski-planet.com/stations/source/20831.jpg",
+  bannerphoto: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS5vZhMyuth_mGtyMLrBsLbzQxZToXEkYF9g&usqp=CAU",
   lat: "45.046258",
   long: "5.557192",
   logo: "https://cdn-s-www.ledauphine.com/images/3B8C29C7-F38B-4A54-B500-7A6C21977D93/NW_raw/le-nouveau-logo-des-deux-stations-photo-le-dl-noel-coolen-1633098536.jpg",
