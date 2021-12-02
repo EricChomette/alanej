@@ -22,9 +22,9 @@
 
               <div class="card-station-trip-weather-budget">
 
-                <p><i class="fas fa-road"></i>&nbsp;<%= time_conversion(station_data[:duration]) %></p>
+                <p class="side-big-info"><i class="fas fa-car"></i>&nbsp;<%= time_conversion(station_data[:duration]) %></p>
 
-                <p>
+                <p class="weather-picto">
                   <% if BIGRAIN.include? station.conditions.first.weather %>
                     <%= image_tag("bigrain.png", class: "picto-card") %>
                   <% elsif CLOUDS.include? station.conditions.first.weather %>
@@ -59,15 +59,15 @@
                 </p>
 
                 <% if station.budget == "1"%>
-                  <p><i class="fas fa-euro-sign"></i></p>
+                  <p class="side-big-info"><i class="fas fa-euro-sign"></i></p>
                 <% elsif station.budget == "2"%>
-                  <p><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
+                  <p class="side-big-info"><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
                 <% elsif station.budget == "3"%>
-                  <p><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
+                  <p class="side-big-info"><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
                 <% elsif station.budget == "4"%>
-                  <p><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
+                  <p class="side-big-info"><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
                 <% else %>
-                  <p><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
+                  <p class="side-big-info"><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></p>
                 <% end %>
               </div>
 
@@ -98,7 +98,7 @@
               <div class="card-station-rating">
                 <div class="circular-progress">
                   <div class="value-container">
-                      <h2><span id="RatingNum<%=i%>"><%= station_data[:global_rating] %></span>/5</h2>
+                    <h2><span id="RatingNum<%=i%>"><%= station_data[:global_rating] %></span>/5</h2>
                   </div>
               </div>
               </div>

@@ -68,19 +68,22 @@
       <div class="container-plan">
 
         <h2 class="category-title">Domaine skiable</h2>
-          <div class="slopes">
-            <div class="total-slopes">
-              <p><%= ((@station.green_open_slopes + @station.blue_open_slopes + @station.red_open_slopes + @station.black_open_slopes).to_f / (@station.green_slopes + @station.blue_slopes + @station.red_slopes + @station.black_slopes) * 100 ).round(0) %> % de pistes ouvertes</p>
-            </div>
-            <div class="slope-array">
-              <p class="d-flex" ><%= @station.green_open_slopes %> / <%= @station.green_slopes %>  <i class="fas fa-flag green"></i></p>
-              <p class="d-flex" ><%= @station.blue_open_slopes %> / <%= @station.blue_slopes %>  <i class="fas fa-flag blue"></i></p>
-              <p class="d-flex" ><%= @station.red_open_slopes %> / <%= @station.red_slopes %>  <i class="fas fa-flag red"></i></p>
-              <p class="d-flex" ><%= @station.black_open_slopes %> / <%= @station.black_slopes %>  <i class="fas fa-flag black"></i></p>
+
+        <div class="slopes">
+          <div class="total-slopes">
+            <p><%= ((@station.green_open_slopes + @station.blue_open_slopes + @station.red_open_slopes + @station.black_open_slopes).to_f / (@station.green_slopes + @station.blue_slopes + @station.red_slopes + @station.black_slopes) * 100 ).round(0) %> % de pistes ouvertes</p>
           </div>
-          <div class="plan-slop">
+          <div class="slope-array">
+            <p class="d-flex" ><%= @station.green_open_slopes %> / <%= @station.green_slopes %>  <i class="fas fa-flag green"></i></p>
+            <p class="d-flex" ><%= @station.blue_open_slopes %> / <%= @station.blue_slopes %>  <i class="fas fa-flag blue"></i></p>
+            <p class="d-flex" ><%= @station.red_open_slopes %> / <%= @station.red_slopes %>  <i class="fas fa-flag red"></i></p>
+            <p class="d-flex" ><%= @station.black_open_slopes %> / <%= @station.black_slopes %>  <i class="fas fa-flag black"></i></p>
+          </div>
+        </div>
+
+        <div class="plan-slop">
           <img class="plan-slop-img" src="<%=@station.planurl%>" >
-          </div>
+        </div>
       </div>
 
       <div class="container-station">
@@ -90,7 +93,6 @@
         <p><%= @station.description%></p>
 
       </div>
-
     </div>
 
     <div id="container-reviews" class="container-anchor">
@@ -140,6 +142,7 @@
       </div>
 
     </div>
+
   </div>
 
 </div>
