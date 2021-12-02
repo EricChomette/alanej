@@ -15,7 +15,7 @@ class StationsController < ApplicationController
     if (params[:query][:start_date] != "") && (params[:query][:end_date] != "") && (params[:city] != "")
       @stations_data = BestStations.new(params[:query][:start_date], params[:query][:end_date], params[:city], params[:criterias].split(",")).call
     else
-      render "home"
+      render "pages/home"
     end
   end
 
