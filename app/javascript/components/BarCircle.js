@@ -1,10 +1,16 @@
 const barCirlce = () => {
+
 if(document.querySelector(".circular-progress")){
+  
 let progressBars = document.querySelectorAll(".circular-progress");
 let valueContainers = document.querySelector(".value-container span");
 let i = 1;
+var y = window.scrollY;
+
+function loadStart(){
 progressBars.forEach((progressBar) => {
-    
+  console.log(scrollY);
+
 let valueContainer = document.querySelector(`#RatingNum${i}`);
 
 
@@ -48,7 +54,18 @@ let progress = setInterval(() => {
   }
 },speed);
 i++;
+
 });
+}
+window.addEventListener('scroll', () => {
+  if (window.scrollY >180) {
+    loadStart();
+  }
+
+});
+if (window.scrollY >180) {
+  loadStart();
+}
 
 }
 }
