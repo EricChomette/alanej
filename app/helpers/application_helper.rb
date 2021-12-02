@@ -15,14 +15,15 @@ module ApplicationHelper
   end
 
   def criteria_translate(criteria)
+
     criterias_map = {
       snow: "Neige",
       weather: "Météo",
       trip: "Trajet",
       budget: "Budget"
     }
-    if criterias_map[criteria.to_sym]
-      return criterias_map[criteria.to_sym]
+    if criterias_map[criteria.strip.to_sym]
+      return criterias_map[criteria.strip.to_sym]
     end
     criteria
   end
