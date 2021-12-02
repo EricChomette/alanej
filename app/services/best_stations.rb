@@ -64,7 +64,7 @@ ONE_W = [
   "Orages forts et fréquents de pluie et neige mêlées ou grésil", "Pluies orageuses", "Pluie et neige mêlées à caractère orageux", "Neige à caractère orageux", "Pluie modérée intermittente", "Pluie forte intermittente", "Neige forte intermittente", "Pluie et neige mêlées", "Pluie et neige mêlées", "Pluie et neige mêlées", "Averses de grêle"
 ]
 
-NB_STATIONS = 5
+NB_STATIONS = 20
 
 FIVE_S = (131..500)
 FOUR_S = (71..130)
@@ -92,7 +92,7 @@ class BestStations
     assign_snow
     calcul_ratings
     sort
-    @stations_data
+    @stations_data.first(NB_STATIONS)
   end
 
   private
