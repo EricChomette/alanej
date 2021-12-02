@@ -94,17 +94,20 @@ WEATHER = {
       232 => "Pluie et neige mêlées",
       235 => "Averses de grêle"
 }
+
+NAME = ["Jacob", "Robin", "Mael", "Eric", "Benjamin", "Joseph", "Jean-Ro", "Sam", "Amélie", "Anne-Rita", "Jordan", "Louise", "Clément", "Nico", "Tom", "Gael", "Eric", "Bogdan", "David", "Julien", "Frank", "Monique", "Anna", "Sarah", "Aurélie", "Mathis", "Thomas", "Théo", "Guy-Alban", "Marie", "Nicolas", "Mehdi"]
+
 Station.destroy_all
 
-
-# NAME = ["Jacob", ""]
-# def create_review(station)
-#   Review.create!(
-#   station: station,
-#   visitor_pseudo: "Jacob",
-#   rating: random(1..5)
-# )
-# end
+def create_review(station)
+  rand(3..6).times do
+    Review.create!(
+    station: station,
+    visitor_pseudo: NAME.sample,
+    rating: rand(2..5)
+    )
+  end
+end
 
 villard_de_lans = Station.create!(
   name: 'Villard de Lans',
@@ -641,4 +644,9 @@ les_gets = Station.create!(
   planurl: "https://www.lesgets.com/app/uploads/2020/09/Plan-des-pistes-LGM-h20-21-sans-pub-HD-scaled.jpg"
 )
 
+Station.all.each do |station|
+  create_review(station)
+end
+
+puts "#{Review.count} reviews has been created"
 puts "#{Station.count} stations has been created"
