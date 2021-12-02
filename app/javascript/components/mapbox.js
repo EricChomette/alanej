@@ -1,57 +1,80 @@
 
-const initMapBox = () => {
-'use strict';
-var mapboxgl = require('mapbox-gl');
-var insertCss = require('insert-css');
-var fs = require('fs');
-mapboxgl.accessToken = window.localStorage.getItem('MapboxAccessToken');
+import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
-// var directionsDiv = document.body.appendChild(document.createElement('div'));
-// directionsDiv.id = 'directions';
+let map;
 
-insertCss(fs.readFileSync('./src/mapbox-gl-directions.css', 'utf8'));
-insertCss(fs.readFileSync('./node_modules/mapbox-gl/dist/mapbox-gl.css', 'utf8'));
-var mapDiv = document.body.appendChild(document.createElement('div'));
-mapDiv.style = 'position:absolute;top:0;right:0;left:0;bottom:0;';
+const addItinerary = (start, end) => {
 
-var map = window.map = new mapboxgl.Map({
-  hash: true,
-  container: mapDiv,
-  style: 'mapbox://styles/mapbox/streets-v9',
-  center: [9.657000, 46.887619],
-  zoom: 13
-});
+  console.log("icicic", start, end)
 
-// remove control
-var button = document.body.appendChild(document.createElement('button'));
-button.style = 'z-index:10;position:absolute;top:10px;right:10px;';
-button.textContent = 'Remove directions control';
+  const url = `https://api.mapbox.com/directions/v5/mapbox/cycling/${start.lng},${start.lat};${end.lng},${end.lat}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`
 
-// remove all waypoints
-var removeWaypointsButton = document.body.appendChild(document.createElement('button'));
-removeWaypointsButton.style = 'z-index:10;position:absolute;top:30px;right:10px;';
-removeWaypointsButton.textContent = 'Remove all waypoints';
+  console.log("je suis dnas addItinerary")
 
-// directions
-var MapboxDirections = require('../src/index');
-var directions = new MapboxDirections({
-  accessToken: window.localStorage.getItem('MapboxAccessToken'),
-  unit: 'metric',
-  profile: 'mapbox/cycling'
-});
-window.directions = directions;
+  fetch(url, { method: 'GET' })
+    .then(x => x.json())
+    .then((data) => {
+      console.log("je suis dans le then", data)
+      const coordinates = data.routes[0].geometry.coordinates
+      const geojson = {
+        'type': 'Feature',
+        'properties': {},
+        'geometry': {
+          'type': 'LineString',
+          'coordinates': coordinates
+        }
+      };
 
-map.addControl(directions, 'top-left');
-
-map.on('load', () => {
-  button.addEventListener('click', function () {
-    map.removeControl(directions);
-  });
-
-  removeWaypointsButton.addEventListener('click', function () {
-    directions.removeRoutes();
-  });
-});
+      map.addLayer({
+        'id': 'route',
+        'type': 'line',
+        'source': {
+          'type': 'geojson',
+          'data': geojson
+        },
+        'layout': {
+          'line-join': 'round',
+          'line-cap': 'round'
+        },
+        'paint': {
+          'line-color': '#3887be',
+          'line-width': 5,
+          'line-opacity': 0.75
+        }
+      });
+    })
 }
 
-export { initMapBox };
+const mapPosition = (start, end) => {
+  const bounds = [
+    [start.lng, start.lat],
+    [end.lng, end.lat]
+  ];
+  map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
+}
+
+const addMarkers = (start, end) => {
+  //
+}
+
+const initMapbox = () => {
+  const mapElement = document.getElementById('map');
+
+  if (mapElement) { // only build a map if there's a div#map to inject into
+    mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+    map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v10'
+    });
+
+    const start = JSON.parse(mapElement.dataset.start)
+    const end = JSON.parse(mapElement.dataset.end)
+
+    addMarkers(start, end)
+    addItinerary(start, end)
+    mapPosition(start, end)
+  }
+};
+
+export { initMapbox };

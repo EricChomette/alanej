@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Demo: Getting started with the Mapbox Directions API</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    #instructions {
+      position: absolute;
+      margin: 20px;
+      width: 25%;
+      top: 0;
+      bottom: 20%;
+      padding: 20px;
+      background-color: #fff;
+      overflow-y: scroll;
+      font-family: sans-serif;
+    }
+  </style>
+  <script src="https://js.sentry-cdn.com/9c5feb5b248b49f79a585804c259febc.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div id="map"></div>
+  <div id="instructions"></div>
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZXJpY2Nob21ldHRlIiwiYSI6ImNrdmNnOHRyajBnbjQyeG1wNDgwdmtjenIifQ.bBKfqXYUGqNhi0U7ngIb1A';
+    const map = new mapboxgl.Map({
+      container: 'map', // container id
+      style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+      center: [-122.662323, 45.523751], // starting position
+      zoom: 12 // starting zoom
+    });
+
+    // set the bounds of the map
+    const bounds = [
+      [-123.069003, 45.395273],
+      [-122.303707, 45.612333]
+    ];
+    map.setMaxBounds(bounds);
+
+    // an arbitrary start will always be the same
+    // only the end or destination will change
+    const start = [-122.662323, 45.523751];
+    const end = [-122.458051,  45.726260,];
+
+
+    fetch(
+      `https://api.mapbox.com/directions/v5/mapbox/cycling/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
+      { method: 'GET' }
+    ).then(x => x.json())
+    .then((data) => {
+      coordinates = data.routes[0].geometry.coordinates
+      const geojson = {
+        'type': 'Feature',
+        'properties': {},
+        'geometry': {
+          'type': 'LineString',
+          'coordinates': coordinates
+        }
+      };
+
+        map.addLayer({
+          'id': 'route',
+          'type': 'line',
+          'source': {
+            'type': 'geojson',
+            'data': geojson
+          },
+          'layout': {
+            'line-join': 'round',
+            'line-cap': 'round'
+          },
+          'paint': {
+            'line-color': '#3887be',
+            'line-width': 5,
+            'line-opacity': 0.75
+          }
+        });
+    })
+
+
+
+
+  </script>
+</body>
+
+</html>
