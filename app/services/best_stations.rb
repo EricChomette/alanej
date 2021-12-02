@@ -138,7 +138,6 @@ class BestStations
     end
   end
 
-
   def assign_wheater
     dates = (@start_date..@end_date)
     @stations_data.each do |station_data|

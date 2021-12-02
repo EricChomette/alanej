@@ -1,10 +1,10 @@
-<%= render 'shared/navbar' %>
-
-<%# <h1><%= @station.name%></h1>
+<%= link_to root_path do%>
+<%= image_tag("logo alanej horizontal blanc.png", class: "logo-high") %>
+<% end %>
 <img class="banner-show" src="<%= @station.bannerphoto %>" >
 
 <div class="contain">
-
+<h1 class= "station-name-show"> <strong><%= @station.name%></strong></h1>
   <div class="nav-btns">
     <div class="container container-btns">
       <a href="#container-weather-webcam" class="btn btn-anchor">Météo et Webcam</a>
@@ -13,6 +13,7 @@
       <a href="#container-reviews" class="btn btn-anchor">Commentaires</a>
     </div>
   </div>
+
 
   <div class="container">
 
