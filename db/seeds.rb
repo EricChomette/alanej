@@ -146,6 +146,21 @@ def snow(station)
   bot_submit_array << bot_array[1]
 end
 
+def new_condition(station)
+  (0..7).each do |date|
+    real_date = Time.zone.now + date.day
+    p real_date
+    Condition.create!(
+      station: station,
+      date_on: real_date,
+      weather: weather(date, station),
+      frost_prob: frost(date, station),
+      fog_prob: fog(date, station),
+      snow: snow(station)
+    )
+  end
+end
+
 villard_de_lans = Station.create!(
   name: 'Villard de Lans',
   address: '62 Pl. Pierre Chabert, 38250 Villard-de-Lans',
@@ -198,50 +213,32 @@ les_arcs = Station.create!(
   planurl: "https://vcdn.bergfex.at/images/resized/4b/2370568a8e60fa4b_a5e8db6f64f0c493@2x.jpg"
 )
 
-def new_condition(station)
-  (0..7).each do |date|
-    real_date = Time.zone.now + date.day
-    p real_date
-    Condition.create!(
-      station: station,
-      date_on: real_date,
-      weather: weather(date, station),
-      frost_prob: frost(date, station),
-      fog_prob: fog(date, station),
-      snow: snow(station)
-    )
-  end
-end
-
-Station.all.each do |station|
-  new_condition(station)
-end
-# serre_che = Station.create!(
-#   name: "Serre Chevalier",
-#   address: "Le, Rte de Pré-Long, 05240 La Salle-les-Alpes",
-#   description: "Située à proximité du Parc national des Ecrins, Serre Chevalier Vallée est le regroupement de la ville de Briançon (ville inscrite au patrimoine mondial de l'UNESCO) et de 3 villages : Saint-Chaffrey/Chantemerle, Villeneuve/La Salle les Alpes et le Monêtier les Bains.
-#   Avec 250 km de pistes, Serre Chevalier Vallée est le 1er domaine non relié français. Des pistes adaptées pour toutes les glisses, du ski en vallon ou en forêt de mélèzes, des ambiances haute montagne avec des hors pistes de renom, confèrent à cette station un caractère sportif et ludique.",
-#   budget: "4",
-#   alt_min: 1200,
-#   alt_max: 2830,
-#   green_slopes: 13,
-#   green_open_slopes: 11,
-#   blue_slopes: 26,
-#   blue_open_slopes: 23,
-#   red_slopes: 29,
-#   red_open_slopes: 28,
-#   black_slopes: 13,
-#   black_open_slopes: 7,
-#   insee: "05161",
-#   cardphoto: "https://www.yonder.fr/sites/default/files/destinations/serre%20chevalier%20figure%20snow%20Serre%20Chevalier%20Vall%C3%A9e%20Brian%C3%A7on%20-%20%40laurapeythieu.jpg",
-#   bannerphoto: "https://www.terresens.com/wp-content/uploads/2018/03/Thibaut_Blais2.jpg",
-#   lat: "44.946249",
-#   long: "6.558491",
-#   logo: "https://www.e-briancon.com/wp-content/uploads/2017/08/logo-serre-chevalier.jpg"
-#   snowurl: "le-monetier-les-bains#pic-de-l-yret",
-#   webcamurl:"1480515718",
-#   planurl: "https://ublo-file-manager.valraiso.net/assets/esfserrechechantemerle/1200_700/plan-pistes-serreche.jpg"
-# )
+serre_che = Station.create!(
+  name: "Serre Chevalier",
+  address: "Le, Rte de Pré-Long, 05240 La Salle-les-Alpes",
+  description: "Située à proximité du Parc national des Ecrins, Serre Chevalier Vallée est le regroupement de la ville de Briançon (ville inscrite au patrimoine mondial de l'UNESCO) et de 3 villages : Saint-Chaffrey/Chantemerle, Villeneuve/La Salle les Alpes et le Monêtier les Bains.
+  Avec 250 km de pistes, Serre Chevalier Vallée est le 1er domaine non relié français. Des pistes adaptées pour toutes les glisses, du ski en vallon ou en forêt de mélèzes, des ambiances haute montagne avec des hors pistes de renom, confèrent à cette station un caractère sportif et ludique.",
+  budget: "4",
+  alt_min: 1200,
+  alt_max: 2830,
+  green_slopes: 13,
+  green_open_slopes: 11,
+  blue_slopes: 26,
+  blue_open_slopes: 23,
+  red_slopes: 29,
+  red_open_slopes: 28,
+  black_slopes: 13,
+  black_open_slopes: 7,
+  insee: "05161",
+  cardphoto: "https://www.yonder.fr/sites/default/files/destinations/serre%20chevalier%20figure%20snow%20Serre%20Chevalier%20Vall%C3%A9e%20Brian%C3%A7on%20-%20%40laurapeythieu.jpg",
+  bannerphoto: "https://www.terresens.com/wp-content/uploads/2018/03/Thibaut_Blais2.jpg",
+  lat: "44.946249",
+  long: "6.558491",
+  logo: "https://www.e-briancon.com/wp-content/uploads/2017/08/logo-serre-chevalier.jpg",
+  snowurl: "le-monetier-les-bains#pic-de-l-yret",
+  webcamurl:"1480515718",
+  planurl: "https://ublo-file-manager.valraiso.net/assets/esfserrechechantemerle/1200_700/plan-pistes-serreche.jpg"
+)
 
 # autrans = Station.create!(
 #   name: "Domaine alpin Autrans",
@@ -698,6 +695,10 @@ end
 #   webcamurl:"1583619096",
 #   planurl: "https://www.lesgets.com/app/uploads/2020/09/Plan-des-pistes-LGM-h20-21-sans-pub-HD-scaled.jpg"
 # )
+
+Station.all.each do |station|
+  new_condition(station)
+end
 
 puts "#{Station.count} stations has been created"
 puts "#{Condition.count} conditions has been created"
