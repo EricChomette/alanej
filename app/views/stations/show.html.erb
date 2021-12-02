@@ -1,15 +1,20 @@
-<%= link_to root_path do%>
-<%= image_tag("logo alanej horizontal blanc.png", class: "logo-high") %>
-<% end %>
-<img class="banner-show" src="<%= @station.bannerphoto %>" >
+<div class="banner-show", style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('<%= @station.bannerphoto %>')">
+  <%= link_to root_path do%>
+    <%= image_tag("logo alanej horizontal blanc.png", class: "logo-high") %>
+  <% end %>
+  <h1 class= "station-name-show"> <strong><%= @station.name%></strong></h1>
+</div>
 
 <div class="contain">
-<h1 class= "station-name-show"> <strong><%= @station.name%></strong></h1>
+
   <div class="nav-btns">
     <div class="container container-btns">
+      <%= link_to request.referer.present? ? request.referer : default_path, id:"back-show" do %>
+        <i class="fas fa-arrow-circle-left"></i> Retour
+      <% end %>
       <a href="#container-weather-webcam" class="btn btn-anchor">Météo et Webcam</a>
       <a href="#container-trip" class="btn btn-anchor">Trajet</a>
-      <a href="#container-station-plan" class="btn btn-anchor">La Station</a>
+      <a href="#container-station-plan" class="btn btn-anchor">Domaine et Station</a>
       <a href="#container-reviews" class="btn btn-anchor">Commentaires</a>
     </div>
   </div>
@@ -71,8 +76,8 @@
                   </p>
                 </div>
                 <div class="meteo-details">
-                  &#9658 Probabilité de gel <%= condition.frost_prob %> <br>
-                  &#9658 Probabilité de brouillard <%= condition.fog_prob %>
+                  &#9658 Probabilité de gel <%= condition.frost_prob %>% <br>
+                  &#9658 Probabilité de brouillard <%= condition.fog_prob %>%
                 </div>
               </div>
             <% end %>
@@ -96,7 +101,6 @@
     <div id="container-trip" class="container-anchor">
       <h2 class="category-title">Trajet</h2>
       <div class="container-map">
-<<<<<<< HEAD
         <div id="map"
           style="width: 100%; height: 600px;"
           data-start="<%= @point_start.to_json %>"
@@ -113,28 +117,22 @@
 
         <h2 class="category-title">Domaine skiable</h2>
 
+        <img class="plan-slop-img" src="<%=@station.planurl%>" >
+
         <div class="slopes">
-          <div class="total-slopes">
-            <p><%= ((@station.green_open_slopes + @station.blue_open_slopes + @station.red_open_slopes + @station.black_open_slopes).to_f / (@station.green_slopes + @station.blue_slopes + @station.red_slopes + @station.black_slopes) * 100 ).round(0) %> % de pistes ouvertes</p>
-          </div>
-          <div class="slope-array">
-            <p class="d-flex" ><%= @station.green_open_slopes %> / <%= @station.green_slopes %>  <i class="fas fa-flag green"></i></p>
-            <p class="d-flex" ><%= @station.blue_open_slopes %> / <%= @station.blue_slopes %>  <i class="fas fa-flag blue"></i></p>
-            <p class="d-flex" ><%= @station.red_open_slopes %> / <%= @station.red_slopes %>  <i class="fas fa-flag red"></i></p>
-            <p class="d-flex" ><%= @station.black_open_slopes %> / <%= @station.black_slopes %>  <i class="fas fa-flag black"></i></p>
-          </div>
+          <p class="slope"><%= @station.green_open_slopes %> / <%= @station.green_slopes %>  <i class="fas fa-flag green"></i></p>
+          <p class="slope"><%= @station.blue_open_slopes %> / <%= @station.blue_slopes %>  <i class="fas fa-flag blue"></i></p>
+          <p class="slope"><%= @station.red_open_slopes %> / <%= @station.red_slopes %>  <i class="fas fa-flag red"></i></p>
+          <p class="slope"><%= @station.black_open_slopes %> / <%= @station.black_slopes %>  <i class="fas fa-flag black"></i></p>
         </div>
 
-        <div class="plan-slop">
-          <img class="plan-slop-img" src="<%=@station.planurl%>" >
-        </div>
       </div>
 
       <div class="container-station">
 
         <h2 class="category-title">La Station</h2>
         <p class="address"><%= @station.address %></p>
-        <p><%= @station.description%></p>
+        <p class="description"><%= @station.description%></p>
 
       </div>
     </div>
