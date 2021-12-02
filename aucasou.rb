@@ -6,7 +6,3 @@
   #     return (trajet[0]["distance"] / 1000 * 0.246559).to_i
   #   end
   # end
-
-
-
-<img class="plan" src="<%= @station.plan %>" alt="plan">
