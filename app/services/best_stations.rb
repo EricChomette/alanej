@@ -266,10 +266,10 @@ class BestStations
 
   def calc_rating_budget(station_data)
     case station_data[:station].budget
-    when "1" || "2"
+    when "1"
       station_data[:budget_rating] = 5.0
-    # when "2"
-    #   station_data[:budget_rating] = 5.0
+    when "2"
+      station_data[:budget_rating] = 5.0
     when "3"
       station_data[:budget_rating] = 4.0
     when "4"
