@@ -104,27 +104,29 @@
               <div class="card-station-rating">
                 <div class="circular-progress">
                   <div class="value-container">
-                    <h2><span id="RatingNum<%=i%>"><%= station_data[:global_rating] %></span>/5</h2>
+                    <h2><strong><span id="RatingNum<%=i%>"><%= station_data[:global_rating] %></span>/5</strong></h2>
                   </div>
                 </div>
               </div>
-            <div class="rating-details">
-                <div class="snowRating litleRate">
+
+              <div class="rating-details">
+
+                <div class="snowRating little-rating">
                   <h5><i class="fas fa-snowflake"></i><%= station_data[:snow_rating] %>/5</h5>
                 </div>
 
-                <div class="budgetRating litleRate">
+                <div class="budgetRating little-rating">
                   <h5><i class="fas fa-euro-sign"></i><%= station_data[:budget_rating] %>/5</h5>
                 </div>
 
-                <div class="weatherRating litleRate">
+                <div class="weatherRating little-rating">
                   <h5><i class="fas fa-cloud"></i><%= station_data[:weather_rating] %>/5</h5>
                 </div>
 
-                <div class="durationRating litleRate">
+                <div class="durationRating little-rating">
                   <h5><i class="fas fa-car"></i><%= station_data[:duration_rating] %>/5</h5>
                 </div>
-              
+
               </div>
             </div>
 
