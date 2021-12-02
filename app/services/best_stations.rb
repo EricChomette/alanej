@@ -129,7 +129,6 @@ class BestStations
     URI.open("https://api.mapbox.com/directions/v5/mapbox/driving/#{lnglat_start[0]},#{lnglat_start[1]};#{station_data[:station].long},#{station_data[:station].lat}?geometries=geojson&access_token=pk.eyJ1IjoibWFlbHByIiwiYSI6ImNrd2RrM2U5bzBsc2Eyb24xYXB0cnJscW8ifQ.iFKMjM3OFf6oUgyejjfq8Q") do |stream|
       trajet = JSON.parse(stream.read)["routes"]
       trajet_duration = (trajet[0]["duration"] / 60).to_i
-      sleep(3.seconds)
       return trajet_duration
     end
   end

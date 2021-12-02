@@ -4,7 +4,12 @@
   <%= simple_form_for :query, method: :get,
                               url: stations_path,
                               defaults: { wrapper_html: { },required: false },
+
                               html: { class: 'index-form' } do |f| %>
+
+  <%= f.input :criterias, as: :hidden, label: false,
+                            required: true,
+                            input_html: { name: :criterias, value: params[:criterias] } %>
 
     <div class="index-dates">
       <%= f.input :city,  label:       false,

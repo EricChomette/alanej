@@ -74,6 +74,24 @@
   justify-content: center;
 }
 
+.snow-show {
+  width: 100%;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.side-info-show {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.side-info-show > p{
+  margin-bottom: 23px;
+  margin-top: 20px;
+  font-size: large;
+}
+
 .card-station-snow-alt {
   display: flex;
   align-items: center;
