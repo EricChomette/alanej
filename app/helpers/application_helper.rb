@@ -11,7 +11,7 @@ module ApplicationHelper
   end
 
   def humanize(date)
-    date.strftime('%d %B')
+    date.strftime('%d/%m/%y')
   end
 
   def criteria_translate(criteria)
