@@ -1,4 +1,18 @@
 .plan-slop-img {
-  width: 1200px;
-  height: 800px;
+  width: 100%;
+}
+
+.slopes {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.slope {
+  font-size: large;
+}
+
+.description {
+  text-align: justify;
 }
