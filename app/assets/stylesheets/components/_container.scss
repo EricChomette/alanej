@@ -28,10 +28,11 @@
 
 #container-station-plan {
   display: flex;
-}
-.container-station {
-  width: 38%;
+  justify-content: space-between;
 }
 .container-plan {
   width: 59%;
+}
+.container-station {
+  width: 38%;
 }
