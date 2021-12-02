@@ -1,76 +1,76 @@
 const barCirlce = () => {
 
-if(document.querySelector(".circular-progress")){
-  
-let progressBars = document.querySelectorAll(".circular-progress");
-let valueContainers = document.querySelector(".value-container span");
-let i = 1;
-var y = window.scrollY;
+  if (document.querySelector(".circular-progress")) {
 
-function loadStart(){
-progressBars.forEach((progressBar) => {
-  console.log(scrollY);
+    let progressBars = document.querySelectorAll(".circular-progress");
+    let valueContainers = document.querySelector(".value-container span");
+    let i = 1;
+    var y = window.scrollY;
 
-let valueContainer = document.querySelector(`#RatingNum${i}`);
+    function loadStart() {
+      progressBars.forEach((progressBar) => {
+        console.log(scrollY);
+
+        let valueContainer = document.querySelector(`#RatingNum${i}`);
 
 
 
-let colorPick = "a";
+        let colorPick = "a";
 
-let progressValue = 0;
-let stocker = valueContainer.innerHTML;
-let progressEndValue = (stocker*2) * 10;
-let textEndValue = stocker
-let speed = 20;
+        let progressValue = 0;
+        let stocker = valueContainer.innerHTML;
+        let progressEndValue = (stocker * 2) * 10;
+        let textEndValue = stocker
+        let speed = 20;
 
-function colorset(value){
+        function colorset(value) {
 
-if (value >= 0 && value < 20){
-  colorPick = '#ff0000';
-  return colorPick
-}
-if (value >= 20 && value < 40){
-  colorPick = '#ff8335';
-  return colorPick
-}
-if (value >=40 && value < 60){
-  colorPick = '#fff528';
-  return colorPick
-}
-if (value >=60 && value < 80){
-  colorPick = '#daffb0';
-  return colorPick
-}
-if (value >= 80 && value <= 100){
-  colorPick = '#5eff5e';
-  return colorPick
-}
+          if (value >= 0 && value < 20) {
+            colorPick = '#ff0000';
+            return colorPick
+          }
+          if (value >= 20 && value < 40) {
+            colorPick = '#ff8335';
+            return colorPick
+          }
+          if (value >= 40 && value < 60) {
+            colorPick = '#fff528';
+            return colorPick
+          }
+          if (value >= 60 && value < 80) {
+            colorPick = '#daffb0';
+            return colorPick
+          }
+          if (value >= 80 && value <= 100) {
+            colorPick = '#5eff5e';
+            return colorPick
+          }
 
-}
-let progress = setInterval(() => {
-  progressValue++;
+        }
+        let progress = setInterval(() => {
+          progressValue++;
 
-  progressBar.style.background = `conic-gradient( ${colorset(progressValue)} ${progressValue * 3.6}deg, #cadcff  ${progressValue * 3.6}deg)`;
+          progressBar.style.background = `conic-gradient( ${colorset(progressValue)} ${progressValue * 3.6}deg, #cadcff  ${progressValue * 3.6}deg)`;
 
-  
-  if(progressValue >= progressEndValue){
-    clearInterval(progress);
+
+          if (progressValue >= progressEndValue) {
+            clearInterval(progress);
+          }
+        }, speed);
+        i++;
+
+      });
+    }
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 180) {
+        loadStart();
+      }
+
+    });
+    if (window.scrollY > 180) {
+      loadStart();
+    }
+
   }
-},speed);
-i++;
-
-});
-}
-window.addEventListener('scroll', () => {
-  if (window.scrollY >180) {
-    loadStart();
-  }
-
-});
-if (window.scrollY >180) {
-  loadStart();
-}
-
-}
 }
 export {barCirlce};
