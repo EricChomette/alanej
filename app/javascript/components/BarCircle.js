@@ -29,15 +29,19 @@ if (value >= 0 && value < 20){
   colorPick = '#ff0000';
   return colorPick
 }
-if (value >= 20 && value < 50){
+if (value >= 20 && value < 40){
   colorPick = '#ff8335';
   return colorPick
 }
-if (value >= 50 && value < 75){
+if (value >=40 && value < 60){
+  colorPick = '#fff528';
+  return colorPick
+}
+if (value >=60 && value < 80){
   colorPick = '#daffb0';
   return colorPick
 }
-if (value >= 75 && value < 100){
+if (value >= 80 && value <= 100){
   colorPick = '#5eff5e';
   return colorPick
 }
