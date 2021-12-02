@@ -29,15 +29,54 @@
             <% if @dates.include?(condition.date_on.to_date) %>
 
               <div class="card-meteo">
-                <p><%= humanize(condition.date_on) %></p>
-                <p><%= condition.weather %></p>
-                <p>probabilité de gel <%= condition.frost_prob %>%</p>
-                <p>probabilité de brouillard <%= condition.fog_prob %>%</p>
+                <div class="meteo-date">
+                  <p><strong><%= humanize(condition.date_on) %></strong></p>
+                </div>
+                <div class="picto-meteo-show-description">
+                  <p><%= condition.weather %></p>
+                </div>
+                <div class="picto-meteo-show">
+                  <p>
+                    <% if BIGRAIN.include? condition.weather %>
+                      <%= image_tag("bigrain.png", class: "picto-card-show") %>
+                    <% elsif CLOUDS.include? condition.weather %>
+                      <%= image_tag("clouds.png", class: "picto-card-show") %>
+                    <% elsif FOG.include? condition.weather %>
+                      <%= image_tag("fog.png", class: "picto-card-show") %>
+                    <% elsif GRELE.include? condition.weather %>
+                      <%= image_tag("grele.png", class: "picto-card-show") %>
+                    <% elsif LITTLERAIN.include? condition.weather %>
+                      <%= image_tag("littlerain.png", class: "picto-card-show") %>
+                    <% elsif LITTLESNOW.include? condition.weather %>
+                      <%= image_tag("littlesnow.png", class: "picto-card-show") %>
+                    <% elsif RAIN.include? condition.weather %>
+                      <%= image_tag("rain.png", class: "picto-card-show") %>
+                    <% elsif SNOW.include? condition.weather %>
+                      <%= image_tag("snow.png", class: "picto-card-show") %>
+                    <% elsif STORM.include? condition.weather %>
+                      <%= image_tag("storm.png", class: "picto-card-show") %>
+                    <% elsif STORMRAIN.include? condition.weather %>
+                      <%= image_tag("stormrain.png", class: "picto-card-show") %>
+                    <% elsif SUNCLOUD.include? condition.weather %>
+                      <%= image_tag("suncloud.png", class: "picto-card-show") %>
+                    <% elsif SUNICO.include? condition.weather %>
+                      <%= image_tag("sunico.png", class: "picto-card-show") %>
+                    <% elsif BIGCLOUDS.include? condition.weather %>
+                      <%= image_tag("bigclouds.png", class: "picto-card-show") %>
+                    <% elsif RAINANDSNOW.include? condition.weather %>
+                      <%= image_tag("rainandsnow.png", class: "picto-card-show") %>
+                    <% else %>
+                      <%= image_tag("wind.png", class: "picto-card-show") %>
+                    <% end %>
+                  </p>
+                </div>
+                <div class="meteo-details">
+                  &#9658 Probabilité de gel <%= condition.frost_prob %> <br>
+                  &#9658 Probabilité de brouillard <%= condition.fog_prob %>
+                </div>
               </div>
-
             <% end %>
           <% end %>
-
         </div>
 
       </div>
