@@ -3,6 +3,7 @@
 }
 .container-anchor {
   padding-top: 50px;
+  margin-bottom: 40px;
 }
 .container-btns {
   display: flex;
@@ -19,11 +20,23 @@
   justify-content: space-between;
 }
 .container-weather {
-  width: 57%;
+  width: 55%;
 }
-
 .container-webcam {
   width: 40%;
+}
+
+#container-snow-trip {
+  width: 100%;
+  height: 455px;
+  display: flex;
+  justify-content: space-between;
+}
+.container-snow {
+  width: 40%;
+}
+.container-trip {
+  width: 55%;
 }
 
 #container-station-plan {
@@ -31,8 +44,8 @@
   justify-content: space-between;
 }
 .container-plan {
-  width: 59%;
+  width: 58%;
 }
 .container-station {
-  width: 38%;
+  width: 37%;
 }
