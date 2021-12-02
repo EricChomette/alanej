@@ -354,7 +354,7 @@ la_clusaz = Station.create!(
   black_slopes: 8,
   black_open_slopes: 3,
   insee: "74080",
-  cardphoto: "https://www.hautesavoiephotos.com/villages/la_clusaz_img1651.jpg",
+  cardphoto: "https://skipass.fr/p/news/211357/default-la-clusaz-ouvre-pour-le-ski-ce-week-215cd-1.jpg",
   bannerphoto: "https://www.mksport-mag.com/media/cache/place_detail_main_picture/2019/01/9357-village-c-pascal-lebeau.jpg",
   lat:"45.904149",
   long:"6.425063",
