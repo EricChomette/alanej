@@ -2,7 +2,7 @@
   margin-top: 100px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 3%;
+  grid-gap: 2rem;
 }
 .container-card-stations {
   width: 31%;
@@ -12,7 +12,7 @@
 }
 .rating-details{
   transform: scale(0);
- padding-bottom: 10px;
+  padding-bottom: 10px;
   display: flex;
   justify-content: space-around;
   width: 100%;
@@ -36,7 +36,7 @@
     box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.145);
     .rating-details{
       transform: scale(1);
-      
+
     }
   }
 }
@@ -45,8 +45,8 @@
   height: 100%;
   border-radius: 15px 15px 0 0;
   filter: brightness(75%);
-
 }
+
 .station-name {
   position: absolute;
   top: 50%;
@@ -56,14 +56,15 @@
   text-align: center;
 }
 .card-station-img {
-  height: 35%;
+  height: 37%;
+  min-height: 225px;
   width: 100%;
   position: relative;
 }
 
 .card-station-trip-weather-budget {
   width: 90%;
-  height: 11%;
+  height: 14%;
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid rgba(0, 0, 0, 0.152);
@@ -150,7 +151,7 @@
 }
 
 .card-station-rating {
-  height: 32%;
+  height: 27%;
   display: flex;
   align-items: center;
 }
@@ -220,7 +221,7 @@
   width: 40px;
   height: 40px;
 
-  
+
   text-align: center;
   margin-top: -1%;
 }
