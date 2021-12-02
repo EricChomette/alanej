@@ -233,13 +233,13 @@ class BestStations
       if FIVE_W.include?(weather)
         array << 5
       elsif FOUR_W.include?(weather)
-        array << 4
+        array << 4.5
       elsif THREE_W.include?(weather)
-        array << 3
+        array << 3.5
       elsif TWO_W.include?(weather)
-        array << 2
+        array << 2.5
       elsif ONE_W.include?(weather)
-        array << 1
+        array << 1.5
       end
     end
     station_data[:weather_rating] = (array.sum.to_f / array.count).round(2)
@@ -266,16 +266,16 @@ class BestStations
 
   def calc_rating_budget(station_data)
     case station_data[:station].budget
-    when "1"
+    when "1" || "2"
       station_data[:budget_rating] = 5.0
-    when "2"
-      station_data[:budget_rating] = 4.0
+    # when "2"
+    #   station_data[:budget_rating] = 5.0
     when "3"
-      station_data[:budget_rating] = 3.0
+      station_data[:budget_rating] = 4.0
     when "4"
-      station_data[:budget_rating] = 2.0
+      station_data[:budget_rating] = 3.0
     when "5"
-      station_data[:budget_rating] = 1.0
+      station_data[:budget_rating] = 2.0
     end
   end
 
