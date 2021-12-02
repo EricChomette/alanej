@@ -20,6 +20,8 @@ const dynamicRating = () => {
   const stars = document.querySelectorAll('.review-rating');
   const starsReview = document.querySelector('#review-star-ratings');
 
+  if (!starsReview)
+    return
 
   if (stars.length > 0) {
     stars.forEach((star) => {

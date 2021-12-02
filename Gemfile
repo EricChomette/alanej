@@ -66,3 +66,5 @@ gem 'rails_bootstrap_sortable'
 gem 'nokogiri'
 
 gem "awesome_print", "~> 1.9"
+
+gem "geocoder", "~> 1.7"

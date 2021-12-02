@@ -30,7 +30,7 @@ import "three";
 import { initBackgroundHomePage } from '../components/3Dmain';
 import { initAutocomplete } from '../components/autocomplete';
 import {loading} from '../components/addClassToBtn';
-import { MapBoxInit } from '../components/mapbox';
+import { initMapbox } from '../components/mapbox';
 import { dynamicRating } from "../plugins/starsInReviewForm";
 import { initFlatpickr } from '../plugins/flatpickr';
 import { initSortable } from '../plugins/sortable';
@@ -47,5 +47,5 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   initFlatpickr();
   initSortable();
-  MapBoxInit()
+  initMapbox()
 });
