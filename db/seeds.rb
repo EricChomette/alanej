@@ -94,8 +94,17 @@ WEATHER = {
       232 => "Pluie et neige mêlées",
       235 => "Averses de grêle"
 }
-
 Station.destroy_all
+
+
+# NAME = ["Jacob", ""]
+# def create_review(station)
+#   Review.create!(
+#   station: station,
+#   visitor_pseudo: "Jacob",
+#   rating: random(1..5)
+# )
+# end
 
 villard_de_lans = Station.create!(
   name: 'Villard de Lans',

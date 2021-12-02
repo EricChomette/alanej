@@ -196,12 +196,18 @@
           <h3>Laissez un commentaire</h3>
           <%= simple_form_for [@station, @review] do |f| %>
             <%= f.input :visitor_pseudo, label: "Votre pseudo" %>
-            <%= f.input :rating, as: :hidden  %>
-            <div class="my-3">
+
+            <%= hidden_field_tag :start_date, params[:start_date] %>
+            <%= hidden_field_tag :end_date, params[:end_date] %>
+            <%= hidden_field_tag :city, params[:city] %>
+
+            <div class="my-3" data-controller="stars">
+              <%= f.input :rating, as: :hidden, input_html: {data: {'stars-target': 'input'}}  %>
               <% Review::AUTHORIZED_RATINGS.each do |index| %>
-                <i id="<%= index %>" class="review-rating far fa-star"></i>
+                <i id="<%= index %>" class="review-rating far fa-star" data-stars-target="icon" data-rating="<%= index %>" data-action="click->stars#click mouseover->stars#mouseOver mouseout->stars#mouseOut" ></i>
               <% end %>
             </div>
+
             <%= f.submit class: "btn", value: "Valider" %>
           <% end %>
 
