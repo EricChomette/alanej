@@ -1,5 +1,12 @@
 .banner-show {
   width: 100%;
-  height: 55vh;
+  height: 50vh;
   object-fit: cover;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
