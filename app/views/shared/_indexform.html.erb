@@ -6,21 +6,21 @@
                               defaults: { wrapper_html: { },required: false },
                               html: { class: 'index-form' } do |f| %>
 
-  <div class="index-dates">
-    <%= f.input :city,  label:       false,
-                      placeholder: "D'où partez-vous ?",
-                      input_html:  { name: :city, value: params.dig(:city), id: "index_query_city"} %>
+    <div class="index-dates">
+      <%= f.input :city,  label:       false,
+                        placeholder: "D'où partez-vous ?",
+                        input_html:  { name: :city, value: params.dig(:city), id: "index_query_city"} %>
 
-    <%= f.input :start_date, as: :string, label: false,
+      <%= f.input :start_date, as: :string, label: false,
+                                required: false,
+                                input_html:    { value: params[:query][:start_date], id: "index_range_start"} %>
+
+      <%= f.input :end_date, as: :string, label: false,
                               required: false,
-                              input_html:    { value: params[:query][:start_date], id: "index_range_start"} %>
-
-    <%= f.input :end_date, as: :string, label: false,
-                            required: false,
-                            input_html:    { value: params[:query][:end_date], id: "index_range_end" } %>
-    <%= f.submit "GO", class: "btn btn-go" ,id:'index_goAnim' do %>
-    <i class="fas fa-sync-alt"></i>
-    <% end %>
-  </div>
+                              input_html:    { value: params[:query][:end_date], id: "index_range_end" } %>
+      <%= f.submit "GO", class: "btn btn-go" ,id:'index_goAnim' do %>
+        <i class="fas fa-sync-alt"></i>
+      <% end %>
+    </div>
   <% end %>
 </div>

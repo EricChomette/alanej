@@ -62,16 +62,18 @@
   display: flex;
   align-items: center;
 }
+
+.weather-picto {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
 .side-big-info {
   width: 25%;
   display: flex;
   justify-content: center;
 }
-.weather {
-  width: 50%;
-  display: flex;
-  justify-content: center;
-}
+
 .card-station-snow-alt {
   display: flex;
   align-items: center;

@@ -1,9 +1,13 @@
 <div class="index-banner">
+
   <%= link_to root_path do%>
-  <%= image_tag("logo alanej horizontal blanc.png", class: "logo-high") %>
+    <%= image_tag("logo alanej horizontal blanc.png", class: "logo-high") %>
   <% end %>
+
   <h1 id="index-title"><strong> Les meilleures stations pour votre séjour </strong></h1>
+
   <%= render 'shared/indexform' %>
+
 </div>
 
 <div class="container">
@@ -23,10 +27,10 @@
               </div>
 
               <div class="card-station-trip-weather-budget">
-                
+
                 <p class="side-big-info"><i class="fas fa-car"></i>&nbsp;<%= time_conversion(station_data[:duration]) %></p>
 
-                <p class="weather">
+                <p class="weather-picto">
                   <% if BIGRAIN.include? station.conditions.first.weather %>
                     <%= image_tag("bigrain.png", class: "picto-card") %>
                   <% elsif CLOUDS.include? station.conditions.first.weather %>
@@ -100,7 +104,7 @@
               <div class="card-station-rating">
                 <div class="circular-progress">
                   <div class="value-container">
-                      <h2><span id="RatingNum<%=i%>"><%= station_data[:global_rating] %></span>/5</h2>
+                    <h2><span id="RatingNum<%=i%>"><%= station_data[:global_rating] %></span>/5</h2>
                   </div>
               </div>
               </div>
