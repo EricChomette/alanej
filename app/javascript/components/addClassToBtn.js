@@ -9,10 +9,10 @@ const loading= () =>{
         div2.classList.add("elementToFadeOut");
         txt.classList.add("clignote");
         var titles = [
-         "Recherche itinéraire...",
-         "Verifications méteos...",
+         "Recherche d'itinéraire...",
+         "Vérifications météos...",
          "Recherche de puff...",
-         "Selection des stations..."
+         "Sélection des stations..."
       ];
 function newTitle () {
     var i = (Math.random() * titles.length) | 0;

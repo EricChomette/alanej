@@ -106,7 +106,25 @@
                   <div class="value-container">
                     <h2><span id="RatingNum<%=i%>"><%= station_data[:global_rating] %></span>/5</h2>
                   </div>
+                </div>
               </div>
+            <div class="rating-details">
+                <div class="snowRating litleRate">
+                  <h5><i class="fas fa-snowflake"></i><%= station_data[:snow_rating] %>/5</h5>
+                </div>
+
+                <div class="budgetRating litleRate">
+                  <h5><i class="fas fa-euro-sign"></i><%= station_data[:budget_rating] %>/5</h5>
+                </div>
+
+                <div class="weatherRating litleRate">
+                  <h5><i class="fas fa-cloud"></i><%= station_data[:weather_rating] %>/5</h5>
+                </div>
+
+                <div class="durationRating litleRate">
+                  <h5><i class="fas fa-car"></i><%= station_data[:duration_rating] %>/5</h5>
+                </div>
+              
               </div>
             </div>
 
