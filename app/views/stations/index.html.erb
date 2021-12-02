@@ -1,13 +1,16 @@
-<%= render 'shared/navbar' %>
 <div class="index-banner">
+  <%= link_to root_path do%>
+  <%= image_tag("logo alanej horizontal blanc.png", class: "logo-high") %>
+  <% end %>
   <h1 id="index-title"><strong> Les meilleures stations pour votre séjour </strong></h1>
   <%= render 'shared/indexform' %>
 </div>
 
 <div class="container">
   <div class="container-cards-stations">
-
+  <% i = 0%>
     <% @stations_data.each do |station_data| %>
+    <% i += 1%>
       <% station = station_data[:station]%>
       <div class="container-card-station">
         <%= link_to station_path(station, city: params[:city], start_date: params[:query][:start_date], end_date: params[:query][:end_date]) do %>
@@ -20,7 +23,7 @@
               </div>
 
               <div class="card-station-trip-weather-budget">
-
+                
                 <p class="side-big-info"><i class="fas fa-car"></i>&nbsp;<%= time_conversion(station_data[:duration]) %></p>
 
                 <p class="weather">
@@ -73,12 +76,14 @@
               <div class="card-station-snow-alt">
 
                 <div class="side-info">
+
                   <p class="left">max: <%= station.alt_max %> m</p>
                   <p class="left">min: <%= station.alt_min %> m</p>
                 </div>
 
                 <div class="montagne">
                   <%= image_tag("mountainiconefinal.png", height: '62', width: '80') %>
+
                 </div>
 
                 <div class="side-info">
@@ -89,11 +94,15 @@
               </div>
 
               <div class="card-station-slopes">
-                <p class="total-slopes"><i class="far fa-flag"></i> <%= ((station.green_open_slopes + station.blue_open_slopes + station.red_open_slopes + station.black_open_slopes).to_f / (station.green_slopes + station.blue_slopes + station.red_slopes + station.black_slopes) * 100 ).round(0) %> % de pistes ouvertes</p>
+                <p><i class="far fa-flag"></i> <%= ((station.green_open_slopes + station.blue_open_slopes + station.red_open_slopes + station.black_open_slopes).to_f / (station.green_slopes + station.blue_slopes + station.red_slopes + station.black_slopes) * 100 ).round(0) %> % de pistes ouvertes</p>
               </div>
 
               <div class="card-station-rating">
-                <h2><%= station_data[:global_rating] %> / 5</h2>
+                <div class="circular-progress">
+                  <div class="value-container">
+                      <h2><span id="RatingNum<%=i%>"><%= station_data[:global_rating] %></span>/5</h2>
+                  </div>
+              </div>
               </div>
             </div>
 
