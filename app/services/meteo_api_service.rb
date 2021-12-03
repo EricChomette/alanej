@@ -99,7 +99,9 @@ class MeteoApiService
 
   def initialize(station)
     @station = station
-    @base_url = "https://api.meteo-concept.com/api/forecast/daily/?token=f9e68c52be15a27603ac5ee02abf853316482e6d2ac1c111f58ed481816938b8&insee=#{@station.insee}"
+    @base_url = "https://api.meteo-concept.com/api/forecast/daily/?token=25b726a85bb8874026726594e8131564066e1794ef1e71a60a86f019e5e1968d
+
+&insee=#{@station.insee}"
     puts "Synchro wheater #{@station.name}"
   end
 

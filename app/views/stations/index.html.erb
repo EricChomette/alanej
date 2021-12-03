@@ -31,33 +31,33 @@
                 <p class="side-big-info"><i class="fas fa-car"></i>&nbsp;<%= time_conversion(station_data[:duration]) %></p>
 
                 <p class="weather-picto">
-                  <% if BIGRAIN.include? station.conditions.first.weather %>
+                  <% if BIGRAIN.include? station.conditions[6].weather %>
                     <%= image_tag("bigrain.png", class: "picto-card") %>
-                  <% elsif CLOUDS.include? station.conditions.first.weather %>
+                  <% elsif CLOUDS.include? station.conditions[6].weather %>
                     <%= image_tag("clouds.png", class: "picto-card") %>
-                  <% elsif FOG.include? station.conditions.first.weather %>
+                  <% elsif FOG.include? station.conditions[6].weather %>
                     <%= image_tag("fog.png", class: "picto-card") %>
-                  <% elsif GRELE.include? station.conditions.first.weather %>
+                  <% elsif GRELE.include? station.conditions[6].weather %>
                     <%= image_tag("grele.png", class: "picto-card") %>
-                  <% elsif LITTLERAIN.include? station.conditions.first.weather %>
+                  <% elsif LITTLERAIN.include? station.conditions[6].weather %>
                     <%= image_tag("littlerain.png", class: "picto-card") %>
-                  <% elsif LITTLESNOW.include? station.conditions.first.weather %>
+                  <% elsif LITTLESNOW.include? station.conditions[6].weather %>
                     <%= image_tag("littlesnow.png", class: "picto-card") %>
-                  <% elsif RAIN.include? station.conditions.first.weather %>
+                  <% elsif RAIN.include? station.conditions[6].weather %>
                     <%= image_tag("rain.png", class: "picto-card") %>
-                  <% elsif SNOW.include? station.conditions.first.weather %>
+                  <% elsif SNOW.include? station.conditions[6].weather %>
                     <%= image_tag("snow.png", class: "picto-card") %>
-                  <% elsif STORM.include? station.conditions.first.weather %>
+                  <% elsif STORM.include? station.conditions[6].weather %>
                     <%= image_tag("storm.png", class: "picto-card") %>
-                  <% elsif STORMRAIN.include? station.conditions.first.weather %>
+                  <% elsif STORMRAIN.include? station.conditions[6].weather %>
                     <%= image_tag("stormrain.png", class: "picto-card") %>
-                  <% elsif SUNCLOUD.include? station.conditions.first.weather %>
+                  <% elsif SUNCLOUD.include? station.conditions[6].weather %>
                     <%= image_tag("suncloud.png", class: "picto-card") %>
-                  <% elsif SUNICO.include? station.conditions.first.weather %>
+                  <% elsif SUNICO.include? station.conditions[6].weather %>
                     <%= image_tag("sunico.png", class: "picto-card") %>
-                  <% elsif BIGCLOUDS.include? station.conditions.first.weather %>
+                  <% elsif BIGCLOUDS.include? station.conditions[6].weather %>
                     <%= image_tag("bigclouds.png", class: "picto-card") %>
-                  <% elsif RAINANDSNOW.include? station.conditions.first.weather %>
+                  <% elsif RAINANDSNOW.include? station.conditions[6].weather %>
                     <%= image_tag("rainandsnow.png", class: "picto-card") %>
                   <% else %>
                     <%= image_tag("wind.png", class: "picto-card") %>
