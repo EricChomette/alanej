@@ -269,7 +269,7 @@ class BestStations
     when "1"
       station_data[:budget_rating] = 5.0
     when "2"
-      station_data[:budget_rating] = 5.0
+      station_data[:budget_rating] = 4.5
     when "3"
       station_data[:budget_rating] = 4.0
     when "4"

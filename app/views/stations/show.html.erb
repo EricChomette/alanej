@@ -13,9 +13,9 @@
         <i class="fas fa-arrow-circle-left"></i> Retour
       <% end %>
       <a href="#container-weather-webcam" class="btn btn-anchor">Météo et Webcam</a>
-      <a href="#container-snow-trip" class="btn btn-anchor">Enneigement et Trajet</a>
-      <a href="#container-station-plan" class="btn btn-anchor">Domaine et Station</a>
-      <a href="#container-reviews" class="btn btn-anchor">Commentaires</a>
+      <a href="#container-snow-trip" class="btn btn-anchor">Trajet et Enneigement </a>
+      <a href="#container-station-plan" class="btn btn-anchor">Station et Domaine</a>
+      <a href="#container-reviews" class="btn btn-anchor">Avis</a>
     </div>
   </div>
 
@@ -101,7 +101,7 @@
     <div id="container-snow-trip" class="container-anchor">
 
       <div class="container-trip">
-        <h2 class="category-title">Trajet</h2>
+        <h2 class="category-title">Trajet (<%= time_conversion(params[:duration].to_i) %>)</h2>
 
         <div class="container-map">
           <div id="map"
@@ -166,11 +166,11 @@
     <div id="container-reviews" class="container-anchor">
 
       <div class="title-reviews">
-        <h2 class="category-title">Commentaires </h2>
+        <h2 class="category-title">Avis </h2>
         <h5 id="average-rating">
           <i id= "star-average" class=" fas fa-star "></i>
           <%= @average_rating %>
-          <span id="number-coms">(<%= @reviews.count %> commentaires)</span>
+          <span id="number-coms">(<%= @reviews.count %> avis)</span>
         </h5>
 
       </div>
