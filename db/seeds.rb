@@ -95,7 +95,7 @@ WEATHER = {
       235 => "Averses de grêle"
 }
 
-NAME = ["Jacob", "Robin", "Mael", "Eric", "Benjamin", "Joseph", "Jean-Ro", "Sam", "Amélie", "Anne-Rita", "Jordan", "Louise", "Clément", "Nico", "Tom", "Gael", "Eric", "Bogdan", "David", "Julien", "Frank", "Monique", "Anna", "Sarah", "Aurélie", "Mathis", "Thomas", "Théo", "Guy-Alban", "Marie", "Nicolas", "Mehdi", ""]
+NAME = ["Jacob", "Robin", "Mael", "Eric", "Benjamin", "Joseph", "Jean-Ro", "Sam", "Amélie", "Anne-Rita", "Jordan", "Louise", "Clément", "Nico", "Tom", "Gael", "Eric", "Bogdan", "David", "Julien", "Frank", "Monique", "Anna", "Sarah", "Aurélie", "Mathis", "Thomas", "Théo", "Guy-Alban", "Marie", "Nicolas", "Mehdi"]
 
 Station.destroy_all
 
