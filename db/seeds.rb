@@ -189,7 +189,7 @@ serre_che = Station.create!(
 )
 
 autrans = Station.create!(
-  name: "Domaine alpin Autrans",
+  name: "Autrans",
   address: "D218, 38880 Autrans",
   description: "Située en Isère (région Auvergne-Rhône-Alpes), dans le secteur septentrional du massif du Vercors, localement appelé « Les Quatre-Montagnes » ou encore « Le Val d’Autrans - Méaudre», à proximité de Grenoble (40 km), de Valence et de Lyon, la station-village d’Autrans - Méaudre en Vercors attire les familles et les débutants de par son domaine skiable au relief doux et son architecture montagnarde.",
   budget: "1",
@@ -209,7 +209,7 @@ autrans = Station.create!(
   lat: "45.229519",
   long: "5.581669",
   logo: "https://www.agopop.fr/wp-content/uploads/2021/02/logo-AUTRANS-MEAUDRE-verti-Rg.png",
-  snowurl: "autrans-la-sure",
+  snowurl: "autrans#autrans-la-sure",
   webcamurl:"1290174408",
   planurl: "https://zupimages.net/up/21/48/6esj.jpeg"
 )
@@ -450,7 +450,7 @@ deux_alpes = Station.create!(
   lat:"45.009607",
   long:"6.123940",
   logo: "https://www.ski-planet.com/photo/les-2-alpes/logo-les-2-alpes.jpg",
-  snowurl: "les-2-alpes",
+  snowurl: "les-deux-alpes#dome-de-la-lauze",
   webcamurl:"1385511010",
   planurl: "https://vcdn.bergfex.at/images/resized/08/2c7f2624b9d8b408_a8a73e0a04579e5d@2x.jpg"
 )
