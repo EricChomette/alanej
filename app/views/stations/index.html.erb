@@ -17,7 +17,7 @@
     <% i += 1%>
       <% station = station_data[:station]%>
       <div class="container-card-station">
-        <%= link_to station_path(station, city: params[:city], start_date: params[:query][:start_date], end_date: params[:query][:end_date]) do %>
+        <%= link_to station_path(station, duration: station_data[:duration], city: params[:city], start_date: params[:query][:start_date], end_date: params[:query][:end_date]) do %>
 
             <div class="card-station">
 
