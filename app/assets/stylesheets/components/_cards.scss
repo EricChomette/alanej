@@ -201,8 +201,9 @@
 .webcam {
   color: black;
   width: 100%;
-  height: 350px;
+  height: 100%;
   border-radius: 12px;
+  flex-grow: 1;
 }
 
 .meteo-date{
