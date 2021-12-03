@@ -95,7 +95,7 @@ WEATHER = {
       235 => "Averses de grêle"
 }
 
-NAME = ["Jacob", "Robin", "Mael", "Eric", "Benjamin", "Joseph", "Jean-Ro", "Sam", "Amélie", "Anne-Rita", "Jordan", "Louise", "Clément", "Nico", "Tom", "Gael", "Eric", "Bogdan", "David", "Julien", "Frank", "Monique", "Anna", "Sarah", "Aurélie", "Mathis", "Thomas", "Théo", "Guy-Alban", "Marie", "Nicolas", "Mehdi"]
+NAME = ["Jacob", "Robin", "Mael", "Eric", "Benjamin", "Joseph", "Jean-Ro", "Sam", "Amélie", "Anne-Rita", "Jordan", "Louise", "Clément", "Nico", "Tom", "Gael", "Eric", "Bogdan", "David", "Julien", "Frank", "Monique", "Anna", "Sarah", "Aurélie", "Mathis", "Thomas", "Théo", "Guy-Alban", "Marie", "Nicolas", "Mehdi", ""]
 
 Station.destroy_all
 
@@ -109,7 +109,7 @@ def create_review(station)
   end
 end
 
-villard_de_lans = Station.create!(
+Station.create!(
   name: 'Villard de Lans',
   address: '62 Pl. Pierre Chabert, 38250 Villard-de-Lans',
   description: "Située à moins de 30 minutes de route de Grenoble, sur le plateau du Vercors, la station de ski de Villard de Lans s’articule autour de son bourg (4000 habitants) animé en toute saison, de nombreux petits hameaux environnants (les Clots, l'Essarton, les Chaberts...) et de deux pôles d’hébergements implantés en pied de pistes : Le Balcon de Villard et Les Glovettes. C’est de là que skieurs et snowboardeurs empruntent les télécabines de Côte 2000 et du Pré des Preys pour rejoindre les pistes de ski de l’Espace Villard-Corrençon (domaine commun entre les deux stations voisines que sont Villard de Lans et Corrençon en Vercors).",
@@ -135,7 +135,7 @@ villard_de_lans = Station.create!(
   planurl: "https://www.esf-villard-de-lans.net/phototheque/800x400/plan%20pistes%20alpin.jpg"
 )
 
-les_arcs = Station.create!(
+Station.create!(
   name: "Les Arcs",
   address: "73700 Bourg-Saint-Maurice",
   description: "Les Arcs est une station de sports d'hiver et un nom de domaine skiable de la vallée de la Tarentaise, situés sur le territoire communal des communes de Bourg-Saint-Maurice, Landry, Peisey-Nancroix, et de Villaroger, dans le département de la Savoie en région Auvergne-Rhône-Alpes. Les stations-villages des Arcs — Arc 1600, Arc 1800, Arc 2000 — sont des stations intégrées, dites de « troisième génération », voire de « quatrième génération » pour Arc 1950, installées sur la commune de Bourg-Saint-Maurice et édifiée à partir de la fin des années 1960. La dernière a été construite en 2003.",
@@ -161,7 +161,7 @@ les_arcs = Station.create!(
   planurl: "https://vcdn.bergfex.at/images/resized/4b/2370568a8e60fa4b_a5e8db6f64f0c493@2x.jpg"
 )
 
-serre_che = Station.create!(
+Station.create!(
   name: "Serre Chevalier",
   address: "Le, Rte de Pré-Long, 05240 La Salle-les-Alpes",
   description: "Située à proximité du Parc national des Ecrins, Serre Chevalier Vallée est le regroupement de la ville de Briançon (ville inscrite au patrimoine mondial de l'UNESCO) et de 3 villages : Saint-Chaffrey/Chantemerle, Villeneuve/La Salle les Alpes et le Monêtier les Bains.
@@ -188,7 +188,7 @@ serre_che = Station.create!(
   planurl: "https://ublo-file-manager.valraiso.net/assets/esfserrechechantemerle/1200_700/plan-pistes-serreche.jpg"
 )
 
-autrans = Station.create!(
+Station.create!(
   name: "Autrans",
   address: "D218, 38880 Autrans",
   description: "Située en Isère (région Auvergne-Rhône-Alpes), dans le secteur septentrional du massif du Vercors, localement appelé « Les Quatre-Montagnes » ou encore « Le Val d’Autrans - Méaudre», à proximité de Grenoble (40 km), de Valence et de Lyon, la station-village d’Autrans - Méaudre en Vercors attire les familles et les débutants de par son domaine skiable au relief doux et son architecture montagnarde.",
@@ -209,12 +209,12 @@ autrans = Station.create!(
   lat: "45.229519",
   long: "5.581669",
   logo: "https://www.agopop.fr/wp-content/uploads/2021/02/logo-AUTRANS-MEAUDRE-verti-Rg.png",
-  snowurl: "autrans#autrans-la-sure",
+  snowurl: "meaudre#autrans-meaudre",
   webcamurl:"1290174408",
   planurl: "https://zupimages.net/up/21/48/6esj.jpeg"
 )
 
-valloire = Station.create!(
+Station.create!(
   name: "Valloire",
   address: "73450 Valloire",
   description: "Au pied des célèbres Col du Galibier et du Télégraphe, la station de ski de Valloire vous accueille pour vivre des moments plus forts sur les 160 km de pistes du domaine skiable Galibier Thabor.
@@ -241,7 +241,7 @@ valloire = Station.create!(
   planurl: "https://www.valloire.com/medias/images/prestataires/plan-pistes-371.jpg"
 )
 
-la_plagne = Station.create!(
+Station.create!(
   name: "La Plagne",
   address: "73210 La Plagne",
   description: "La Plagne est une station familiale de sports d’hiver et d’été, située en Savoie et implantée entre 1250 et 3250 mètres d'altitude. Depuis plus de 50 ans, la destination a acquis une renommée internationale grâce à son vaste domaine skiable tous niveaux de 225 kilomètres de pistes. Depuis 2003, la Plagne elle est une station composante de Paradiski (le domaine skiable qui la relie avec les stations voisines des Arcs et Peisey-Vallandry).",
@@ -267,7 +267,7 @@ la_plagne = Station.create!(
   planurl: "https://www.esf-belleplagne.com/phototheque/800x400/Plan%20pistes%20BP.png"
 )
 
-val_isere = Station.create!(
+Station.create!(
   name: "Val d'Isère",
   address: "73150 Val d'Isère",
   description: "Val d'Isère - La station Implantée en fond de la Vallée de la Tarentaise (en Savoie), à quelques encablures seulement de sa voisine Tignes, la station de ski de Val d'Isère est aujourd’hui considérée comme l'une des meilleures destinations ski en France.
@@ -294,7 +294,7 @@ val_isere = Station.create!(
   planurl: "https://ublo-file-manager.valraiso.net/assets/esftignesvalclaret/880x400/plan-des-pistes-2016-17-900x450-2017-18.jpg"
 )
 
-tignes = Station.create!(
+Station.create!(
   name: "Tignes",
   address: "73320 Tignes",
   description: "Décalée, cosmopolite, sportive et innovante, Tignes vous offre l'expérience unique de vivre la montagne autrement. Pour les amateurs de sports d‘hiver, Tignes est avant tout une station de ski de renommée internationale qui propose de septembre à mai la meilleure neige et une offre de pistes très diverse.
@@ -321,7 +321,7 @@ tignes = Station.create!(
   planurl: "https://ublo-file-manager.valraiso.net/assets/esftignesvalclaret/880x400/plan-des-pistes-2016-17-900x450-2017-18.jpg"
 )
 
-courchevel = Station.create!(
+Station.create!(
   name: "Courchevel",
   address: "73120 Courchevel",
   description: "Courchevel est une station de sports d'hiver de la vallée de la Tarentaise située dans la commune de Courchevel (jusqu'en 2016, la commune de Saint-Bon-Tarentaise), dans le département de la Savoie en région Auvergne-Rhône-Alpes. Première station française aménagée en site vierge en 1946, elle fait partie du domaine skiable des Trois-Vallées.",
@@ -347,7 +347,7 @@ courchevel = Station.create!(
   planurl: "https://zupimages.net/up/21/48/r3dj.jpeg"
 )
 
-la_clusaz = Station.create!(
+Station.create!(
   name: "La Clusaz",
   address: "74220 La Clusaz",
   description: "Connue et reconnue comme une des destinations alpines de référence depuis des décennies et terre de contraste alliant grands espaces et chalets modernes, ressourcement et activités, la Clusaz se découvre de multiples façons.
@@ -376,7 +376,7 @@ la_clusaz = Station.create!(
   planurl: "https://www.laclusaz.com/medias/images/info_pages/multitailles/1200x900_plan-domaine-alpin-la-clusaz-1033.jpg"
 )
 
-avoriaz = Station.create!(
+Station.create!(
   name: "Avoriaz",
   address: "74110 Morzine",
   description: "La station de ski d'Avoriaz est située au cœur du domaine des Portes du Soleil, sur un plateau exposé plein sud. Née d'un défi écologique avant l'âge, Avoriaz est une station entièrement piétonne, interdite aux voitures, où tous les hébergements sont accessibles à ski et où les rues sont des pistes de ski.
@@ -403,7 +403,7 @@ avoriaz = Station.create!(
   planurl: "https://zupimages.net/up/21/48/0wdg.jpeg"
 )
 
-megeve = Station.create!(
+Station.create!(
   name: "Megève",
   address: "74120 Megève",
   description: "A deux heures de Lyon vous attend le plus authentique village de montagne des Alpes. Le ski à Megève ce sont 445 kilomètres de pistes dans un décor exceptionnel mais pas seulement : gastronomie, événements, détente et shopping dans le paradis de l’après ski niché au cœur du Pays du Mont Blanc. Venez vivre l’expérience du ski dans un domaine sans pareil qui marie pistes, forêt, fermes d’alpage et terrasses  ensoleillées sur plusieurs massifs.  Un domaine skiable adapté aux familles qui trouveront à Megève des pentes douces et rassurantes pour se faire plaisir avec les enfants.",
@@ -429,7 +429,7 @@ megeve = Station.create!(
   planurl: "https://m.ski-planet.com/photo/megeve/pistes.jpg",
 )
 
-deux_alpes = Station.create!(
+Station.create!(
   name: "Les 2 Alpes",
   address: "38860 Les Deux Alpes",
   description: "Station de ski phare du département de l'Isère, les 2 Alpes jouie d'une réputation internationale grâce à son domaine d'altitude (le plus haut domaine skiable de France) depuis 3600 mètres d’altitude. Le glacier est l'assurance de skier sur une neige naturelle en toute saison. Le domaine vertical permet d’enchainer un dénivelé de 2300m entre 3600m et 1300m (dont 10km sur une piste bleue entre 3600m et 1600m).",
@@ -455,7 +455,7 @@ deux_alpes = Station.create!(
   planurl: "https://vcdn.bergfex.at/images/resized/08/2c7f2624b9d8b408_a8a73e0a04579e5d@2x.jpg"
 )
 
-chamonix = Station.create!(
+Station.create!(
   name: "Chamonix",
   address: "74400 Chamonix",
   description: "Station de ski estampillée 'Mont-Blanc Natural Resort', Chamonix-Mont-Blanc est une destination mythique ! Ici tout participe à la légende. Levez les yeux ! Vous êtes au centre du mythe, au pied du Mont Blanc, à portée du bonheur absolu.
@@ -482,7 +482,7 @@ chamonix = Station.create!(
   planurl: "https://zupimages.net/up/21/48/huz8.jpeg"
 )
 
-les_saisies = Station.create!(
+Station.create!(
   name: "Les Saisies",
   address: "73620 Hauteluce",
   description: "La convivialité d’une station familiale à taille humaine qui a su conserver, au fil de son évolution, une architecture traditionnelle & harmonieuse au sein d’une nature préservée.
@@ -509,7 +509,7 @@ les_saisies = Station.create!(
   planurl: "https://www.sports-hiver.com/img/resort_media/planpistes/STATANMSM01730031/2416.jpg"
 )
 
-sept_laux = Station.create!(
+Station.create!(
   name: "Les 7 Laux",
   address: "38190 Les Adrets",
   description: "Située au coeur du massif de Belledonne (en Isère), la station de ski des 7 Laux, se décompose en 3 sites:
@@ -538,7 +538,7 @@ sept_laux = Station.create!(
   planurl: "https://www.sports-hiver.com/img/resort_media/planpistes/STATANMSM01380020/4400.jpg"
 )
 
-chamrousse = Station.create!(
+Station.create!(
   name: "Chamrousse",
   address: "38410 Chamrousse ",
   description: "La station de Chamrousse se trouve à la pointe du massif de Belledonne, à seulement 30 kilomètres de Grenoble. Elle s’étend sur trois niveaux : Chamrousse 1650 - Recoin, Chamrousse 1700 - Bachat Bouloud et Chamrousse 1750 - Roche Béranger reliés par les pistes et les sentiers forestiers, avec pour point culminant, la Croix de Chamrousse à 2250 mètres d’altitude.",
@@ -564,7 +564,7 @@ chamrousse = Station.create!(
   planurl: "https://zupimages.net/up/21/48/cm88.jpeg"
 )
 
-val_thorens = Station.create!(
+Station.create!(
   name: "Val Thorens",
   address: "73440 Val Thorens",
   description: "Val Thorens, plus haute station d’Europe et point culminant du domaine des 3 Vallées, est le plus grand domaine skiable du monde avec plus de 600 km de pistes.
@@ -591,7 +591,7 @@ val_thorens = Station.create!(
   planurl: "https://ublo-file-manager.valraiso.net/assets/esfvalthorens/800_400/skimap-val-thorens.jpg"
 )
 
-grand_bornand = Station.create!(
+Station.create!(
   name: "Le Grand Bornand",
   address: "74450 Le Grand-Bornand",
   description: "Le Grand-Bornand a, de tout temps, opté pour un développement... en pente douce. Sans doute le lien particulier qu’entretiennent les Bornandins – acteurs pour l’essentiel de l’économie de leur village – vis-à-vis d’une montagne aimée pour ce qu’elle est, et pas ce qu’on en a trop souvent fait, explique-t-il l’exception bornandine ; cette capacité à proposer, dans l’écrin préservé d’un authentique village de montagne, une offre touristique qui fait du bien au corps et à l’esprit soutenue par le souci de bien-vivre ensemble.",
@@ -617,7 +617,7 @@ grand_bornand = Station.create!(
   planurl: "https://www.legrandbornand.com/medias/images/info_pages/multitailles/1920x1440_plan-aravis-2019-2146.jpg"
 )
 
-les_gets = Station.create!(
+Station.create!(
   name: "Les Gets",
   address: "61 route du Front de Neige 74260 LES GETS",
   description: "Entre lac Léman et Mont Blanc, à 1 heure de l’aéroport de Genève, Les Gets est partie intégrante du territoire franco-suisse des Portes du Soleil, l’un des plus grands domaines skiables et VTT d’Europe. Sa situation sur un col est idéale pour un ensoleillement exceptionnel en toute saison.
