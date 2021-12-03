@@ -663,7 +663,7 @@ Station.create!(
   black_open_slopes: 1,
   insee: "74134",
   cardphoto: "https://www.lansenvercors.com/medias/images/prestataires/multitailles/1200x900_114438-vertige_des_cimes_jan2015_j_narcy.jpg",
-  bannerphoto: "https://www.lansenvercors.com/medias/images/prestataires/multitailles/1200x900_114436-lans_en_vercors_t_durand_148.jpg",
+  bannerphoto: "https://skipass.fr/p/resorts/657/header-lans-en-vercors-df96f-1.jpg",
   lat:"45.113875",
   long:"5.609722",
   logo: "https://www.lansenvercors.com/templates/2015/images/logo_lans_en_vercors.png",
