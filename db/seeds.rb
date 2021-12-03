@@ -644,6 +644,34 @@ Station.create!(
   planurl: "https://www.lesgets.com/app/uploads/2020/09/Plan-des-pistes-LGM-h20-21-sans-pub-HD-scaled.jpg"
 )
 
+Station.create!(
+  name: "Lans en Vercors",
+  address: "Les Montagnes de Lans 38250 Lans-en-Vercor",
+  description: "Le domaine alpin des Montagnes de Lans, c'est un moment de ski à partager en famille au cœur de la nature avec un panorama à couper le souffle.
+  Situé à seulement 30 min de Grenoble, le domaine propose 24 pistes tous niveaux entre 1300 et 1830m d'altitude.
+  Le domaine alpin des Montagnes de Lans est situé à 5km du centre du village de Lans en Vercors, liaison par navettes gratuites ou en voiture.",
+  budget: "1",
+  alt_min: 1300,
+  alt_max: 1830,
+  green_slopes: 7,
+  green_open_slopes: 7,
+  blue_slopes: 11,
+  blue_open_slopes: 9,
+  red_slopes: 7,
+  red_open_slopes: 6,
+  black_slopes: 1,
+  black_open_slopes: 1,
+  insee: "74134",
+  cardphoto: "https://www.lansenvercors.com/medias/images/prestataires/multitailles/1200x900_114438-vertige_des_cimes_jan2015_j_narcy.jpg",
+  bannerphoto: "https://www.lansenvercors.com/medias/images/prestataires/multitailles/1200x900_114436-lans_en_vercors_t_durand_148.jpg",
+  lat:"45.113875",
+  long:"5.609722",
+  logo: "https://www.lansenvercors.com/templates/2015/images/logo_lans_en_vercors.png",
+  snowurl: "lans-en-vercors",
+  webcamurl:"1350020414",
+  planurl: "https://www.lansenvercors.com/medias/images/prestataires/multitailles/1200x900_114440-plan_des_pistes_alpin_lans_en_vercors_2015.jpg"
+)
+
 Station.all.each do |station|
   create_review(station)
 end
