@@ -9,7 +9,7 @@ class ScrapperSnowService
   def initialize(station)
     @station = station
     @base_url = "https://wepowder.com/fr/#{@station.snowurl}"
-    puts "Synchro wheater #{@station.name}"
+    puts "Synchro snow #{@station.name}"
   end
 
   def call
