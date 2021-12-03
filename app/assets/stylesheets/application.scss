@@ -24,6 +24,10 @@ body{
   background: rgb(245, 253, 255);
 }
 
+iframe {
+  height: 100% !important;
+}
+
 .green{
   color: $green;
 }
