@@ -222,7 +222,7 @@ class BestStations
   def calc_rating_duration
     @stations_data.sort! {|a, b| a[:duration] <=> b[:duration]}
     @stations_data.each_with_index do |station_data, index|
-      station_data[:duration_rating] = ( (@stations_data.count - index) * (5.to_f / @stations_data.count) )
+      station_data[:duration_rating] = ((@stations_data.count - index) * (5.to_f / @stations_data.count)).round(2)
     end
   end
 
