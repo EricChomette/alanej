@@ -3,7 +3,6 @@ We have designed an application to find the ideal ski resorts in simplicity.
 
 # Specificities
 
-<ul>
   <li> Meteorological and road data are collected by two API </li>
   <li> A synchronization was coded every 24H to limit API's call for meteo </li>
   <li> The other data like the level of snow have been scrapped </li>
@@ -12,7 +11,6 @@ We have designed an application to find the ideal ski resorts in simplicity.
   <li> One global rating have been made by the 4 rates and ponderate by the sortable priorities </li>
   <li> 20 stations have been implemented to test the app, more could be implemented in the future </li>
   <br>
-<ul>
   
 <img src="https://zupimages.net/up/21/49/0cir.png" style="object-fit:contain;
             width:380px;
@@ -35,21 +33,20 @@ We have designed an application to find the ideal ski resorts in simplicity.
 https://alanej.herokuapp.com/
 
 ## Language
-<ul>
+
   <li> Ruby on Rails </li>
   <li> Ruby </li>
   <li> Javascript </li>
   <li> SCSS </li>
   <li> HTML </li>
-<ul>
 
 ## Used software
-<ul>
+
   <li> VScode </li>
   <li> Photoshop </li>
   <li> Blender </li>
   <li> Figma </li>
-<ul>
+
   
 ## Credit
   
