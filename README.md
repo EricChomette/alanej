@@ -50,4 +50,4 @@ https://alanej.herokuapp.com/
   
 ## Credit
   
-The app ALANEJ wase created by <a href="https://github.com/EricChomette">EricChomette</a>, <a href="https://github.com/BetterCallBen">BetterCallBen</a>, <a href="https://github.com/PiroMael">PiroMael</a> and <a href="https://github.com/RobinTrllt">RobinTrllt</a> 
+The app ALANEJ was created by <a href="https://github.com/EricChomette">EricChomette</a>, <a href="https://github.com/BetterCallBen">BetterCallBen</a>, <a href="https://github.com/PiroMael">PiroMael</a> and <a href="https://github.com/RobinTrllt">RobinTrllt</a> 
