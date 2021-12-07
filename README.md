@@ -35,7 +35,13 @@ We have designed an application to find the ideal ski resorts in simplicity.
 https://alanej.herokuapp.com/
 
 ## Language
-Ruby, Ruby on Rails, Javascript, SCSS and HTML
+<ul>
+  <li> Ruby on Rails </li>
+  <li> Ruby </li>
+  <li> Javascript </li>
+  <li> SCSS </li>
+  <li> HTML </li>
+<ul>
 
 ## Used software
 <ul>
