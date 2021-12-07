@@ -15,19 +15,19 @@ We have designed an application to find the ideal ski resorts in simplicity.
 <ul>
   
 <img src="https://zupimages.net/up/21/49/0cir.png" style="object-fit:contain;
-            width:400px;
+            width:380px;
             height:100%;
             border: solid 1px #CCC">
 <img src="https://zupimages.net/up/21/49/rwo3.png" style="object-fit:contain;
-            width:400px;
+            width:380px;
             height:100%;
             border: solid 1px #CCC">
 <img src="https://zupimages.net/up/21/49/e4j7.png" style="object-fit:contain;
-            width:400px;
+            width:380px;
             height:100%;
             border: solid 1px #CCC">
 <img src="https://zupimages.net/up/21/49/z90t.png" style="object-fit:contain;
-            width:400px;
+            width:380px;
             height:100%;
             border: solid 1px #CCC">
   
@@ -38,7 +38,13 @@ https://alanej.herokuapp.com/
 Ruby, Ruby on Rails, Javascript, SCSS and HTML
 
 ## Used software
-VScode, Photoshop, Blender, Figma
-
+<ul>
+  <li> VScode </li>
+  <li> Photoshop </li>
+  <li> Blender </li>
+  <li> Figma </li>
+<ul>
+  
 ## Credit
-The app ALANEJ wase created by EricChomette, BetterCallBen, PiroMael and RobinTrllt 
+  
+The app ALANEJ wase created by <a href="https://github.com/EricChomette">EricChomette</a>, <a href="https://github.com/BetterCallBen">BetterCallBen</a>, <a href="https://github.com/PiroMael">PiroMael</a> and <a href="https://github.com/RobinTrllt">RobinTrllt</a> 
