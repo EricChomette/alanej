@@ -1,7 +1,7 @@
 # ALANEJ
 We have designed an application to find the ideal ski resorts in simplicity.
 
-# Specifcities
+# Specificities
 
 <ul>
   <li> Meteorological and road data are collected by two API </li>
