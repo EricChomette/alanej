@@ -10,7 +10,7 @@ We have designed an application to find the ideal ski resorts in simplicity.
   <li> The mountain with animation, has been created on Blender and implemented with Javascript language </li>
   <li> 4 calculators have been created to have 4 rates: road duration, weather (based on choosen date), budget, snow level </li>
   <li> One global rating have been made by the 4 rates and ponderate by the sortable priorities </li>
-  <li> 20 stations has been implemented to test the app, more could be implemented in the future </li>
+  <li> 20 stations have been implemented to test the app, more could be implemented in the future </li>
   <br>
 <ul>
   
