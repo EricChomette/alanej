@@ -8,6 +8,7 @@
                               url: stations_path,
                               defaults: { wrapper_html: {  },required: false },
                               html: { } do |f| %>
+   <div class="inputcenter-box">           
     <%= f.input :city,  label: false,
                         placeholder: "D'où partez-vous ?",
                         required: true,
@@ -27,7 +28,7 @@
     </div>
 
     <%= render 'shared/sortable_home' %>
-
+  </div>
     <%= f.submit "Go à la neige !", class: "btn btn-go" ,id:'goAnim'%>
   <% end %>
 </div>
