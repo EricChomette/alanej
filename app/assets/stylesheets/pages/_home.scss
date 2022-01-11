@@ -65,6 +65,25 @@ background: linear-gradient(0deg, rgba(212,254,255,1) 0%, rgba(64,180,213,1) 100
     padding: 15px;
   }
 }
+@media (max-width: 1000px){
+  .form-control{
+
+  }
+  .inputcenter-box{
+    margin-left: 19%;
+    margin-right: auto;
+    
+  }
+  .dates{
+    flex-direction: row;
+  }
+  #range_end{
+    height: 38px;
+    width: 66%;
+    font-size: 12px;
+  }
+}
+
 
 .time-container{
   position: absolute;
