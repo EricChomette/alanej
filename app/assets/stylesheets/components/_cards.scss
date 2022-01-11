@@ -4,11 +4,25 @@
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 2rem;
 }
+@media (max-width: 1000px){
+  .container-cards-stations {
+    display: inline-table;
+  }
+  .card-station{
+   margin: 30px 0px !important;
+  }
+  .container{
+    margin: 0 30%;
+  }
+
+}
 .container-card-stations {
   width: 31%;
 }
 .container-card-station > a{
   text-decoration: none;
+  margin-right: auto;
+  margin-left: auto;
 }
 .rating-details{
   transform: scale(0);

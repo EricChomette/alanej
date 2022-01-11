@@ -12,6 +12,11 @@
   background-repeat: no-repeat;
   position: relative;
 }
+@media (max-width: 1000px){
+  .index-banner{
+    width:640px;
+  }
+}
 
 #index-title{
   font-size: 35px;
