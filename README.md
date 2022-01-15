@@ -30,7 +30,7 @@ We have designed an application to find the ideal ski resorts in simplicity.
             border: solid 1px #CCC">
   
 ## Link to the application
-https://alanej.herokuapp.com/
+http://www.alanej.fr/
 
 ## Language
 
